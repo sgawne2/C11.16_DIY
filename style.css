@@ -1,0 +1,65 @@
+ul{
+    list-style: none;
+}
+
+li{
+    display:block;
+}
+
+.checkbox{
+    background-color: #FFAB40;
+}
+
+.md-toolbar-tools {
+    background-color: #F57C00;
+    position:fixed;
+    top:0;
+}
+
+.boldText{
+    font-weight:900;
+}
+
+.md-ink-ripple-checkbox{
+    background-color:white;
+}
+
+.md-icon{
+    background-color:white;
+}
+
+.main{
+    background-color:#FFF8E1;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.box{
+    background-color:#009688;
+    color: white;
+}
+
+.headerImage{
+    background-image: url("images/tool-box.jpg");
+    margin:0;
+    height:70%;
+    width:100%;
+    overflow:hidden;
+    position:relative;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.md-input-container{
+    background-color:red;
+}
+
+.logo{
+    background-image: url("images/logo.png");
+    height:50px;
+    width:50px;
+    position:relative;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
