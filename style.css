@@ -63,3 +63,6 @@ li{
     background-size:cover;
 }
 
+.material-icons{
+    cursor: pointer;
+}
