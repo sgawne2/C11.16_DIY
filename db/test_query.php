@@ -38,6 +38,17 @@ JOIN `tools` AS `t`
 WHERE p.ID = 1;
 ";
 
+//get a list of tools by category, sorted by popularity
+$tools_popular = "
+SELECT t.name, COUNT(*) AS `count`
+FROM `tools_projectsmap` AS `map`
+JOIN `tools` AS `t`
+	ON t.ID = map.toolsID
+WHERE t.category = 'art'    
+GROUP BY t.name
+ORDER BY `count` DESC
+";
+
 //get a list of tools for every project
 $tools_all = "
 SELECT p.ID, p.name, GROUP_CONCAT(t.name SEPARATOR ', ') AS `tools`
@@ -67,7 +78,7 @@ GROUP BY p.ID
 ORDER BY `score` DESC
 ";
 
-$query = $search_by_tid;
+$query = $tools_popular;
 $result = mysqli_query($conn, $query);
 
 if( mysqli_num_rows($result) ) {
@@ -75,9 +86,7 @@ if( mysqli_num_rows($result) ) {
     while( $row = mysqli_fetch_assoc($result) ) {
         $output[] = $row;
     }
-    echo "<pre>";
-    print_r($output);
-    echo "</pre>";
+    echo json_encode($output);
 }
 
 ?>
