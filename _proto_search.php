@@ -1,5 +1,5 @@
 <?php
-require('mysql_connect.php');
+require('./db/mysql_connect.php');
 
 //get a list of every project
 $projects_all = "
@@ -80,13 +80,66 @@ ORDER BY `score` DESC
 
 $query = $tools_popular;
 $result = mysqli_query($conn, $query);
-
-if( mysqli_num_rows($result) ) {
-    $output = [];
-    while( $row = mysqli_fetch_assoc($result) ) {
-        $output[] = $row;
-    }
-    echo json_encode($output);
-}
-
 ?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+        $(document).ready(function(){
+           populate_materials();
+        });
+
+//        var materials = [
+//                "hammer",
+//                "rubber mallet",
+//                "tape measure",
+//                "level",
+//                "nail gun",
+//                "glue gun",
+//                "phillips head screwdriver",
+//                "adjustable wrench",
+//                "tape"
+//        ];
+
+        var materials = <?php
+                if( mysqli_num_rows($result) ) {
+                    $output = [];
+                    while( $row = mysqli_fetch_assoc($result) ) {
+                        $output[] = $row;
+                    }
+                    echo json_encode($output);
+                }
+                ?>
+
+        function populate_materials() {
+            var list = $('#materials');
+            for(var i = 0; i < materials.length; i++) {
+                var checkbox = $('<input>').attr('type', 'checkbox');
+                checkbox.val(materials[i].name);
+                checkbox.attr('id', materials[i].name);
+                var label = $('<label>').text(materials[i].name);
+                label.attr('for', materials[i].name);
+                var li = $('<li>').append(checkbox, label);
+                list.append(li);
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+<input type="search">
+
+<div id="materials_panel">
+    <ul id="materials">
+
+    </ul>
+</div>
+</body>
+</html>
