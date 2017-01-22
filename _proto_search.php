@@ -51,6 +51,11 @@ $result = mysqli_query($conn, $query);
                         tr.append( $('<td>').text(score + "%") );
 
                         tr.append( $('<td>').text(response[i].ownCount + " of " + response[i].reqCount) );
+
+                        var photo = $('<img>').attr('src', './db/photos/' + response[i].photo);
+                        photo.css({'height': '100px'});
+
+                        tr.append( $('<td>').html(photo) );
                         tbody.append(tr);
                     }
                 }
@@ -120,6 +125,7 @@ $result = mysqli_query($conn, $query);
             <th>Project</th>
             <th>Relevance</th>
             <th>Materials</th>
+            <th>Image</th>
         </tr>
         </thead>
     <tbody id="results">

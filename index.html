@@ -69,15 +69,19 @@
 <body ng-app="diyApp">
 
 <!--sticky header-->
-<md-toolbar layout="column">
+<md-toolbar layout="column" ng-controller="AppCtrl">
     <div class="md-toolbar-tools">
 
-        <i class="material-icons" ng-click="">dehaze</i>
+        <!--hamburger icon-->
+        <i class="material-icons" ng-click="toggleLeft()">dehaze</i>
 
 
         <!--<div class="logo"></div>-->
         <h2><span class="boldText">&nbsp;&nbsp;App</span>Gyver</h2>
         <span flex=""></span>
+
+
+
         <md-button>Submit Project</md-button>
         <md-button>My Profile</md-button>
         <md-button>Login</md-button>
@@ -90,19 +94,37 @@
 <md-content md-theme="input" layout="column" layout-padding>
     <!--<md-input-container style="padding-bottom: 0; margin-bottom: 0">-->
     <md-input-container>
-
         <input ng-model="search.notes" id="searchBar" placeholder="Search">
         <md-icon class="material-icons">&#xE8B6;</md-icon>
     </md-input-container>
 </md-content>
 
+
+<!--main content-->
+<div class="main" layout="row" flex="80" style="margin:0 auto;">
+    <section ng-controller="GridCtrl" layout-fill layout="column">
+
+        <div ng-repeat="row in grid" flex layout="row">
+            <div ng-repeat="item in row" flex layout="row" layout-align="center center" layout-margin class="box">
+                <h1 class="md-title">{{ item }}</h1>
+            </div>
+        </div>
+
+    </section>
+</div>
+
+
+
+
+
+
 <!--side nav-->
-<div ng-controller="AppCtrl" layout="column" style="height: 100vh;" ng-cloak>
+<div ng-controller="AppCtrl" layout="column" ng-cloak>
     <section layout="row" flex class="side-tool-list">
         <md-sidenav class="md-sidenav-left" md-component-id="left"
-                    md-disable-backdrop md-whiteframe="4" style="position:fixed">
+                    md-disable-backdrop md-whiteframe="4" style="position:fixed; top:64px;">
             <md-toolbar class="md-theme-indigo">
-                <h1 class="md-toolbar-tools">Disabled Backdrop</h1>
+                <h1 class="md-toolbar-tools">Pick the tools you have!</h1>
             </md-toolbar>
             <md-content layout-margin>
                 <p>This sidenav is not showing any backdrop, where users can click on it, to close the sidenav.</p>
@@ -176,21 +198,23 @@
 
             </md-content>
         </md-sidenav>
-        <md-content flex layout-padding>
-            <div layout="column" layout-align="top center">
-                <p>Welcome to AppGyver!</p>
-                <div>
-                    <md-button ng-click="toggleLeft()" class="md-raised">
-                        Toggle Sidenav
-                    </md-button>
-                </div>
-            </div>
-        </md-content>
+
+
+
+        <!--<md-content flex layout-padding>-->
+            <!--<div layout="column" layout-align="top center">-->
+                <!--&lt;!&ndash;main content goes here&ndash;&gt;-->
+                <!--<p>Welcome to AppGyver!</p>-->
+            <!--</div>-->
+        <!--</md-content>-->
+
+
+
     </section>
 </div>
 
 
-<!--&lt;!&ndash;left side tool list&ndash;&gt;-->
+<!--left side tool list-->
 <!--<div layout="row" flex style="overflow: scroll;">-->
 <!--<div class="checkbox" layout="row" flex="20">-->
 <!--<ul>-->
@@ -210,6 +234,7 @@
 <!--<li><md-checkbox [checked]="todo.completed">Electrical Wires</md-checkbox></li>-->
 <!--</ul>-->
 <!--</div>-->
+
 <!--<div class="main" layout="row" flex="80">-->
 <!--<section ng-controller="GridCtrl" layout-fill layout="column">-->
 

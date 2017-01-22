@@ -7,6 +7,7 @@ $search = $_POST['search'];
 $search_by_tool = "
 SELECT 
   p.ID, p.name AS `project`, 
+  p.photo,
   GROUP_CONCAT(t.name SEPARATOR ', ') AS `owned_tools`, 
   COUNT(t.ID) AS `ownCount`, 
   p.toolCount AS `reqCount`, 
