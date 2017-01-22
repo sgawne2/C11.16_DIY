@@ -1,43 +1,6 @@
 <?php
 require('./db/mysql_connect.php');
 
-//get a list of every project
-$projects_all = "
-SELECT * 
-FROM `projects`
-";
-
-//get the steps for a specific project id
-$steps_pid = "
-SELECT p.name, i.step, i.stepText 
-FROM `projectinstructions` AS `i`
-JOIN `projects` AS `p`
-	ON i.projectID = p.ID
-WHERE p.ID = 1
-";
-
-//get the projects with a specific tool id
-$projects_tid = "
-SELECT p.ID, p.name AS `project`, t.name AS `tool`
-FROM `tools_projectsmap` AS `map`
-JOIN `projects` AS `p`
-	ON p.ID = map.projectID
-JOIN `tools` AS `t`
-	ON t.ID = map.toolsID
-WHERE t.ID = 1;
-";
-
-//get the tools for a specific project id
-$tools_pid = "
-SELECT p.ID, p.name AS `project`, t.name AS `tool`
-FROM `tools_projectsmap` AS `map`
-JOIN `projects` AS `p`
-	ON p.ID = map.projectID
-JOIN `tools` AS `t`
-	ON t.ID = map.toolsID
-WHERE p.ID = 1;
-";
-
 //get a list of tools by category, sorted by popularity
 $tools_popular = "
 SELECT t.name, COUNT(*) AS `count`
@@ -47,35 +10,6 @@ JOIN `tools` AS `t`
 WHERE t.category = 'art'    
 GROUP BY t.name
 ORDER BY `count` DESC
-";
-
-//get a list of tools for every project
-$tools_all = "
-SELECT p.ID, p.name, GROUP_CONCAT(t.name SEPARATOR ', ') AS `tools`
-FROM `tools_projectsmap` AS `map`
-JOIN `projects` AS `p`
-	ON p.ID = map.projectID
-JOIN `tools` AS `t`
-	ON t.ID = map.toolsID
-GROUP BY p.ID
-";
-
-//get a list of projects from a list of tools and sort by ratio of tools owned over tools required
-$search_by_tid = "
-SELECT 
-  p.ID, p.name AS `project`, 
-  GROUP_CONCAT(t.name SEPARATOR ', ') AS `owned_tools`, 
-  COUNT(t.ID) AS `ownCount`, 
-  p.toolCount AS `reqCount`, 
-  COUNT(t.ID) / p.toolCount AS `score`
-FROM `tools_projectsmap` AS `map`
-JOIN `projects` AS `p`
-	ON p.ID = map.projectID
-JOIN `tools` AS `t`
-	ON t.ID = map.toolsID
-WHERE t.ID IN (1, 2, 3, 4, 6, 7)
-GROUP BY p.ID
-ORDER BY `score` DESC
 ";
 
 $query = $tools_popular;
@@ -93,8 +27,35 @@ $result = mysqli_query($conn, $query);
     <script>
         $(document).ready(function(){
            populate_materials();
+            $('button').click(search);
+            $('input[type=checkbox]').click(addItem);
         });
 
+        function search() {
+            $.ajax({
+                url: '_proto_search_results.php',
+                method: 'POST',
+                dataType: 'json',
+                data: {
+                    search: $('input[name=search]').val()
+                },
+                success: function(response) {
+                    console.log(response);
+                    var tbody = $('#results');
+                    tbody.html('');
+                    for (var i = 0; i < response.length; i++) {
+                        var tr = $('<tr>');
+                        tr.append( $('<td>').text(response[i].project) );
+
+                        var score = parseFloat(response[i].score) * 100;
+                        tr.append( $('<td>').text(score + "%") );
+
+                        tr.append( $('<td>').text(response[i].ownCount + " of " + response[i].reqCount) );
+                        tbody.append(tr);
+                    }
+                }
+            });
+        }
 //        var materials = [
 //                "hammer",
 //                "rubber mallet",
@@ -128,18 +89,42 @@ $result = mysqli_query($conn, $query);
                 var li = $('<li>').append(checkbox, label);
                 list.append(li);
             }
-        }
+        };
 
+        function addItem() {
+            var item = $(this).val();
+            var search = $('input[name=search]');
+            if (search.val() === "") {
+                search.val(search.val() + '"' + item + '"');
+            } else {
+                search.val(search.val() + ', "' + item + '"');
+            }
+
+        }
     </script>
 </head>
 <body>
 
-<input type="search">
+<input type="search" placeholder="search" name="search">
+<button type="button">Submit</button>
 
 <div id="materials_panel">
     <ul id="materials">
 
     </ul>
 </div>
+
+<table>
+        <thead>
+        <tr>
+            <th>Project</th>
+            <th>Relevance</th>
+            <th>Materials</th>
+        </tr>
+        </thead>
+    <tbody id="results">
+
+    </tbody>
+</table>
 </body>
 </html>
