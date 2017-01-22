@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Jan 22, 2017 at 01:39 AM
+-- Generation Time: Jan 22, 2017 at 10:20 AM
 -- Server version: 5.5.49-log
 -- PHP Version: 7.0.9
 
@@ -79,21 +79,22 @@ INSERT INTO `projects` (`ID`, `Name`, `toolCount`, `photo`, `AuthorID`) VALUES
 
 CREATE TABLE IF NOT EXISTS `tools` (
   `ID` int(10) unsigned NOT NULL,
-  `Name` varchar(100) NOT NULL
+  `Name` varchar(100) NOT NULL,
+  `category` enum('art','home','tech','') NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tools`
 --
 
-INSERT INTO `tools` (`ID`, `Name`) VALUES
-(1, 'toilet paper roll'),
-(2, 'glue'),
-(3, 'macaroni'),
-(4, 'tissue'),
-(5, 'rubber band'),
-(6, 'foil'),
-(7, 'marker');
+INSERT INTO `tools` (`ID`, `Name`, `category`) VALUES
+(1, 'toilet paper roll', 'art'),
+(2, 'glue', 'art'),
+(3, 'macaroni', 'art'),
+(4, 'tissue', 'art'),
+(5, 'rubber band', 'art'),
+(6, 'foil', 'art'),
+(7, 'marker', 'art');
 
 -- --------------------------------------------------------
 
