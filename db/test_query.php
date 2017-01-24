@@ -57,6 +57,7 @@ JOIN `projects` AS `p`
 	ON p.ID = map.projectID
 JOIN `tools` AS `t`
 	ON t.ID = map.toolsID
+WHERE map.category = 'art'
 GROUP BY p.ID
 ";
 
@@ -78,7 +79,7 @@ GROUP BY p.ID
 ORDER BY `score` DESC
 ";
 
-$query = $tools_popular;
+$query = $tools_all;
 $result = mysqli_query($conn, $query);
 
 if( mysqli_num_rows($result) ) {
