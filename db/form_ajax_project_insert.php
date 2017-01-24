@@ -1,7 +1,25 @@
-<!-- php_mysql dynamic database query   Vernon Louie    January 20, 2017    -->
-<!-- form_ajax.php -->
+<!-- Gyver project   Vernon Louie    January 23, 2017    -->
+<!-- form_ajax_project_insert.php -->
 
 <?php
+
+    /* The following commented code is used to read from the database */
+        //    require('gyver_connect.php');
+        //
+        //    $query = "SELECT * FROM `projects`";
+        //
+        //    $result = mysqli_query ($conn, $query);
+        //
+        //    $output = [];
+        //
+        //    if ($result) {
+        //        while($row = mysqli_fetch_assoc($result)) {
+        //            $output[] = $row;
+        //        }
+        //    }
+        //
+        //    print_r($output);
+
     session_start();
 ?>
 
@@ -15,7 +33,7 @@
                 $.ajax({
                     data:       $("#abc").serialize(),  // Serialize grabs the text from a form element
                     dataType:   'text',
-                    url:        'index_insert.php',
+                    url:        'db_project_insert.php',
                     method:     'post',
                     success: function(result) {
                         console.log("success!");
@@ -32,18 +50,19 @@
 
     <body>
         <form id="abc">
-            Title:
-            <input type="text" name="title"><br>
-            Details:
-            <input type="text" name="details"><br>
-            Timestamp:
-            <input type="text" name="timestamp"><br>
-            User_id:
-            <input type="text" name="userid"> <br>
+            Project Name:
+            <input type="text" name="name"><br>
+            Photo URL (optional):
+            <input type="text" name="photo"><br>
+            Author_id:
+            <input type="text" name="AuthorID"> <br>
+            Step 1:
+            <input type="text" name="step1"><br>
+            Step 2:
+            <input type="text" name="step2"><br>
 
             <!-- if you don't make button type="button", then the page will refresh using the default class of "submit" -->
             <button type="button" class="fun">submit</button>
         </form>
     </body>
 </html>
-
