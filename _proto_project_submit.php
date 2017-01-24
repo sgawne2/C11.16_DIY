@@ -7,7 +7,7 @@ SELECT t.name, COUNT(*) AS `count`
 FROM `tools_projectsmap` AS `map`
 JOIN `tools` AS `t`
 	ON t.ID = map.toolsID
-WHERE map.category = 'tech'    
+WHERE map.category = 'art'    
 GROUP BY t.name
 ORDER BY `count` DESC
 ";
@@ -26,7 +26,7 @@ $result = mysqli_query($conn, $query);
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script>
         $(document).ready(function(){
-           populate_materials();
+            populate_materials();
             $('button').click(search);
             $('input[type=checkbox]').click(addItem);
         });
@@ -61,40 +61,29 @@ $result = mysqli_query($conn, $query);
                 }
             });
         }
-//        var materials = [
-//                "hammer",
-//                "rubber mallet",
-//                "tape measure",
-//                "level",
-//                "nail gun",
-//                "glue gun",
-//                "phillips head screwdriver",
-//                "adjustable wrench",
-//                "tape"
-//        ];
 
         var materials = <?php
-                if( mysqli_num_rows($result) ) {
-                    $output = [];
-                    while( $row = mysqli_fetch_assoc($result) ) {
-                        $output[] = $row;
-                    }
-                    echo json_encode($output);
+            if( mysqli_num_rows($result) ) {
+                $output = [];
+                while( $row = mysqli_fetch_assoc($result) ) {
+                    $output[] = $row;
                 }
-                ?>
-
-        function populate_materials() {
-            var list = $('#materials');
-            for(var i = 0; i < materials.length; i++) {
-                var checkbox = $('<input>').attr('type', 'checkbox');
-                checkbox.val(materials[i].name);
-                checkbox.attr('id', materials[i].name);
-                var label = $('<label>').text(materials[i].name);
-                label.attr('for', materials[i].name);
-                var li = $('<li>').append(checkbox, label);
-                list.append(li);
+                echo json_encode($output);
             }
-        };
+            ?>
+
+            function populate_materials() {
+                var list = $('#materials');
+                for(var i = 0; i < materials.length; i++) {
+                    var checkbox = $('<input>').attr('type', 'checkbox');
+                    checkbox.val(materials[i].name);
+                    checkbox.attr('id', materials[i].name);
+                    var label = $('<label>').text(materials[i].name + " | in " + materials[i].count + " projects");
+                    label.attr('for', materials[i].name);
+                    var li = $('<li>').append(checkbox, label);
+                    list.append(li);
+                }
+            };
 
         function addItem() {
             var item = $(this).val();
@@ -110,7 +99,15 @@ $result = mysqli_query($conn, $query);
 </head>
 <body>
 
-<input type="search" placeholder="search" name="search">
+<div>
+    <input type="text" placeholder="name" name="name">
+</div>
+<div>
+    <input type="text" placeholder="photo url" name="photo">
+</div>
+<div>
+    <a href="#">add material</a>
+</div>
 <button type="button">Submit</button>
 
 <div id="materials_panel">
@@ -118,19 +115,5 @@ $result = mysqli_query($conn, $query);
 
     </ul>
 </div>
-
-<table>
-        <thead>
-        <tr>
-            <th>Project</th>
-            <th>Relevance</th>
-            <th>Materials</th>
-            <th>Image</th>
-        </tr>
-        </thead>
-    <tbody id="results">
-
-    </tbody>
-</table>
 </body>
 </html>
