@@ -16,8 +16,8 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
 
     <!--Local Script Sources-->
-    <script src="js/components/addStep/addStep.component.js"></script>
     <script src="js/diyApp/diyApp.js"></script>
+    <script src="js/components/addStep/addStep.component.js"></script>
 </head>
 <body ng-app="diyApp">
 
@@ -40,30 +40,61 @@
     </div>
 </md-toolbar>
 
-<div class="headerImage"></div>
+<div layout="column" style="height:5%;"></div>
 
-<!--search bar-->
-<md-content md-theme="input" layout="column" layout-padding>
-    <!--<md-input-container style="padding-bottom: 0; margin-bottom: 0">-->
-    <md-input-container>
-        <input ng-model="search.notes" id="searchBar" placeholder="Search">
-        <md-icon class="material-icons">&#xE8B6;</md-icon>
-    </md-input-container>
-</md-content>
+<!--Project Title Input-->
+<md-input-container class="add-form-input" layout="row" layout-align="center" flex="80" flex-offset="10">
+    <label for="add-todo">Project Title</label>
+    <input id="add-todo" type="text">
+</md-input-container>
+
+<div layout="column" style="height:5%;"></div>
 
 
-<!--main content-->
-<div class="main" layout="row" flex="80" style="margin:0 auto;">
-    <section ng-controller="GridCtrl" layout-fill layout="column">
+<!--Step List-->
+<!--<md-list-item layout="row" layout-align="center">-->
+    <!--<div><b>Step 1</b></div>-->
 
-        <div ng-repeat="row in grid" flex layout="row">
-            <div ng-repeat="item in row" flex layout="row" layout-align="center center" layout-margin class="box">
-                <h1 class="md-title">{{ item }}</h1>
-            </div>
-        </div>
+    <!--<md-input-container flex="70">-->
+        <!--<label>Description</label>-->
+        <!--<textarea ng-model="user.description"></textarea>-->
+    <!--</md-input-container>-->
 
-    </section>
-</div>
+    <!--<div class="button-row hide-xs" layout="row">-->
+        <!--<md-button class="md-fab md-warn md-mini"-->
+                   <!--ng-hide="editing"-->
+                   <!--ng-click="$ctrl.add()">-->
+            <!--<md-icon md-font-set="material-icons">add</md-icon>-->
+            <!--<md-tooltip md-direction="top">-->
+                <!--Add-->
+            <!--</md-tooltip>-->
+        <!--</md-button>-->
+
+        <!--<md-button class="md-fab md-warn md-mini"-->
+                   <!--ng-hide="editing"-->
+                   <!--ng-click="">-->
+            <!--<md-icon md-font-set="material-icons">edit</md-icon>-->
+            <!--<md-tooltip md-direction="top">-->
+                <!--Edit-->
+            <!--</md-tooltip>-->
+        <!--</md-button>-->
+
+        <!--<md-button class="md-fab md-warn md-mini"-->
+                   <!--ng-disabled="editing"-->
+                   <!--ng-click="$ctrl.delete()">-->
+            <!--<md-icon md-font-set="material-icons">delete</md-icon>-->
+            <!--<md-tooltip md-direction="top">-->
+                <!--Delete-->
+            <!--</md-tooltip>-->
+        <!--</md-button>-->
+    <!--</div>-->
+<!--</md-list-item>-->
+<!--<md-divider></md-divider>-->
+
+<!--Angular component-->
+    <add-steps></add-steps>
+
+
 
 <!--side nav-->
 <div ng-controller="AppCtrl" layout="column" ng-cloak>
@@ -145,55 +176,8 @@
 
             </md-content>
         </md-sidenav>
-
-
-
-        <!--<md-content flex layout-padding>-->
-            <!--<div layout="column" layout-align="top center">-->
-                <!--&lt;!&ndash;main content goes here&ndash;&gt;-->
-                <!--<p>Welcome to AppGyver!</p>-->
-            <!--</div>-->
-        <!--</md-content>-->
-
-
-
     </section>
 </div>
-
-
-<!--left side tool list-->
-<!--<div layout="row" flex style="overflow: scroll;">-->
-<!--<div class="checkbox" layout="row" flex="20">-->
-<!--<ul>-->
-<!--<li><md-checkbox [checked]="todo.completed">Hammer</md-checkbox></li>-->
-<!--<li><md-checkbox [checked]="todo.completed">Nails</md-checkbox></li>-->
-<!--<li><md-checkbox [checked]="todo.completed">Screwdriver</md-checkbox></li>-->
-<!--<li><md-checkbox [checked]="todo.completed">Saw</md-checkbox></li>-->
-<!--<li><md-checkbox [checked]="todo.completed">X-acto Blade</md-checkbox></li>-->
-<!--<li><md-checkbox [checked]="todo.completed">Screws</md-checkbox></li>-->
-<!--<li><md-checkbox [checked]="todo.completed">Crowbar</md-checkbox></li>-->
-<!--<li><md-checkbox [checked]="todo.completed">Wrench</md-checkbox></li>-->
-<!--<li><md-checkbox [checked]="todo.completed">Bansaw</md-checkbox></li>-->
-<!--<li><md-checkbox [checked]="todo.completed">Allen Wrench</md-checkbox></li>-->
-<!--<li><md-checkbox [checked]="todo.completed">Monkey Wrench</md-checkbox></li>-->
-<!--<li><md-checkbox [checked]="todo.completed">Wood</md-checkbox></li>-->
-<!--<li><md-checkbox [checked]="todo.completed">Plumbing Pipes</md-checkbox></li>-->
-<!--<li><md-checkbox [checked]="todo.completed">Electrical Wires</md-checkbox></li>-->
-<!--</ul>-->
-<!--</div>-->
-
-<!--<div class="main" layout="row" flex="80">-->
-<!--<section ng-controller="GridCtrl" layout-fill layout="column">-->
-
-<!--<div ng-repeat="row in grid" flex layout="row">-->
-<!--<div ng-repeat="item in row" flex layout="row" layout-align="center center" layout-margin class="box">-->
-<!--<h1 class="md-title">{{ item }}</h1>-->
-<!--</div>-->
-<!--</div>-->
-
-<!--</section>-->
-<!--</div>-->
-<!--</div>-->
 
 <script src="js/accordionPanel.js"></script>
 

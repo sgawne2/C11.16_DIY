@@ -1,0 +1,43 @@
+<div ng-repeat="step in $ctrl.steps">
+    <h1>{{$ctrl.steps[$index].description}}</h1>
+
+<md-list-item layout="row" layout-align="center">
+    <div><b>Step {{ $index + 1 }}</b></div>
+
+    <md-input-container flex="70">
+        <label>Description</label>
+        <textarea ng-model="$ctrl.steps[$index].description"></textarea>
+    </md-input-container>
+
+    <div class="button-row hide-xs" layout="row">
+        <md-button class="md-fab md-warn md-mini"
+                   ng-hide="editing"
+                   ng-click="$ctrl.add()">
+            <md-icon md-font-set="material-icons">add</md-icon>
+            <md-tooltip md-direction="top">
+                Add
+            </md-tooltip>
+        </md-button>
+
+        <!--<md-button class="md-fab md-warn md-mini"-->
+                   <!--ng-hide="editing"-->
+                   <!--ng-click="editing = true; focus = true;">-->
+            <!--<md-icon md-font-set="material-icons">edit</md-icon>-->
+            <!--<md-tooltip md-direction="top">-->
+                <!--Edit-->
+            <!--</md-tooltip>-->
+        <!--</md-button>-->
+
+        <md-button class="md-fab md-warn md-mini"
+                   ng-disabled="editing"
+                   ng-click="$ctrl.delete(step)">
+            <md-icon md-font-set="material-icons">delete</md-icon>
+            <md-tooltip md-direction="top">
+                Delete
+            </md-tooltip>
+        </md-button>
+    </div>
+</md-list-item>
+<md-divider></md-divider>
+
+</div>
