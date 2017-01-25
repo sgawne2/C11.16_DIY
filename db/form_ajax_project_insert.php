@@ -45,11 +45,42 @@
                     }
                 })
             });
+
+
         });
+
+        $(function() {
+            // Variables
+            var $inputFields = $("form input");
+            var $submit = $("#submitButton");
+
+            //Functions
+            function generateSubmitMessage(n) {
+                return "Send " + n + " items";
+            }
+
+            function updateButton() {
+                var items = 0;
+                $.each($inputFields, function(index) {
+                    if ($inputFields[index].value.length > 0) {
+                        ++items;
+                    }
+                });
+                $submit.text(generateSubmitMessage(items));
+            }
+
+            // Event(s)
+            $inputFields.on("keyup", function() {
+                updateButton();
+            });
+
+            // Document On-Load
+            $submit.text(generateSubmitMessage(0));
+        })
     </script>
 
     <body>
-        <form id="abc">
+        <form id="new_project_form">
             Project Name:
             <input type="text" name="name"><br>
             Photo URL (optional):
@@ -57,12 +88,14 @@
             Author_id:
             <input type="text" name="AuthorID"> <br>
             Step 1:
-            <input type="text" name="step1"><br>
+            <input type="text" name="step[]"><br>
             Step 2:
             <input type="text" name="step2"><br>
 
+
             <!-- if you don't make button type="button", then the page will refresh using the default class of "submit" -->
-            <button type="button" class="fun">submit</button>
+            <button type="button" id="submitButton">submit</button>
         </form>
     </body>
 </html>
+
