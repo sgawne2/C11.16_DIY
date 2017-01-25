@@ -50,49 +50,8 @@
 
 <div layout="column" style="height:5%;"></div>
 
-
-<!--Step List-->
-<!--<md-list-item layout="row" layout-align="center">-->
-    <!--<div><b>Step 1</b></div>-->
-
-    <!--<md-input-container flex="70">-->
-        <!--<label>Description</label>-->
-        <!--<textarea ng-model="user.description"></textarea>-->
-    <!--</md-input-container>-->
-
-    <!--<div class="button-row hide-xs" layout="row">-->
-        <!--<md-button class="md-fab md-warn md-mini"-->
-                   <!--ng-hide="editing"-->
-                   <!--ng-click="$ctrl.add()">-->
-            <!--<md-icon md-font-set="material-icons">add</md-icon>-->
-            <!--<md-tooltip md-direction="top">-->
-                <!--Add-->
-            <!--</md-tooltip>-->
-        <!--</md-button>-->
-
-        <!--<md-button class="md-fab md-warn md-mini"-->
-                   <!--ng-hide="editing"-->
-                   <!--ng-click="">-->
-            <!--<md-icon md-font-set="material-icons">edit</md-icon>-->
-            <!--<md-tooltip md-direction="top">-->
-                <!--Edit-->
-            <!--</md-tooltip>-->
-        <!--</md-button>-->
-
-        <!--<md-button class="md-fab md-warn md-mini"-->
-                   <!--ng-disabled="editing"-->
-                   <!--ng-click="$ctrl.delete()">-->
-            <!--<md-icon md-font-set="material-icons">delete</md-icon>-->
-            <!--<md-tooltip md-direction="top">-->
-                <!--Delete-->
-            <!--</md-tooltip>-->
-        <!--</md-button>-->
-    <!--</div>-->
-<!--</md-list-item>-->
-<!--<md-divider></md-divider>-->
-
-<!--Angular component-->
-    <add-steps></add-steps>
+<!--Angular Project Steps Component-->
+<add-steps></add-steps>
 
 
 
@@ -101,17 +60,15 @@
     <section layout="row" flex class="side-tool-list">
         <md-sidenav class="md-sidenav-left" md-component-id="left"
                     md-disable-backdrop md-whiteframe="4" style="position:fixed; top:64px;">
-            <md-toolbar class="md-theme-indigo">
-                <h1 class="md-toolbar-tools">Pick the tools you have!</h1>
+            <md-toolbar>
+                <h1 class="md-toolbar-tools" style="background-color: #00BFA5;">Pick the tools you have!</h1>
             </md-toolbar>
             <md-content layout-margin>
-                <p>This sidenav is not showing any backdrop, where users can click on it, to close the sidenav.</p>
-                <md-button ng-click="toggleLeft()" class="md-accent">
-                    Close this Sidenav
-                </md-button><br>
+                <p>Select you category of interest and then check the items that you have to get your project started</p>
 
                 <!--left side tool category list-->
-                <button class="accordion">Woodworking</button>
+                <button class="accordion"
+                        style="background-color: #00BFA5; color:white;"><b>Woodworking</b></button>
                 <div class="panel">
                     <!--woodworking tool list-->
                     <ul>
@@ -132,7 +89,8 @@
                     </ul>
                 </div>
 
-                <button class="accordion">Technology</button>
+                <button class="accordion"
+                        style="background-color: #00BFA5; color:white;"><b>Technology</b></button>
                 <div class="panel">
                     <!--technology tool list-->
                     <ul>
@@ -153,7 +111,8 @@
                     </ul>
                 </div>
 
-                <button class="accordion">Arts & Crafts</button>
+                <button class="accordion"
+                        style="background-color: #00BFA5; color:white;"><b>Arts & Crafts</b></button>
                 <div class="panel">
                     <!--arts & crafts tool list-->
                     <ul>

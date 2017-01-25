@@ -19,16 +19,8 @@
             </md-tooltip>
         </md-button>
 
-        <!--<md-button class="md-fab md-warn md-mini"-->
-                   <!--ng-hide="editing"-->
-                   <!--ng-click="editing = true; focus = true;">-->
-            <!--<md-icon md-font-set="material-icons">edit</md-icon>-->
-            <!--<md-tooltip md-direction="top">-->
-                <!--Edit-->
-            <!--</md-tooltip>-->
-        <!--</md-button>-->
-
-        <md-button class="md-fab md-warn md-mini"
+        <md-button class="md-fab md-mini"
+                   style="background-color: #404040"
                    ng-disabled="editing"
                    ng-click="$ctrl.delete(step)">
             <md-icon md-font-set="material-icons">delete</md-icon>
@@ -36,6 +28,18 @@
                 Delete
             </md-tooltip>
         </md-button>
+
+        <md-button class="md-fab md-mini"
+                    style="background-color: #00BFA5"
+                    ng-hide="editing"
+                    ng-click="$ctrl.insert(step)"
+                    ng-if="$ctrl.steps.length-1">
+        <md-icon md-font-set="material-icons">arrow_upward</md-icon>
+        <md-tooltip md-direction="top">
+        Insert
+        </md-tooltip>
+        </md-button>
+
     </div>
 </md-list-item>
 <md-divider></md-divider>
