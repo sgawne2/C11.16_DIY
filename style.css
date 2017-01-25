@@ -94,3 +94,7 @@ li{
 /*md-checkbox.md-default-theme.md-checked .md-icon{*/
     /*background: black;*/
 /*}*/
+
+md-checkbox.md-checked.orangeCheckBox .md-icon {
+    background-color: #F57C00;
+}
