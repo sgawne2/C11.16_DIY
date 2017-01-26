@@ -43,17 +43,16 @@
 <div layout="column" style="height:5%;"></div>
 
 <!--Project Title Input-->
-<md-input-container class="add-form-input" layout="row" layout-align="center" flex="80" flex-offset="10">
+<md-input-container class="add-form-input" layout="row" layout-align="center" flex="40" flex-offset="30">
     <label for="add-todo">Project Title</label>
     <input id="add-todo" type="text">
 </md-input-container>
 
-<div layout="column" style="height:5%;"></div>
-
 <!--Angular Project Steps Component-->
 <add-steps></add-steps>
-
-
+<div layout="row" layout-align="end start" flex="90">
+    <md-button class="md-raised md-warn" layout-align="right" style="background-color: #00BFA5">Submit</md-button>
+</div>
 
 <!--side nav-->
 <div ng-controller="AppCtrl" layout="column" ng-cloak>

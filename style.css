@@ -35,6 +35,7 @@ li{
     background-color: #F57C00;
     position:fixed;
     top:0;
+    box-shadow: 0 1px 10px 0 lightslategray;
 }
 
 .boldText{
