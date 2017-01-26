@@ -14,7 +14,14 @@ function addStepController(){
         }else{
             ctrl.steps[index] = {};
         }
+    };
 
+    ctrl.insert = function(step){
+        var index = ctrl.steps.indexOf(step);
+        var end = ctrl.steps.splice(index, ctrl.steps.length);
+
+        ctrl.steps.push({});
+        ctrl.steps = ctrl.steps.concat(end);
     }
 }
 

@@ -18,6 +18,7 @@
     <!--Local Script Sources-->
     <script src="js/diyApp/diyApp.js"></script>
     <script src="js/components/addStep/addStep.component.js"></script>
+    <script src="js/components/toolSelector/toolSelector.component.js"></script>
 </head>
 <body ng-app="diyApp">
 
@@ -26,8 +27,7 @@
     <div class="md-toolbar-tools">
 
         <!--hamburger icon-->
-        <md-button><i class="material-icons" ng-click="toggleLeft()">dehaze</i></md-button>
-
+        <md-button ng-click="toggleLeft()"><md-icon md-font-set="material-icons">dehaze</md-icon></md-button>
 
         <!--<div class="logo"></div>-->
         <h2><a href="index.html"><span class="boldText">&nbsp;&nbsp;App</span>Gyver</a></h2>
@@ -43,134 +43,96 @@
 <div layout="column" style="height:5%;"></div>
 
 <!--Project Title Input-->
-<md-input-container class="add-form-input" layout="row" layout-align="center" flex="80" flex-offset="10">
+<md-input-container class="add-form-input" layout="row" layout-align="center" flex="40" flex-offset="30">
     <label for="add-todo">Project Title</label>
     <input id="add-todo" type="text">
 </md-input-container>
 
-<div layout="column" style="height:5%;"></div>
+<!--Angular Project Steps Component-->
+<add-steps></add-steps>
 
+<!--Angular Tool Selector Component-->
+<tool-selector></tool-selector>
 
-<!--Step List-->
-<!--<md-list-item layout="row" layout-align="center">-->
-    <!--<div><b>Step 1</b></div>-->
-
-    <!--<md-input-container flex="70">-->
-        <!--<label>Description</label>-->
-        <!--<textarea ng-model="user.description"></textarea>-->
-    <!--</md-input-container>-->
-
-    <!--<div class="button-row hide-xs" layout="row">-->
-        <!--<md-button class="md-fab md-warn md-mini"-->
-                   <!--ng-hide="editing"-->
-                   <!--ng-click="$ctrl.add()">-->
-            <!--<md-icon md-font-set="material-icons">add</md-icon>-->
-            <!--<md-tooltip md-direction="top">-->
-                <!--Add-->
-            <!--</md-tooltip>-->
-        <!--</md-button>-->
-
-        <!--<md-button class="md-fab md-warn md-mini"-->
-                   <!--ng-hide="editing"-->
-                   <!--ng-click="">-->
-            <!--<md-icon md-font-set="material-icons">edit</md-icon>-->
-            <!--<md-tooltip md-direction="top">-->
-                <!--Edit-->
-            <!--</md-tooltip>-->
-        <!--</md-button>-->
-
-        <!--<md-button class="md-fab md-warn md-mini"-->
-                   <!--ng-disabled="editing"-->
-                   <!--ng-click="$ctrl.delete()">-->
-            <!--<md-icon md-font-set="material-icons">delete</md-icon>-->
-            <!--<md-tooltip md-direction="top">-->
-                <!--Delete-->
-            <!--</md-tooltip>-->
-        <!--</md-button>-->
-    <!--</div>-->
-<!--</md-list-item>-->
-<!--<md-divider></md-divider>-->
-
-<!--Angular component-->
-    <add-steps></add-steps>
-
-
+<div layout="row" layout-align="end start" flex="90">
+    <md-button class="md-raised md-warn" layout-align="right" style="background-color: #00BFA5">Submit</md-button>
+</div>
 
 <!--side nav-->
 <div ng-controller="AppCtrl" layout="column" ng-cloak>
     <section layout="row" flex class="side-tool-list">
         <md-sidenav class="md-sidenav-left" md-component-id="left"
                     md-disable-backdrop md-whiteframe="4" style="position:fixed; top:64px;">
-            <md-toolbar class="md-theme-indigo">
-                <h1 class="md-toolbar-tools">Pick the tools you have!</h1>
+            <md-toolbar>
+                <h1 class="md-toolbar-tools" style="background-color: #00BFA5;">Pick the tools you have!</h1>
             </md-toolbar>
             <md-content layout-margin>
-                <p>This sidenav is not showing any backdrop, where users can click on it, to close the sidenav.</p>
-                <md-button ng-click="toggleLeft()" class="md-accent">
-                    Close this Sidenav
-                </md-button><br>
+                <p>Select you category of interest and then check the items that you have to get your project started</p>
 
                 <!--left side tool category list-->
-                <button class="accordion">Woodworking</button>
+                <button class="accordion"
+                        style="background-color: #00BFA5; color:white;"><b>Woodworking</b></button>
                 <div class="panel">
                     <!--woodworking tool list-->
                     <ul>
-                        <li><md-checkbox [checked]="todo.completed">Hammer</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Nails</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Screwdriver</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Saw</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">X-acto Blade</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Screws</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Crowbar</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Wrench</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Bansaw</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Allen Wrench</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Monkey Wrench</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Wood</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Plumbing Pipes</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Electrical Wires</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Hammer</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Nails</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Screwdriver</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Saw</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">X-acto Blade</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Screws</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Crowbar</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Wrench</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Bansaw</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Allen Wrench</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Monkey Wrench</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Wood</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Plumbing Pipes</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Electrical Wires</md-checkbox></li>
                     </ul>
                 </div>
 
-                <button class="accordion">Technology</button>
+                <button class="accordion"
+                        style="background-color: #00BFA5; color:white;"><b>Technology</b></button>
                 <div class="panel">
                     <!--technology tool list-->
                     <ul>
-                        <li><md-checkbox [checked]="todo.completed">Hammer</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Nails</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Screwdriver</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Saw</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">X-acto Blade</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Screws</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Crowbar</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Wrench</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Bansaw</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Allen Wrench</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Monkey Wrench</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Wood</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Plumbing Pipes</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Electrical Wires</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Hammer</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Nails</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Screwdriver</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Saw</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">X-acto Blade</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Screws</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Crowbar</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Wrench</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Bansaw</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Allen Wrench</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Monkey Wrench</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Wood</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Plumbing Pipes</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Electrical Wires</md-checkbox></li>
                     </ul>
                 </div>
 
-                <button class="accordion">Arts & Crafts</button>
+                <button class="accordion"
+                        style="background-color: #00BFA5; color:white;"><b>Arts & Crafts</b></button>
                 <div class="panel">
                     <!--arts & crafts tool list-->
                     <ul>
-                        <li><md-checkbox [checked]="todo.completed">Hammer</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Nails</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Screwdriver</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Saw</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">X-acto Blade</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Screws</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Crowbar</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Wrench</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Bansaw</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Allen Wrench</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Monkey Wrench</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Wood</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Plumbing Pipes</md-checkbox></li>
-                        <li><md-checkbox [checked]="todo.completed">Electrical Wires</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Hammer</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Nails</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Screwdriver</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Saw</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">X-acto Blade</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Screws</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Crowbar</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Wrench</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Bansaw</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Allen Wrench</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Monkey Wrench</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Wood</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Plumbing Pipes</md-checkbox></li>
+                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Electrical Wires</md-checkbox></li>
                     </ul>
                 </div>
 
