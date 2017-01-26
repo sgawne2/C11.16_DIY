@@ -5,11 +5,21 @@
     /* mysql_connect.php has $conn, which uses mysqli_connect */
     require('gyver_connect.php');
 
-    $name = $_POST["name"];
+    $one = $_POST["one"];
+    $two = $_POST["two"];
+    $three = $_POST["three"];
+    $four = $_POST["four"];
+    $five = $_POST["five"];
 
     /* ensure that the string variables are enclosed in single quotes */
-    $query = "INSERT INTO `tools` SET 
-        `tool_name` = '$name' ";
+    $query = "INSERT IGNORE INTO `tools` (`tool_name`) VALUES ('$one'), ('$two'), ('$three'), ('$four'), ('$five')";
+
+//    $query = "INSERT IGNORE INTO `tools` SET
+//        `tool_name` = '$one', $two, '$three', '$four', '$five' ";
+//        `tool_name` = $two,
+//        `tool_name` = '$three',
+//        `tool_name` = '$four',
+//        `tool_name` = '$five' ";
 
     $result = mysqli_query($conn, $query);
 

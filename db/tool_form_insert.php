@@ -14,7 +14,7 @@
                 $.ajax({
                     data:       $("#tool_insert_form").serialize(),  // Serialize grabs the text from a form element
                     dataType:   'text',
-                    url:        'db_tool_insert.php',
+                    url:        'tool_db_insert.php',
                     method:     'post',
                     success: function(result) {
                         console.log("success!");
@@ -32,7 +32,15 @@
     <body>
     <form id="tool_insert_form">
         Tool Name:
-        <input type="text" name="name"><br>
+        <input type="text" name="one"><br>
+        Tool Name:
+        <input type="text" name="two"><br>
+        Tool Name:
+        <input type="text" name="three"><br>
+        Tool Name:
+        <input type="text" name="four"><br>
+        Tool Name:
+        <input type="text" name="five"><br>
 
         <!-- if you don't make button type="button", then the page will refresh using the default class of "submit" -->
         <button type="button" class="submitButton">submit</button>
