@@ -1,5 +1,3 @@
-<!-- Gyver project   Vernon Louie    January 23, 2017    -->
-<!-- db_project_insert.php -->
 
 <?php
     session_start();
@@ -7,34 +5,25 @@
     require('gyver_connect.php');
 
     $name = $_POST["name"];
+    $toolCount = $_POST["toolcount"];
     $photo = $_POST["photo"];
     $AuthorID = $_POST["AuthorID"];
     $step1 = $_POST["step1"];
     $step2 = $_POST["step2"];
 
-//    $n = 3;
-
     $array = [];
     $array[] = $step1;
     $array[] = $step2;
 
-//    for ($j = 1; $j < $n; ++$j) {
-//        $array[] = $
-//        $step_number = "$step"."$j";
-//        print_r($step_number);
-//        print($step_number);
-//        $array[] = $step_number;
-//    }
-
-//    $array[] = $_POST["step1"];
-//    $array[] = $step2[""];
-
     /* ensure that the values are enclosed in quotes */
-    $query = "INSERT INTO `projects` (`Name`, `photo`, `AuthorID`) VALUES ('$name', '" . addslashes($photo) . "', '$AuthorID')";
-    $query = "INSERT INTO `projects` SET 
-                '$name',                
-                photo='" . addslashes($photo) . "',
-                authorID='" . intval($AuthorID) . "')";
+//    $query = "INSERT INTO `projects` (`Name`, `photo`, `AuthorID`) VALUES ('$name', '" . addslashes($photo) . "', '$AuthorID')";
+//    $query = "INSERT INTO `projects` (`Name`, `toolCount`, `photo`, `AuthorID`) VALUES ('$name', $toolCount, '$photo', $AuthorID)";
+    $query = "INSERT INTO `projects` SET
+        `Name` = '$name',
+        `toolCount` = $toolCount,
+        `photo` = '$photo',
+        `authorID` = $AuthorID ";
+
     print("\n".$query);
     $result = mysqli_query($conn, $query);
 
@@ -48,7 +37,13 @@
 
     for ($i = 0; $i < count($array); $i++) {
         $step_num = $i+1;
-        $query = "INSERT INTO `projectinstructions` (`projectID`, `step`, `stepText`) VALUES ('$id', '$step_num', '$array[$i]')";
+//        $query = "INSERT INTO `projectinstructions` (`projectID`, `step`, `stepText`) VALUES ('$id', '$step_num', '$array[$i]')";
+
+        $query = "INSERT INTO `projectinstructions` SET 
+            `projectID` = $id, 
+            `step` = $step_num,
+            `stepText` =  '$array[$i]' ";
+
         $result = mysqli_query($conn, $query);
     }
 
