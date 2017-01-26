@@ -1,5 +1,4 @@
-<!-- Gyver project   Vernon Louie    January 23, 2017    -->
-<!-- form_ajax_project_insert.php -->
+<!-- MacDIYver project   Vernon Louie    January 23, 2017    -->
 
 <?php
     session_start();
@@ -13,9 +12,9 @@
             $("#submitButton").click(function() {
                 console.log("inside click handler");
                 $.ajax({
-                    data:       $("#project_insert_form").serialize(),  // Serialize grabs the text from a form element
+                    data:       $("#map_tp_insert_form").serialize(),  // Serialize grabs the text from a form element
                     dataType:   'text',
-                    url:        'db_project_insert.php',
+                    url:        'map_tp_db_insert.php',
                     method:     'post',
                     success: function(result) {
                         console.log("success!");
@@ -31,23 +30,20 @@
     </script>
 
     <body>
-        <form id="project_insert_form">
-            Project Name:
-            <input type="text" name="name"><br>
-            Tool Count:
-            <input type="text" name="toolcount"><br>
-            Photo URL (optional):
-            <input type="text" name="photo"><br>
-            Author_id:
-            <input type="text" name="AuthorID"> <br>
-            Step 1:
-            <input type="text" name="step1"><br>
-            Step 2:
-            <input type="text" name="step2"><br>
+        <form id="map_tp_insert_form">
+            Project ID:
+            <input type="number" name="one"><br>
+            Tool ID:
+            <input type="number" name="two"><br>
+            Tool Quantity:
+            <input type="number" name="three"><br>
+            Tool Notes:
+            <input type="text" name="four"> <br>
+            Project Category:
+            <input type="text" name="five"><br>
 
             <!-- if you don't make button type="button", then the page will refresh using the default class of "submit" -->
             <button type="button" id="submitButton">submit</button>
         </form>
     </body>
 </html>
-

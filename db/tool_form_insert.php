@@ -1,5 +1,4 @@
 <!-- Gyver project   Vernon Louie    January 23, 2017    -->
-<!-- form_ajax_tool_insert.php -->
 
 <?php
     session_start();
@@ -10,10 +9,10 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-            $(".fun").click(function() {
+            $(".submitButton").click(function() {
                 console.log("inside click handler");
                 $.ajax({
-                    data:       $("#abc").serialize(),  // Serialize grabs the text from a form element
+                    data:       $("#tool_insert_form").serialize(),  // Serialize grabs the text from a form element
                     dataType:   'text',
                     url:        'db_tool_insert.php',
                     method:     'post',
@@ -31,15 +30,12 @@
     </script>
 
     <body>
-    <form id="abc">
+    <form id="tool_insert_form">
         Tool Name:
         <input type="text" name="name"><br>
-        Notes (optional):
-        <input type="text" name="notes"><br>
-
 
         <!-- if you don't make button type="button", then the page will refresh using the default class of "submit" -->
-        <button type="button" class="fun">submit</button>
+        <button type="button" class="submitButton">submit</button>
     </form>
     </body>
 </html>

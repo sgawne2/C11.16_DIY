@@ -1,22 +1,16 @@
 <!-- Gyver project   Vernon Louie    January 23, 2017    -->
-<!-- db_tool_insert.php -->
 
 <?php
     session_start();
     /* mysql_connect.php has $conn, which uses mysqli_connect */
     require('gyver_connect.php');
 
-//    print_r($_POST);
-
     $name = $_POST["name"];
-    $notes = $_POST["notes"];
 
-//    print_r($name);
-//    print_r($notes);
+    /* ensure that the string variables are enclosed in single quotes */
+    $query = "INSERT INTO `tools` SET 
+        `tool_name` = '$name' ";
 
-    /* ensure that the values are enclosed in quotes */
-    $query = "INSERT INTO `tools` (`Name`, `notes`) VALUES ('$name', '$notes')";
-    print("\n".$query);
     $result = mysqli_query($conn, $query);
 
     /* if inserting, then mysqli_affected_rows will return the auto-incremented field value; in this case, $id */
@@ -24,6 +18,6 @@
         $id = mysqli_insert_id($conn);
         print($id);
     } else {
-        print("I failed");
+        print("Failure");
     }
 ?>
