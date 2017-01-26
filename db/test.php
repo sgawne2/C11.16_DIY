@@ -5,7 +5,7 @@
     for ($j = 1; $j < 3; ++$j) {
         $step_number = "$"."step"."$j";
         print($step_number);
-        $array[] = $step_number;
+        $array[] = $step_number;    // experimentation
     }
 
     print_r($array);
