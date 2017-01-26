@@ -18,6 +18,7 @@
     <!--Local Script Sources-->
     <script src="js/diyApp/diyApp.js"></script>
     <script src="js/components/addStep/addStep.component.js"></script>
+    <script src="js/components/toolSelector/toolSelector.component.js"></script>
 </head>
 <body ng-app="diyApp">
 
@@ -26,8 +27,7 @@
     <div class="md-toolbar-tools">
 
         <!--hamburger icon-->
-        <md-button><i class="material-icons" ng-click="toggleLeft()">dehaze</i></md-button>
-
+        <md-button ng-click="toggleLeft()"><md-icon md-font-set="material-icons">dehaze</md-icon></md-button>
 
         <!--<div class="logo"></div>-->
         <h2><a href="index.html"><span class="boldText">&nbsp;&nbsp;App</span>Gyver</a></h2>
@@ -50,6 +50,10 @@
 
 <!--Angular Project Steps Component-->
 <add-steps></add-steps>
+
+<!--Angular Tool Selector Component-->
+<tool-selector></tool-selector>
+
 <div layout="row" layout-align="end start" flex="90">
     <md-button class="md-raised md-warn" layout-align="right" style="background-color: #00BFA5">Submit</md-button>
 </div>
