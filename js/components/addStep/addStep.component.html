@@ -1,0 +1,47 @@
+<div ng-repeat="step in $ctrl.steps">
+
+<div layout="column" style="height:5%;"></div>
+
+<md-list-item layout="row" layout-align="center">
+    <div><b>Step {{ $index + 1 }}</b></div>
+
+    <md-input-container flex="70">
+        <label>Description</label>
+        <textarea ng-model="$ctrl.steps[$index].description"></textarea>
+    </md-input-container>
+
+    <div class="button-row hide-xs" layout="row">
+        <md-button class="md-fab md-warn md-mini"
+                   ng-hide="editing"
+                   ng-click="$ctrl.add()">
+            <md-icon md-font-set="material-icons">add</md-icon>
+            <md-tooltip md-direction="top">
+                Add
+            </md-tooltip>
+        </md-button>
+
+        <md-button class="md-fab md-mini"
+                   style="background-color: #404040"
+                   ng-disabled="editing"
+                   ng-click="$ctrl.delete(step)">
+            <md-icon md-font-set="material-icons">delete</md-icon>
+            <md-tooltip md-direction="top">
+                Delete
+            </md-tooltip>
+        </md-button>
+
+        <md-button class="md-fab md-mini"
+                    style="background-color: #00BFA5"
+                    ng-hide="editing"
+                    ng-click="$ctrl.insert(step)"
+                    ng-if="$ctrl.steps.length-1">
+            <md-icon md-font-set="material-icons">arrow_upward</md-icon>
+            <md-tooltip md-direction="top">
+                Insert
+            </md-tooltip>
+        </md-button>
+    </div>
+</md-list-item>
+<md-divider></md-divider>
+
+</div>
