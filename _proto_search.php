@@ -7,7 +7,7 @@ SELECT t.name, COUNT(*) AS `count`
 FROM `tools_projectsmap` AS `map`
 JOIN `tools` AS `t`
 	ON t.ID = map.toolsID
-WHERE map.category = 'tech'    
+WHERE map.category = 'art'    
 GROUP BY t.name
 ORDER BY `count` DESC
 ";
