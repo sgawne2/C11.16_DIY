@@ -18,6 +18,7 @@
     <!--Local Script Sources-->
     <script src="js/components/addStep/addStep.component.js"></script>
     <script src="js/diyApp/diyApp.js"></script>
+    <script src="js/components/projectCard/projectCard.component.js"></script>
 </head>
 <body ng-app="diyApp">
 
@@ -31,9 +32,8 @@
 
 
         <!--<div class="logo"></div>-->
-        <h2><a href="index.html"><span class="boldText">&nbsp;&nbsp;App</span>Gyver</a></h2>
+        <h2><a href="index.html">Mac<span class="boldText">DIY</span>ver</a></h2>
         <span flex=""></span>
-
 
         <md-button><a href="submit_project.html">Submit Project</a></md-button>
         <md-button>My Profile</md-button>
@@ -54,17 +54,34 @@
 
 
 <!--main content-->
+<!--<div class="main" layout="row" flex="80" style="margin:0 auto;">-->
+    <!--<section ng-controller="GridCtrl" layout-fill layout="column">-->
+
+        <!--<div ng-repeat="row in grid" flex layout="row">-->
+
+            <!--<div ng-repeat="item in row" flex layout="row" layout-align="center center" layout-margin class="box">-->
+                <!--<h1 class="md-title">{{ item }}</h1>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div ng-repeat="row in grid">-->
+            <!--<div ng-repeat="item in row">-->
+                <!--<project-card></project-card>-->
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</section>-->
+<!--</div>-->
+
+<!--main content-->
 <div class="main" layout="row" flex="80" style="margin:0 auto;">
-    <section ng-controller="GridCtrl" layout-fill layout="column">
 
-        <div ng-repeat="row in grid" flex layout="row">
-            <div ng-repeat="item in row" flex layout="row" layout-align="center center" layout-margin class="box">
-                <h1 class="md-title">{{ item }}</h1>
-            </div>
-        </div>
+    <project-card></project-card>
 
-    </section>
 </div>
+
+
+
+
 
 <!--side nav-->
 <div ng-controller="AppCtrl" layout="column" ng-cloak>
