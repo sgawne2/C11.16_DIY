@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Jan 22, 2017 at 01:39 AM
+-- Generation Time: Jan 24, 2017 at 06:49 PM
 -- Server version: 5.5.49-log
--- PHP Version: 7.0.9
+-- PHP Version: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,6 +19,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `appgyver`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `profiles`
+--
+
+CREATE TABLE IF NOT EXISTS `profiles` (
+  `id` int(10) unsigned NOT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  `name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `profiles`
+--
+
+INSERT INTO `profiles` (`id`, `user_id`, `name`) VALUES
+(0, 0, 'anonymous');
 
 -- --------------------------------------------------------
 
@@ -60,16 +79,17 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `toolCount` int(11) NOT NULL,
   `photo` varchar(150) NOT NULL COMMENT 'a url to a photo showing the finished project',
   `AuthorID` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `projects`
 --
 
 INSERT INTO `projects` (`ID`, `Name`, `toolCount`, `photo`, `AuthorID`) VALUES
-(1, 'Toilet Paper Roll Art', 4, '', 1),
-(2, 'Tissue Ghost', 4, '', 2),
-(3, 'tissue mask', 2, '', 2);
+(1, 'Toilet Paper Roll Art', 4, 'project-id-1.jpg', 0),
+(2, 'Tissue Ghost', 4, 'project-id-2.jpg', 0),
+(3, 'tissue mask', 2, 'project-id-3.jpg', 0),
+(99, 'drone made from garbage', 2, 'project-id-99.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -80,7 +100,7 @@ INSERT INTO `projects` (`ID`, `Name`, `toolCount`, `photo`, `AuthorID`) VALUES
 CREATE TABLE IF NOT EXISTS `tools` (
   `ID` int(10) unsigned NOT NULL,
   `Name` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tools`
@@ -93,7 +113,9 @@ INSERT INTO `tools` (`ID`, `Name`) VALUES
 (4, 'tissue'),
 (5, 'rubber band'),
 (6, 'foil'),
-(7, 'marker');
+(7, 'marker'),
+(99, 'cpu fan'),
+(100, 'paper plate');
 
 -- --------------------------------------------------------
 
@@ -104,24 +126,27 @@ INSERT INTO `tools` (`ID`, `Name`) VALUES
 CREATE TABLE IF NOT EXISTS `tools_projectsmap` (
   `ID` int(10) unsigned NOT NULL,
   `toolsID` int(11) NOT NULL,
-  `projectID` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+  `projectID` int(11) NOT NULL,
+  `category` enum('art','home','tech','') NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tools_projectsmap`
 --
 
-INSERT INTO `tools_projectsmap` (`ID`, `toolsID`, `projectID`) VALUES
-(1, 1, 1),
-(2, 1, 2),
-(3, 2, 1),
-(4, 3, 1),
-(5, 4, 2),
-(6, 5, 2),
-(7, 6, 1),
-(8, 7, 2),
-(9, 4, 3),
-(10, 7, 3);
+INSERT INTO `tools_projectsmap` (`ID`, `toolsID`, `projectID`, `category`) VALUES
+(1, 1, 1, 'art'),
+(2, 1, 2, 'art'),
+(3, 2, 1, 'art'),
+(4, 3, 1, 'art'),
+(5, 4, 2, 'art'),
+(6, 5, 2, 'art'),
+(7, 6, 1, 'art'),
+(8, 7, 2, 'art'),
+(9, 4, 3, 'art'),
+(10, 7, 3, 'art'),
+(11, 99, 99, 'tech'),
+(12, 100, 99, 'tech');
 
 -- --------------------------------------------------------
 
@@ -138,6 +163,12 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `profiles`
+--
+ALTER TABLE `profiles`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `projectinstructions`
@@ -174,6 +205,11 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `profiles`
+--
+ALTER TABLE `profiles`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `projectinstructions`
 --
 ALTER TABLE `projectinstructions`
@@ -182,17 +218,17 @@ ALTER TABLE `projectinstructions`
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=100;
 --
 -- AUTO_INCREMENT for table `tools`
 --
 ALTER TABLE `tools`
-  MODIFY `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=101;
 --
 -- AUTO_INCREMENT for table `tools_projectsmap`
 --
 ALTER TABLE `tools_projectsmap`
-  MODIFY `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
