@@ -37,7 +37,8 @@ session_start();
             Photo URL (optional):
             <input type="text" name="main_photo"><br>
 
-
+            <!-- Within $_POST, we put each tool into an associative array, so we can get the number of tools used for the project -->
+            <!-- in crude_db_insert.php, we use count($_POST["tools"]) to get tool_count, which is a field within the "projects" table -->
             <br> Tool Name:
             <input type="text" name="tools[tool1]"><br>
             Tool Name:
