@@ -72,18 +72,18 @@ $result = mysqli_query($conn, $query);
             }
             ?>
 
-            function populate_materials() {
-                var list = $('#materials');
-                for(var i = 0; i < materials.length; i++) {
-                    var checkbox = $('<input>').attr('type', 'checkbox');
-                    checkbox.val(materials[i].name);
-                    checkbox.attr('id', materials[i].name);
-                    var label = $('<label>').text(materials[i].name + " | in " + materials[i].count + " projects");
-                    label.attr('for', materials[i].name);
-                    var li = $('<li>').append(checkbox, label);
-                    list.append(li);
-                }
-            };
+        function populate_materials() {
+            var list = $('#materials');
+            for(var i = 0; i < materials.length; i++) {
+                var checkbox = $('<input>').attr('type', 'checkbox');
+                checkbox.val(materials[i].name);
+                checkbox.attr('id', materials[i].name);
+                var label = $('<label>').text(materials[i].name + " | in " + materials[i].count + " projects");
+                label.attr('for', materials[i].name);
+                var li = $('<li>').append(checkbox, label);
+                list.append(li);
+            }
+        };
 
         function addItem() {
             var item = $(this).val();
