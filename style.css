@@ -115,3 +115,8 @@ md-input-container:not(.md-input-invalid).md-input-focused .md-input {
 md-input-container:not(.md-input-invalid).md-input-focused .md-input label{
     color: #F57C00;
 }
+
+md-card-actions{
+    background-color: #FFA726;
+    color:white;
+}
