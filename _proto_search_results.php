@@ -6,11 +6,11 @@ $search = $_POST['search'];
 //get a list of projects from a list of tools and sort by ratio of tools owned over tools required
 $search_by_tool = "
 SELECT 
-  p.project_id, p.project_name AS `project`, 
+  p.project_id, p.project_name, 
   p.project_photo,
   GROUP_CONCAT(t.tool_name SEPARATOR ', ') AS `owned_tools`, 
-  COUNT(t.tool_id) AS `ownCount`, 
-  p.tool_count AS `reqCount`, 
+  COUNT(t.tool_id) AS `own_count`, 
+  p.tool_count AS `req_count`, 
   COUNT(t.tool_id) / p.tool_count AS `score`
 FROM `map_tp` AS `map`
 JOIN `projects` AS `p`
