@@ -115,9 +115,11 @@ md-card-actions{
     background-color: #FFA726;
     color:white;
 }
+
 project-card {
     width:100%;
 }
+
 a:link{
     color:white;
     text-decoration:none;
@@ -145,4 +147,25 @@ md-card md-card-actions:not(.layout-column) .md-button:not(.md-icon-button){
 .viewProjectToolList li{
     list-style-type: disc;
     display:list-item;
+}
+
+.md-chips md-chip{
+    background-color:#F57C00;
+    color:white;
+}
+
+md-input-container:not(.md-input-invalid).md-input-focused label{
+    color:#F57C00;
+}
+
+.md-chips .md-chip-input-container, .md-chip-input-container input:not([type]){
+    width: 100%;
+}
+
+md-progress-linear .md-bar{
+    background-color:#00BFA5;
+}
+
+md-progress-linear .md-container{
+    background-color:#FFE0B2;
 }

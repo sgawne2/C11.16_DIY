@@ -37,13 +37,13 @@ function projectCardController($http){
     //         own_count: null,
     //         score: null
     //     }];
-    //
-    //
-    //     $http.get("search_results.php")
-    //         .then(function(response) {
-    //             ctrl.projects = response.data;
-    //         });
-    //
+
+
+        // $http.get("search_results.php")
+        //     .then(function(response) {
+        //         ctrl.projects = response.data;
+        //     });
+
 
 }
 

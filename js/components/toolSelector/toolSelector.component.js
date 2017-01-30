@@ -4,7 +4,7 @@ function toolSelectorController(){
     ctrl.tools = [{number: 1}];
 
     ctrl.decrement = function(index){
-        if (ctrl.tools[index].number > 0){
+        if (ctrl.tools[index].number > 1){
             ctrl.tools[index].number--;
         }
     };
