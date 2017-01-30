@@ -8,6 +8,11 @@
             <p>{{project.project_description}}</p>
         </md-card-content>
 
+        <md-card-content>
+            <p><b>Relevance</b></p>
+                <md-progress-linear md-mode="determinate" value="{{ (project.own_count/project.req_count)*100 }}"></md-progress-linear>
+        </md-card-content>
+
         <md-card-actions layout="row" layout-align="center center">
             <md-button><a href="view_project.php?pid={{ project.project_id }}">View Project</a></md-button>
         </md-card-actions>
