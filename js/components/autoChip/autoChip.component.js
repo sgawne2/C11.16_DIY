@@ -15,6 +15,17 @@ function chipController() {
         ctrl.onResult({str: queryStr});
         return current;
     };
+    ctrl.remove = function() {
+        if (ctrl.toolObjs.length === 0) {
+            var queryStr = "";
+        } else {
+            queryStr = '"' + ctrl.toolObjs[0].name + '"';
+            for (var i = 1; i < ctrl.toolObjs.length; i++) {
+                queryStr += ', "' + ctrl.toolObjs[i].name + '"';
+            }
+        }
+        ctrl.onResult({str: queryStr});
+    }
 }
 
 angular.module('diyApp').component('autoChip', {
