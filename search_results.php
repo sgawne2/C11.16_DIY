@@ -1,7 +1,10 @@
 <?php
 require('./db/mysql_connect.php');
 
+$_POST = json_decode(file_get_contents('php://input'), true);
+
 $search = $_POST['search'];
+//print($_GET['search']);
 
 //get a list of projects from a list of tools and sort by ratio of tools owned over tools required
 $search_by_tool = "
@@ -17,6 +20,7 @@ JOIN `projects` AS `p`
 	ON p.project_id = map.project_id
 JOIN `tools` AS `t`
 	ON t.tool_id = map.tool_id
+WHERE t.tool_name IN (".$search.")
 GROUP BY p.project_id
 ORDER BY `score` DESC
 ";

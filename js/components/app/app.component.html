@@ -1,3 +1,10 @@
 <div class="container">
+    <!--search bar-->
+    <auto-chip on-result="$ctrl.getResult(str)"></auto-chip>
+
+    <!--main content-->
+    <div class="main" layout="row" flex="80" style="margin:0 auto;">
+        <project-card projects="$ctrl.data"></project-card>
+    </div>
     <ng-transclude></ng-transclude>
 </div>
