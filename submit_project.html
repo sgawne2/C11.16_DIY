@@ -1,3 +1,8 @@
+
+<?php
+    session_start();
+?>
+
 <html lang="en" >
 <head>
     <!--Angular Material Style Sheets-->
@@ -5,6 +10,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- include the jQuery library as we are using jQuery functions -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
     <!-- Angular Material requires Angular.js Libraries -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
@@ -19,6 +27,28 @@
     <script src="js/diyApp/diyApp.js"></script>
     <script src="js/components/addStep/addStep.component.js"></script>
     <script src="js/components/toolSelector/toolSelector.component.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $(".md-raised").click(function() {
+                console.log("inside click handler");
+                $.ajax({
+                    data:       $("#project_name_only").serialize(),  // Serialize grabs the text from a form element
+                    dataType:   'text',
+                    url:        './db/insert_project.php',
+                    method:     'post',
+                    success: function(result) {
+                        console.log("success!");
+                        console.log(result);    // result returns anything in html, anything that gets printed
+                    },
+                    error: function() {
+                        console.log("failure");
+                        console.log(result);
+                    }
+                })
+            });
+        });
+    </script>
 </head>
 <body ng-app="diyApp">
 
@@ -42,11 +72,14 @@
 
 <div layout="column" style="height:5%;"></div>
 
+
 <!--Project Title Input-->
-<md-input-container class="add-form-input" layout="row" layout-align="center" flex="40" flex-offset="30">
-    <label for="add-todo">Project Title</label>
-    <input id="add-todo" type="text">
-</md-input-container>
+<form id="project_name_only">
+    <md-input-container class="add-form-input" layout="row" layout-align="center" flex="40" flex-offset="30">
+        <label for="add-todo">Project Title</label>
+        <input id="add-todo" type="text" name = "proj_name">
+    </md-input-container>
+</form>
 
 <div layout="column" style="height:5%;"></div>
 
