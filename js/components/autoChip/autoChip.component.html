@@ -1,0 +1,10 @@
+<md-content md-theme="input" layout="column" layout-padding>
+        <md-chips  style="padding-bottom: 0; margin-bottom: 0" ng-model="$ctrl.toolObjs" id="searchBar"  md-transform-chip="$ctrl.newTool($chip)">
+            <md-chip-template>
+        <span>
+            {{$chip.name}}
+        </span>
+            </md-chip-template>
+        </md-chips>
+        <!--<md-icon class="material-icons">&#xE8B6;</md-icon>-->
+</md-content>

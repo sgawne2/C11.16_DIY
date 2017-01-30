@@ -56,11 +56,6 @@ li{
     height: 100%;
 }
 
-.box{
-    background-color:#009688;
-    color: white;
-}
-
 .headerImage{
     background-image: url("images/tool-box.jpg");
     margin:0;
@@ -119,4 +114,35 @@ md-input-container:not(.md-input-invalid).md-input-focused .md-input label{
 md-card-actions{
     background-color: #FFA726;
     color:white;
+}
+project-card {
+    width:100%;
+}
+a:link{
+    color:white;
+    text-decoration:none;
+}
+
+a:hover{
+    color:white;
+    text-decoration:none;
+}
+
+a:visited{
+    color:white;
+    text-decoration:none;
+}
+
+a:active{
+    color:white;
+    text-decoration:none;
+}
+
+md-card md-card-actions:not(.layout-column) .md-button:not(.md-icon-button){
+    width:100%;
+}
+
+ul li{
+    list-style-type: disc;
+    display:list-item;
 }
