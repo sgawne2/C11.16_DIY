@@ -48,6 +48,14 @@
     <input id="add-todo" type="text">
 </md-input-container>
 
+<div layout="column" style="height:5%;"></div>
+
+<!--Project Description Input-->
+<md-input-container flex="40" flex-offset="30" layout="row">
+    <label>Short Project Description</label>
+    <textarea ng-model="step.description"></textarea>
+</md-input-container>
+
 <!--Angular Project Steps Component-->
 <add-steps></add-steps>
 

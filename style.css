@@ -140,7 +140,7 @@ md-card md-card-actions:not(.layout-column) .md-button:not(.md-icon-button){
     width:100%;
 }
 
-ul li{
+.viewProjectToolList li{
     list-style-type: disc;
     display:list-item;
 }

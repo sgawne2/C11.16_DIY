@@ -19,6 +19,7 @@
     <script src="js/diyApp/diyApp.js"></script>
     <script src="js/components/addStep/addStep.component.js"></script>
     <script src="js/components/toolSelector/toolSelector.component.js"></script>
+    <script src="js/components/viewProject/viewProject.component.js"></script>
 </head>
 <body ng-app="diyApp">
 
@@ -40,67 +41,8 @@
     </div>
 </md-toolbar>
 
-<div layout="column" style="height:5%;"></div>
-
-<!--main content-->
-
-
-    <!--<md-card flex="70" flex-offset="15">-->
-        <!--<div style="background-color: #00BFA5; color:white; width:100%">-->
-            <!--<h2>CPU Drone</h2>-->
-        <!--</div>-->
-
-        <!--<md-card-content>-->
-            <!--<p style="line-height: 140%">This is a short description of the project. Nunc nisi dolor, hendrerit mollis elit vel, rutrum congue diam. Donec eget felis ullamcorper, pellentesque magna in, laoreet tortor. Aliquam commodo suscipit libero id ultrices. Mauris lectus lorem, accumsan ac hendrerit vitae, luctus in orci. Aenean sit amet dui mi. </p>-->
-            <!--<h3>Required Tools</h3>-->
-
-                <!--<ul>-->
-                    <!--<li>efgfd</li>-->
-                    <!--<li>efgfd</li>-->
-                    <!--<li>efgfd</li>-->
-                    <!--<li>efgfd</li>-->
-                    <!--<li>efgfd</li>-->
-                    <!--<li>efgfd</li>-->
-                    <!--<li>efgfd</li>-->
-                    <!--<li>efgfd</li>-->
-                    <!--<li>efgfd</li>-->
-                    <!--<li>efgfd</li>-->
-                    <!--<li>efgfd</li>-->
-                    <!--<li>efgfd</li>-->
-
-                <!--</ul>-->
-
-        <!--</md-card-content>-->
-
-    <!--</md-card>-->
-
-<div flex="70" flex-offset="15" style="border-top:none; box-shadow: 0px 1px 6px 0px #bababa; border-bottom-right-radius:3px;
-border-bottom-left-radius:3px;">
-    <div style="background-color: #00BFA5; color:white; width:100%; height:70px;line-height: 70px;">
-        <h2 style="margin:0">CPU Drone</h2>
-    </div>
-    <div style="border-top:none; padding:15px; box-shadow: 0px 1px 1px 0px #c2c2c2; line-height: 140%">
-        <p>This is a short description of the project. Nunc nisi dolor, hendrerit mollis elit vel, rutrum congue diam. Donec eget felis ullamcorper, pellentesque magna in, laoreet tortor. Aliquam commodo suscipit libero id ultrices. Mauris lectus lorem, accumsan ac hendrerit vitae, luctus in orci. Aenean sit amet dui mi. </p>
-        <h3>Required Tools</h3>
-        <ul>
-            <li>Hammer</li>
-            <li>Hammer</li>
-            <li>Hammer</li>
-            <li>Hammer</li>
-            <li>Hammer</li>
-            <li>Hammer</li>
-            <li>Hammer</li>
-            <li>Hammer</li>
-        </ul>
-    </div>
-</div>
-
-
-
-
-
-
-
+<!--Angular View Project Component-->
+<view-project></view-project>
 
 <!--side nav-->
 <div ng-controller="AppCtrl" layout="column" ng-cloak>
