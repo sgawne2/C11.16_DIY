@@ -23,6 +23,8 @@
     <script src="js/diyApp/diyApp.js"></script>
     <script src="js/components/addStep/addStep.component.js"></script>
     <script src="js/components/autoChip/autoChip.component.js"></script>
+    <script src="js/components/projectCard/projectCard.component.js"></script>
+
 </head>
 <body ng-app="diyApp">
 
@@ -34,11 +36,9 @@
         <md-button ng-click="toggleLeft()"><md-icon md-font-set="material-icons">dehaze</md-icon></md-button>
 
 
-
         <!--<div class="logo"></div>-->
-        <h2><a href="index.html"><span class="boldText">&nbsp;&nbsp;App</span>Gyver</a></h2>
+        <h2><a href="index.html">Mac<span class="boldText">DIY</span>ver</a></h2>
         <span flex=""></span>
-
 
         <md-button><a href="submit_project.html">Submit Project</a></md-button>
         <md-button>My Profile</md-button>
@@ -53,15 +53,7 @@
 
 <!--main content-->
 <div class="main" layout="row" flex="80" style="margin:0 auto;">
-    <section ng-controller="GridCtrl" layout-fill layout="column">
-
-        <div ng-repeat="row in grid" flex layout="row">
-            <div ng-repeat="item in row" flex layout="row" layout-align="center center" layout-margin class="box">
-                <h1 class="md-title">{{ item }}</h1>
-            </div>
-        </div>
-
-    </section>
+    <project-card></project-card>
 </div>
 
 <!--side nav-->
@@ -73,7 +65,7 @@
                 <h1 class="md-toolbar-tools" style="background-color: #00BFA5;">Pick the tools you have!</h1>
             </md-toolbar>
             <md-content layout-margin>
-                <p>Select you category of interest and then check the items that you have to get your project started</p>
+                <p>Select your category of interest and then check the items that you have to get your project started</p>
 
                 <!--left side tool category list-->
                 <button class="accordion"
@@ -146,42 +138,6 @@
         </md-sidenav>
     </section>
 </div>
-
-
-
-<!--left side tool list-->
-<!--<div layout="row" flex style="overflow: scroll;">-->
-<!--<div class="checkbox" layout="row" flex="20">-->
-<!--<ul>-->
-<!--<li><md-checkbox [checked]="todo.completed">Hammer</md-checkbox></li>-->
-<!--<li><md-checkbox [checked]="todo.completed">Nails</md-checkbox></li>-->
-<!--<li><md-checkbox [checked]="todo.completed">Screwdriver</md-checkbox></li>-->
-<!--<li><md-checkbox [checked]="todo.completed">Saw</md-checkbox></li>-->
-<!--<li><md-checkbox [checked]="todo.completed">X-acto Blade</md-checkbox></li>-->
-<!--<li><md-checkbox [checked]="todo.completed">Screws</md-checkbox></li>-->
-<!--<li><md-checkbox [checked]="todo.completed">Crowbar</md-checkbox></li>-->
-<!--<li><md-checkbox [checked]="todo.completed">Wrench</md-checkbox></li>-->
-<!--<li><md-checkbox [checked]="todo.completed">Bansaw</md-checkbox></li>-->
-<!--<li><md-checkbox [checked]="todo.completed">Allen Wrench</md-checkbox></li>-->
-<!--<li><md-checkbox [checked]="todo.completed">Monkey Wrench</md-checkbox></li>-->
-<!--<li><md-checkbox [checked]="todo.completed">Wood</md-checkbox></li>-->
-<!--<li><md-checkbox [checked]="todo.completed">Plumbing Pipes</md-checkbox></li>-->
-<!--<li><md-checkbox [checked]="todo.completed">Electrical Wires</md-checkbox></li>-->
-<!--</ul>-->
-<!--</div>-->
-
-<!--<div class="main" layout="row" flex="80">-->
-<!--<section ng-controller="GridCtrl" layout-fill layout="column">-->
-
-<!--<div ng-repeat="row in grid" flex layout="row">-->
-<!--<div ng-repeat="item in row" flex layout="row" layout-align="center center" layout-margin class="box">-->
-<!--<h1 class="md-title">{{ item }}</h1>-->
-<!--</div>-->
-<!--</div>-->
-
-<!--</section>-->
-<!--</div>-->
-<!--</div>-->
 <script src="js/accordionPanel.js"></script>
 
 </body>

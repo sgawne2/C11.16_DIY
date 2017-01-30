@@ -45,12 +45,12 @@ $result = mysqli_query($conn, $query);
                     tbody.html('');
                     for (var i = 0; i < response.length; i++) {
                         var tr = $('<tr>');
-                        tr.append( $('<td>').text(response[i].project) );
+                        tr.append( $('<td>').text(response[i].project_name) );
 
                         var score = parseFloat(response[i].score) * 100;
                         tr.append( $('<td>').text(score + "%") );
 
-                        tr.append( $('<td>').text(response[i].ownCount + " of " + response[i].reqCount) );
+                        tr.append( $('<td>').text(response[i].own_count + " of " + response[i].req_count) );
 
                         var photo = $('<img>').attr('src', './db/photos/' + response[i].project_photo);
                         photo.css({'height': '200px'});

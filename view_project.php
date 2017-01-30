@@ -1,7 +1,48 @@
+<?php
+require('./db/mysql_connect.php');
+$pid = $_GET['pid'];
+//get the tools for a specific project id
+$tools_pid = "
+SELECT p.project_id, p.project_name, t.tool_name, p.project_photo, p.project_description
+FROM `map_tp` AS `map`
+JOIN `projects` AS `p`
+	ON p.project_id = map.project_id
+JOIN `tools` AS `t`
+	ON t.tool_id = map.tool_id
+WHERE p.project_id = " . $pid;
+
+//get the steps for a specific project id
+$steps_pid = "
+SELECT p.project_name, i.step_number, i.step_text
+FROM `p_instructions` AS `i`
+JOIN `projects` AS `p`
+	ON i.project_id = p.project_id
+WHERE p.project_id = " . $pid;
+
+$query = $steps_pid;
+$result = mysqli_query($conn, $query);
+if( mysqli_num_rows($result) ) {
+    $output = [];
+    while( $row = mysqli_fetch_assoc($result) ) {
+        $output[] = $row;
+    }
+    $steps = $output;
+}
+
+$query = $tools_pid;
+$result = mysqli_query($conn, $query);
+if( mysqli_num_rows($result) ) {
+    $output = [];
+    while( $row = mysqli_fetch_assoc($result) ) {
+        $output[] = $row;
+    }
+    $tools = $output;
+}
+?>
 <html lang="en" >
 <head>
     <!--Angular Material Style Sheets-->
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -42,20 +83,54 @@
 
 <div layout="column" style="height:5%;"></div>
 
-<!--Project Title Input-->
-<md-input-container class="add-form-input" layout="row" layout-align="center" flex="40" flex-offset="30">
-    <label for="add-todo">Project Title</label>
-    <input id="add-todo" type="text">
-</md-input-container>
+<!--main content-->
 
-<!--Angular Project Steps Component-->
-<add-steps></add-steps>
 
-<!--Angular Tool Selector Component-->
-<tool-selector></tool-selector>
+    <!--<md-card flex="70" flex-offset="15">-->
+        <!--<div style="background-color: #00BFA5; color:white; width:100%">-->
+            <!--<h2>CPU Drone</h2>-->
+        <!--</div>-->
 
-<div layout="row" layout-align="end start" flex="90">
-    <md-button class="md-raised md-warn" layout-align="right" style="background-color: #00BFA5">Submit</md-button>
+        <!--<md-card-content>-->
+            <!--<p style="line-height: 140%">This is a short description of the project. Nunc nisi dolor, hendrerit mollis elit vel, rutrum congue diam. Donec eget felis ullamcorper, pellentesque magna in, laoreet tortor. Aliquam commodo suscipit libero id ultrices. Mauris lectus lorem, accumsan ac hendrerit vitae, luctus in orci. Aenean sit amet dui mi. </p>-->
+            <!--<h3>Required Tools</h3>-->
+
+                <!--<ul>-->
+                    <!--<li>efgfd</li>-->
+                    <!--<li>efgfd</li>-->
+                    <!--<li>efgfd</li>-->
+                    <!--<li>efgfd</li>-->
+                    <!--<li>efgfd</li>-->
+                    <!--<li>efgfd</li>-->
+                    <!--<li>efgfd</li>-->
+                    <!--<li>efgfd</li>-->
+                    <!--<li>efgfd</li>-->
+                    <!--<li>efgfd</li>-->
+                    <!--<li>efgfd</li>-->
+                    <!--<li>efgfd</li>-->
+
+                <!--</ul>-->
+
+        <!--</md-card-content>-->
+
+    <!--</md-card>-->
+
+<div flex="70" flex-offset="15" style="border-top:none; box-shadow: 0px 1px 6px 0px #bababa; border-bottom-right-radius:3px;
+border-bottom-left-radius:3px;">
+    <div style="background-color: #00BFA5; color:white; width:100%; height:70px;line-height: 70px;">
+        <h2 style="margin:0"><?= $tools[0]['project_name']; ?></h2>
+    </div>
+    <div style="border-top:none; padding:15px; box-shadow: 0px 1px 1px 0px #c2c2c2; line-height: 140%">
+        <p><?= $tools[0]['project_description']; ?></p>
+        <h3>Required Tools</h3>
+        <ul>
+            <?php
+                foreach($tools as $tool) {
+                    echo "<li>" . $tool['tool_name'] . "</li>";
+                }
+            ?>
+        </ul>
+    </div>
 </div>
 
 <!--side nav-->

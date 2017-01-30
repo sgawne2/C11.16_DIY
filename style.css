@@ -36,6 +36,7 @@ li{
     position:fixed;
     top:0;
     box-shadow: 0 1px 10px 0 lightslategray;
+    z-index: 1000;
 }
 
 .boldText{
@@ -51,14 +52,8 @@ li{
 }
 
 .main{
-    background-color:#FFF8E1;
     box-sizing: border-box;
     height: 100%;
-}
-
-.box{
-    background-color:#009688;
-    color: white;
 }
 
 .headerImage{
@@ -93,43 +88,61 @@ md-checkbox.md-checked.orangeCheckBox .md-icon {
     background-color: #F57C00;
 }
 
-/* Tool chips */
-.chipsdemoBasicUsage .errors {
-    font-size: 12px;
-    color: #dd2c00;
-    margin-top: 10px; }
-
-.chipsdemoBasicUsage .custom-chips md-chip {
-    position: relative; }
-.chipsdemoBasicUsage .custom-chips md-chip .md-chip-remove-container {
-    position: absolute;
-    right: 4px;
-    top: 4px;
-    margin-right: 0;
-    height: 24px; }
-.chipsdemoBasicUsage .custom-chips md-chip .md-chip-remove-container button.vegetablechip {
-    position: relative;
-    height: 24px;
-    width: 24px;
-    line-height: 30px;
+input[type=text]#toolNumberSelector{
+    outline: none;
+    border: 1px solid #ebebeb;
+    box-shadow: 0 2px 6px #d4d4d4;
+    width:40px;
+    height:35px;
+    position:relative;
+    top: 20px;
     text-align: center;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 50%;
-    border: none;
-    box-shadow: none;
-    padding: 0;
-    margin: 0;
-    transition: background 0.15s linear;
-    display: block; }
-.chipsdemoBasicUsage .custom-chips md-chip .md-chip-remove-container button.vegetablechip md-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%, -50%, 0) scale(0.7);
-    color: white;
-    fill: white; }
-.chipsdemoBasicUsage .custom-chips md-chip .md-chip-remove-container button.vegetablechip:hover, .chipsdemoBasicUsage .custom-chips md-chip .md-chip-remove-container button.vegetablechip:focus {
-    background: rgba(255, 0, 0, 0.8); }
+}
 
-.chipsdemoBasicUsage .custom-chips md-chips-wrap.md-removable md-chip md-chip-template {
-    padding-right: 5px; }
+h2{
+    text-align:center;
+}
+
+md-input-container:not(.md-input-invalid).md-input-focused .md-input {
+    border-color: #F57C00;
+}
+
+md-input-container:not(.md-input-invalid).md-input-focused .md-input label{
+    color: #F57C00;
+}
+
+md-card-actions{
+    background-color: #FFA726;
+    color:white;
+}
+project-card {
+    width:100%;
+}
+a:link{
+    color:white;
+    text-decoration:none;
+}
+
+a:hover{
+    color:white;
+    text-decoration:none;
+}
+
+a:visited{
+    color:white;
+    text-decoration:none;
+}
+
+a:active{
+    color:white;
+    text-decoration:none;
+}
+
+md-card md-card-actions:not(.layout-column) .md-button:not(.md-icon-button){
+    width:100%;
+}
+
+ul li{
+    list-style-type: disc;
+    display:list-item;
+}
