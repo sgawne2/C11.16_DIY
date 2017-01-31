@@ -9,6 +9,7 @@
 
     /* Required for INSERT (1 of 4) into "Projects" table *********************************************/
     $proj_name = addslashes($_POST["proj_name"]);
+    $proj_descrip = addslashes($_POST["proj_descrip"]);
 //    $main_photo = addslashes($_POST["main_photo"]);
 
         /* Get tool_count, because it also goes into "projects" table */
@@ -72,7 +73,7 @@
     /* Required for INSERT (2 of 4) into "p_instructions" table END ***************************************/
 
 
-    // MINIMUM FIELDS CHECK to proceed:
+    // Execute MINIMUM FIELDS CHECK before proceeding to database insertions:
     if ( ($proj_name === "" || $tool_count < 1) || (count($steps_array) < 1 || $tool_qty_negativeORzero === true) ) {
         print("You have not entered in all required fields or tool quantity is not a positive number");
     }
@@ -88,9 +89,10 @@
     print("\n tool_qty_array: "); print_r($tool_qty_array);
 
     $query_proj = "INSERT INTO `projects` SET
-                    `project_name` = '$proj_name', 
-                    `tool_count` = '$tool_count' ";
-//,                 `project_photo` = '$main_photo' ";
+        `project_name` = '$proj_name',
+        `project_description` = '$proj_descrip',
+        `tool_count` = '$tool_count' ";
+//,     `project_photo` = '$main_photo' ";
 
     print("\n" . $query_proj . "\n");
     $result_proj = mysqli_query($conn, $query_proj);    // Insert action
