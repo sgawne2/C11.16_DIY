@@ -1,6 +1,9 @@
 function appController($http) {
     var ctrl = this;
+    // ctrl.data = [
+    // ];
     ctrl.data = [{
+        project_id: 4,
         project_name: 'CPU Drone',
         project_photo: 'images/drone.jpg',
         project_description: 'This is a drone.',
@@ -10,6 +13,7 @@ function appController($http) {
         score: null
     },
     {
+        project_id: 5,
         project_name: 'Industrial Pipe Lamp',
         project_photo: 'images/lamp.jpg',
         project_description: 'This is a pipe lamp thing.',
@@ -19,6 +23,7 @@ function appController($http) {
         score: null
     },
     {
+        project_id: 6,
         project_name: 'Homemade Lava Lamp',
         project_photo: 'images/lava_lamp.jpg',
         project_description: 'Aww yeaaa.',
@@ -28,6 +33,7 @@ function appController($http) {
         score: null
     },
     {
+        project_id: 7,
         project_name: 'Broken Glass Project',
         project_photo: 'images/broken_glass.jpg',
         project_description: 'This project uses broken glass.',
