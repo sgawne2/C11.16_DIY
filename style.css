@@ -169,3 +169,7 @@ md-progress-linear .md-bar{
 md-progress-linear .md-container{
     background-color:#FFE0B2;
 }
+
+md-progress-circular path{
+    stroke: #FFA726;
+}
