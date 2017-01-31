@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" type="text/css" href="style.css">
 
-    <!-- Google Analytics tracking code -->
+    <!-- Google Analytics tracking code -VL -->
     <?php include_once("google_analytics.php") ?>
 
     <!-- Angular Material requires Angular.js Libraries -->
@@ -35,6 +35,37 @@
 </head>
 <body ng-app="diyApp">
 
+<!-- Facebook share and like button templates -VL -->
+    <!-- FB "Send" button -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+    <!-- FB "Like and Share" buttons -VL -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+    <!-- FB "Share w/# of likes" button -VL -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
 <!--sticky header-->
 <md-toolbar layout="column" ng-controller="AppCtrl">
     <div class="md-toolbar-tools">
@@ -44,8 +75,18 @@
 
 
         <!--<div class="logo"></div>-->
-        <h2><a href="index.html">Mac<span class="boldText">DIY</span>ver</a></h2>
+        <h2><a href="index.html">Mac<span class="boldText">DIY</span>ver</a>
+            <!-- Facebook Send button -->
+            <div class="fb-send" data-href="http://54.202.109.201/C11.16_DIY"></div>
+
+            <!-- Facebook Like and Share buttons -->
+            <div class="fb-like" data-href="http://54.202.109.201/C11.16_DIY" data-width="10" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+
+            <!-- Facebook Send & Number of Likes button -->
+            <div class="fb-share-button" data-href="http://54.202.109.201/C11.16_DIY" data-layout="button_count" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F54.202.109.201%2FC11.16_DIY&amp;src=sdkpreparse">Share</a></div>
+        </h2>
         <span flex=""></span>
+
 
         <md-button><a href="submit_project.php">Submit Project</a></md-button>
         <md-button id="profile-btn" style="display:none">My Profile</md-button>
