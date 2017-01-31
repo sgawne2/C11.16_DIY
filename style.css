@@ -11,11 +11,24 @@ h2 > a{
 
 .orangeText{
     /*color:#FFE0B2;*/
-    color:white;
+    /*color:#F57C00;*/
+    color:#FF6D00;
 }
 
 .tealText{
     color:#B4DFD4;
+}
+
+.headerImage > h2 > a{
+    font-size:100px;
+    line-height:50vh;
+}
+
+.headerImage > h1{
+    text-align:center;
+    color:#FF6D00;
+    position:relative;
+    bottom:20vh;
 }
 
 button.accordion {
