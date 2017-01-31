@@ -26,12 +26,9 @@ function chipController() {
         }
         ctrl.onResult({str: queryStr});
     };
-    ctrl.querySearch = function() {
-        var results = {
+    ctrl.querySearch = [{
             name: 'test'
-        };
-        return results;
-    }
+        }];
 }
 
 angular.module('diyApp').component('autoChip', {
