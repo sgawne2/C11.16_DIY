@@ -1,3 +1,9 @@
+<md-content layout-padding="">
+<div layout="row" layout-sm="column" layout-align="space-around">
+    <md-progress-circular md-mode="indeterminate" ng-if="$ctrl.isLoading"></md-progress-circular>
+</div>
+</md-content>
+
 <div class='md-padding' layout="row" layout-wrap>
     <md-card style="width: 30%; min-width:30%" ng-repeat="project in $ctrl.projects">
         <img ng-src="{{project.project_photo}}" class="md-card-image" alt="Washed Out" width="100%">

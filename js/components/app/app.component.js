@@ -38,6 +38,7 @@ function appController($http) {
     }];
 
     ctrl.getResult = function(string) {
+        ctrl.loading = true;
         $http({
             method: 'POST',
             data: {search: string},
@@ -45,10 +46,12 @@ function appController($http) {
         })
             .then(function(response) {
                 console.log(response);
+                ctrl.loading = false;
                 ctrl.data = response.data;
             });
     };
 
+    ctrl.loading = false;
 }
 
 angular.module('diyApp').component('app', {

@@ -25,6 +25,12 @@ function chipController() {
             }
         }
         ctrl.onResult({str: queryStr});
+    };
+    ctrl.querySearch = function() {
+        var results = {
+            name: 'test'
+        };
+        return results;
     }
 }
 
