@@ -35,7 +35,7 @@
                 $.ajax({
                     data:       $("#project_name_only").serialize(),  // Serialize grabs the text from a form element -VL
                     dataType:   'text',
-                    url:        './db/insert_project.php',
+                    url:        'db/insert_project.php',
                     method:     'post',
                     success: function(result) {
                         console.log("success!");
