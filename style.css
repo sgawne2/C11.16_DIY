@@ -19,6 +19,10 @@ h2 > a{
     color:#B4DFD4;
 }
 
+.darkTealText{
+    color: #00BFA5;
+}
+
 .headerImage > h2 > a{
     font-size:100px;
     line-height:50vh;
