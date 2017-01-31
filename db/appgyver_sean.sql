@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Jan 24, 2017 at 06:49 PM
+-- Generation Time: Jan 31, 2017 at 12:23 AM
 -- Server version: 5.5.49-log
 -- PHP Version: 5.6.24
 
@@ -23,49 +23,37 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `profiles`
+-- Table structure for table `map_tp`
 --
 
-CREATE TABLE IF NOT EXISTS `profiles` (
-  `id` int(10) unsigned NOT NULL,
-  `user_id` int(10) unsigned NOT NULL,
-  `name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `map_tp` (
+  `map_tp_id` int(10) unsigned NOT NULL,
+  `project_id` int(11) NOT NULL,
+  `tool_id` int(11) NOT NULL,
+  `tool_qty` smallint(11) DEFAULT NULL,
+  `tool_notes` varchar(200) DEFAULT NULL,
+  `project_category` enum('art','home','tech','') NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `profiles`
+-- Dumping data for table `map_tp`
 --
 
-INSERT INTO `profiles` (`id`, `user_id`, `name`) VALUES
-(0, 0, 'anonymous');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `projectinstructions`
---
-
-CREATE TABLE IF NOT EXISTS `projectinstructions` (
-  `ID` int(10) unsigned NOT NULL,
-  `projectID` int(11) NOT NULL,
-  `step` int(11) NOT NULL COMMENT 'step number of the project instructions',
-  `stepText` varchar(500) NOT NULL COMMENT 'the instructional text for each step',
-  `photo` varchar(300) NOT NULL COMMENT 'url of photo showing progress of step'
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `projectinstructions`
---
-
-INSERT INTO `projectinstructions` (`ID`, `projectID`, `step`, `stepText`, `photo`) VALUES
-(1, 1, 1, 'Wrap TP rolls in colored foil.', ''),
-(2, 1, 2, 'Glue TP rolls to cardboard.', ''),
-(3, 1, 3, 'Add macaroni as decoration.', ''),
-(4, 2, 1, 'Place tissue over top of TP roll.', ''),
-(5, 2, 2, 'Fasten tissue to TP roll with rubber band.', ''),
-(6, 2, 3, 'Place stuffing into "head" of ghost through the TP roll.', ''),
-(7, 2, 4, 'Draw face on ghost with black marker.', ''),
-(8, 2, 5, 'Remove TP roll and keep rubber band in place.', '');
+INSERT INTO `map_tp` (`map_tp_id`, `project_id`, `tool_id`, `tool_qty`, `tool_notes`, `project_category`) VALUES
+(1, 2, 1, 0, NULL, 'art'),
+(2, 2, 2, 0, NULL, 'art'),
+(3, 2, 3, 0, NULL, 'art'),
+(4, 3, 4, NULL, NULL, 'tech'),
+(5, 3, 5, NULL, NULL, 'tech'),
+(6, 5, 6, NULL, NULL, ''),
+(7, 5, 7, NULL, NULL, ''),
+(8, 6, 7, NULL, NULL, ''),
+(9, 6, 8, NULL, NULL, ''),
+(10, 6, 9, NULL, NULL, ''),
+(11, 7, 10, NULL, NULL, ''),
+(12, 7, 11, NULL, NULL, ''),
+(13, 4, 5, NULL, NULL, ''),
+(14, 6, 12, NULL, NULL, '');
 
 -- --------------------------------------------------------
 
@@ -74,22 +62,49 @@ INSERT INTO `projectinstructions` (`ID`, `projectID`, `step`, `stepText`, `photo
 --
 
 CREATE TABLE IF NOT EXISTS `projects` (
-  `ID` int(10) unsigned NOT NULL,
-  `Name` varchar(200) NOT NULL,
-  `toolCount` int(11) NOT NULL,
-  `photo` varchar(150) NOT NULL COMMENT 'a url to a photo showing the finished project',
-  `AuthorID` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=latin1;
+  `project_id` int(10) unsigned NOT NULL,
+  `project_name` varchar(200) DEFAULT NULL,
+  `project_description` varchar(100) NOT NULL,
+  `tool_count` smallint(5) unsigned DEFAULT NULL COMMENT 'number of tools that the project uses',
+  `project_photo` varchar(1000) DEFAULT NULL COMMENT 'a url to a photo showing the finished project',
+  `author_id` int(11) unsigned DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `projects`
 --
 
-INSERT INTO `projects` (`ID`, `Name`, `toolCount`, `photo`, `AuthorID`) VALUES
-(1, 'Toilet Paper Roll Art', 4, 'project-id-1.jpg', 0),
-(2, 'Tissue Ghost', 4, 'project-id-2.jpg', 0),
-(3, 'tissue mask', 2, 'project-id-3.jpg', 0),
-(99, 'drone made from garbage', 2, 'project-id-99.jpg', 0);
+INSERT INTO `projects` (`project_id`, `project_name`, `project_description`, `tool_count`, `project_photo`, `author_id`) VALUES
+(2, 'Tissue Ghost', 'make terrifying ghosts out of tissue', 3, 'db/photos/project-id-2.jpg', 0),
+(3, 'drone made from garbage', 'bother cats with this robot made from trash', 2, 'db/photos/project-id-99.jpg', 0),
+(4, 'CPU Fan Drone', 'seems legit', 700, 'images/drone.jpg', 0),
+(5, 'Industrial Pipe Lamp', 'This is a pipe lamp thing.', 2, 'images/lamp.jpg', 0),
+(6, 'Homemade Lava Lamp', 'Aww yeaaa.', 3, 'images/lava_lamp.jpg', 0),
+(7, 'Broken Glass Mural', 'Please buy my broken glass.\n', 2, 'images/broken_glass.jpg', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `p_instructions`
+--
+
+CREATE TABLE IF NOT EXISTS `p_instructions` (
+  `p_instructions_id` int(10) unsigned NOT NULL,
+  `project_id` int(11) unsigned DEFAULT NULL,
+  `step_number` tinyint(11) unsigned DEFAULT NULL COMMENT 'step number of the project instructions',
+  `step_name` varchar(100) DEFAULT NULL COMMENT 'optional field to help clarify instructions',
+  `step_text` varchar(500) DEFAULT NULL COMMENT 'the instructional text for each step',
+  `step_photo` varchar(1000) DEFAULT NULL COMMENT 'url of photo showing progress of step'
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `p_instructions`
+--
+
+INSERT INTO `p_instructions` (`p_instructions_id`, `project_id`, `step_number`, `step_name`, `step_text`, `step_photo`) VALUES
+(1, 2, 1, NULL, 'make a ball of tissue, place in single tissue', NULL),
+(2, 2, 2, NULL, 'tie with string', NULL),
+(3, 2, 3, NULL, 'draw ghost on tissue', NULL);
 
 -- --------------------------------------------------------
 
@@ -98,55 +113,27 @@ INSERT INTO `projects` (`ID`, `Name`, `toolCount`, `photo`, `AuthorID`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `tools` (
-  `ID` int(10) unsigned NOT NULL,
-  `Name` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=latin1;
+  `tool_id` int(10) unsigned NOT NULL,
+  `tool_name` varchar(100) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tools`
 --
 
-INSERT INTO `tools` (`ID`, `Name`) VALUES
-(1, 'toilet paper roll'),
-(2, 'glue'),
-(3, 'macaroni'),
-(4, 'tissue'),
-(5, 'rubber band'),
-(6, 'foil'),
-(7, 'marker'),
-(99, 'cpu fan'),
-(100, 'paper plate');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tools_projectsmap`
---
-
-CREATE TABLE IF NOT EXISTS `tools_projectsmap` (
-  `ID` int(10) unsigned NOT NULL,
-  `toolsID` int(11) NOT NULL,
-  `projectID` int(11) NOT NULL,
-  `category` enum('art','home','tech','') NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tools_projectsmap`
---
-
-INSERT INTO `tools_projectsmap` (`ID`, `toolsID`, `projectID`, `category`) VALUES
-(1, 1, 1, 'art'),
-(2, 1, 2, 'art'),
-(3, 2, 1, 'art'),
-(4, 3, 1, 'art'),
-(5, 4, 2, 'art'),
-(6, 5, 2, 'art'),
-(7, 6, 1, 'art'),
-(8, 7, 2, 'art'),
-(9, 4, 3, 'art'),
-(10, 7, 3, 'art'),
-(11, 99, 99, 'tech'),
-(12, 100, 99, 'tech');
+INSERT INTO `tools` (`tool_id`, `tool_name`) VALUES
+(10, 'broken glass'),
+(5, 'cpu fan'),
+(12, 'jar'),
+(7, 'lightbulb'),
+(2, 'marker'),
+(9, 'oil'),
+(4, 'paper plate'),
+(11, 'picture frame'),
+(6, 'pipe'),
+(3, 'string'),
+(1, 'tissue'),
+(8, 'wax');
 
 -- --------------------------------------------------------
 
@@ -155,80 +142,87 @@ INSERT INTO `tools_projectsmap` (`ID`, `toolsID`, `projectID`, `category`) VALUE
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `ID` int(10) unsigned NOT NULL,
-  `providerID` varchar(200) NOT NULL,
-  `provider` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `user_id` int(10) unsigned NOT NULL,
+  `provider_name` enum('google','facebook','','') NOT NULL COMMENT 'the google-provided id',
+  `provider_id` varchar(200) NOT NULL COMMENT 'the big unhuman readable id from google or facebook',
+  `user_name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `is_premium` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `provider_name`, `provider_id`, `user_name`, `email`, `is_premium`) VALUES
+(1, 'google', 'dddddddddd', 'test', 'sgawne2@gmail.com', 1),
+(2, 'facebook', '', '', '', 0),
+(3, '', 'ggggggggggg', '', '', 0);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `profiles`
+-- Indexes for table `map_tp`
 --
-ALTER TABLE `profiles`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `projectinstructions`
---
-ALTER TABLE `projectinstructions`
-  ADD PRIMARY KEY (`ID`);
+ALTER TABLE `map_tp`
+  ADD PRIMARY KEY (`map_tp_id`);
 
 --
 -- Indexes for table `projects`
 --
 ALTER TABLE `projects`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`project_id`);
+
+--
+-- Indexes for table `p_instructions`
+--
+ALTER TABLE `p_instructions`
+  ADD PRIMARY KEY (`p_instructions_id`);
 
 --
 -- Indexes for table `tools`
 --
 ALTER TABLE `tools`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `tools_projectsmap`
---
-ALTER TABLE `tools_projectsmap`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`tool_id`),
+  ADD UNIQUE KEY `tool_name` (`tool_name`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `profiles`
+-- AUTO_INCREMENT for table `map_tp`
 --
-ALTER TABLE `profiles`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `projectinstructions`
---
-ALTER TABLE `projectinstructions`
-  MODIFY `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+ALTER TABLE `map_tp`
+  MODIFY `map_tp_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=100;
+  MODIFY `project_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `p_instructions`
+--
+ALTER TABLE `p_instructions`
+  MODIFY `p_instructions_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `tools`
 --
 ALTER TABLE `tools`
-  MODIFY `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=101;
+  MODIFY `tool_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
--- AUTO_INCREMENT for table `tools_projectsmap`
+-- AUTO_INCREMENT for table `users`
 --
-ALTER TABLE `tools_projectsmap`
-  MODIFY `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+ALTER TABLE `users`
+  MODIFY `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

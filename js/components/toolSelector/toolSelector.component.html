@@ -1,8 +1,54 @@
-<div layout="column" class="chipsdemoBasicUsage">
+<div style="background-color:#fafafa">
+    <div layout="column" style="height:5%;"></div>
+    <h2 class="md-title">Enter The Tools Used</h2>
+    <md-list-item layout="row"
+                  layout-align="center"
+                  style="height:2vh;"
+                  ng-repeat="tool in $ctrl.tools">
 
-    <md-content class="md-padding" layout="column">
-        <h2 class="md-title">Enter the tool used</h2>
-        <md-chips ng-model="ctrl.fruitNames" readonly="ctrl.readonly" md-removable="ctrl.removable"></md-chips>
-    </md-content>
+        <md-button class="md-raised md-warn" ng-click="$ctrl.decrement($index)" style="margin:0; min-width:2%; height:20px; position:relative; top:20px"><i class="material-icons">remove</i></md-button>
+        <input type="text" id="toolNumberSelector" ng-model="tool.number" name = "t_qty[{{ $index+1 }}]">
+        <md-button class="md-raised md-warn" ng-click="$ctrl.increment($index)" style="margin:0; min-width:2%; height:20px; position:relative; top:20px"><i class="material-icons">add</i></md-button>
 
-</div>
+        <md-input-container class="add-form-input" style="width:50vw; position:relative; left:2vw;">
+            <label for="tool-used">Tool used</label>
+            <input id="tool-used" type="text" name="tools[{{ $index+1 }}]">
+        </md-input-container>
+
+        <div style="position:relative; left:25px">
+        <div class="button-row hide-xs" layout="row">
+            <md-button class="md-fab md-warn md-mini"
+                       ng-hide="editing"
+                       ng-click="$ctrl.add()">
+                <md-icon md-font-set="material-icons">add</md-icon>
+                <md-tooltip md-direction="top">
+                    Add
+                </md-tooltip>
+            </md-button>
+
+            <md-button class="md-fab md-mini"
+                       style="background-color: #404040"
+                       ng-disabled="editing"
+                       ng-click="$ctrl.delete(tool)">
+                <md-icon md-font-set="material-icons">delete</md-icon>
+                <md-tooltip md-direction="top">
+                    Delete
+                </md-tooltip>
+            </md-button>
+        </div>
+        </div>
+    </md-list-item>
+    <div layout="column" style="height:5%;"></div>
+    </div>
+<md-divider></md-divider>
+
+
+
+
+
+
+
+
+
+
+

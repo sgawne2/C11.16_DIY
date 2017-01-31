@@ -3,12 +3,12 @@ require('./db/mysql_connect.php');
 
 //get a list of tools by category, sorted by popularity
 $tools_popular = "
-SELECT t.name, COUNT(*) AS `count`
-FROM `tools_projectsmap` AS `map`
+SELECT t.tool_name, COUNT(*) AS `count`
+FROM `map_tp` AS `map`
 JOIN `tools` AS `t`
-	ON t.ID = map.toolsID
-WHERE map.category = 'art'    
-GROUP BY t.name
+	ON t.tool_id = map.tool_id
+WHERE map.project_category = 'art'    
+GROUP BY t.tool_name
 ORDER BY `count` DESC
 ";
 
@@ -45,17 +45,20 @@ $result = mysqli_query($conn, $query);
                     tbody.html('');
                     for (var i = 0; i < response.length; i++) {
                         var tr = $('<tr>');
-                        tr.append( $('<td>').text(response[i].project) );
+                        tr.append( $('<td>').text(response[i].project_name) );
 
                         var score = parseFloat(response[i].score) * 100;
                         tr.append( $('<td>').text(score + "%") );
 
-                        tr.append( $('<td>').text(response[i].ownCount + " of " + response[i].reqCount) );
+                        tr.append( $('<td>').text(response[i].own_count + " of " + response[i].req_count) );
 
-                        var photo = $('<img>').attr('src', './db/photos/' + response[i].photo);
-                        photo.css({'height': '100px'});
+                        var photo = $('<img>').attr('src', './db/photos/' + response[i].project_photo);
+                        photo.css({'height': '200px'});
 
-                        tr.append( $('<td>').html(photo) );
+                        var link = $('<a>').attr('href', '_proto_project.php?pid=' + response[i].project_id);
+                        link.append(photo);
+
+                        tr.append( $('<td>').html(link) );
                         tbody.append(tr);
                     }
                 }
@@ -87,10 +90,10 @@ $result = mysqli_query($conn, $query);
             var list = $('#materials');
             for(var i = 0; i < materials.length; i++) {
                 var checkbox = $('<input>').attr('type', 'checkbox');
-                checkbox.val(materials[i].name);
-                checkbox.attr('id', materials[i].name);
-                var label = $('<label>').text(materials[i].name);
-                label.attr('for', materials[i].name);
+                checkbox.val(materials[i].tool_name);
+                checkbox.attr('id', materials[i].tool_name);
+                var label = $('<label>').text(materials[i].tool_name);
+                label.attr('for', materials[i].tool_name);
                 var li = $('<li>').append(checkbox, label);
                 list.append(li);
             }

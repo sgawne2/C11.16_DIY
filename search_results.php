@@ -1,13 +1,16 @@
 <?php
 require('./db/mysql_connect.php');
 
+$_POST = json_decode(file_get_contents('php://input'), true);
+
 $search = $_POST['search'];
+//print($_GET['search']);
 
 //get a list of projects from a list of tools and sort by ratio of tools owned over tools required
 $search_by_tool = "
 SELECT 
   p.project_id, p.project_name, 
-  p.project_photo,
+  p.project_photo, p.project_description,
   GROUP_CONCAT(t.tool_name SEPARATOR ', ') AS `owned_tools`, 
   COUNT(t.tool_id) AS `own_count`, 
   p.tool_count AS `req_count`, 

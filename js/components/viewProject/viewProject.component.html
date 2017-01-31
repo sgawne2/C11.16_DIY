@@ -1,0 +1,33 @@
+<div layout="column" style="height:5%;"></div>
+
+<md-card flex="70" flex-offset="15" style="max-height:none">
+    <div style="background-color: #00BFA5; color:white; width:100%">
+        <h2>{{ $ctrl.project_info.project_name }}</h2>
+    </div>
+
+    <md-card-content>
+        <p style="line-height: 140%">{{ $ctrl.project_info.project_description }}</p>
+
+        <h3>Required Tools</h3>
+        <ul class="viewProjectToolList">
+            <li ng-repeat="tool in $ctrl.tools">{{ tool.name }}</li>
+        </ul>
+    </md-card-content>
+</md-card>
+
+
+<div class="container" ng-repeat="step in $ctrl.steps">
+    <div layout="column" style="height:5%;"></div>
+
+    <md-card flex="70" flex-offset="15" style="max-height:none">
+        <div style="background-color: #00BFA5; color:white; width:100%">
+            <h2>Step {{ step.step_number }}</h2>
+        </div>
+
+        <md-card-content>
+            <img ng-src="{{ step.step_photo }}" width="100%" style="margin:auto; display:block; border-radius:10px">
+            <p style="line-height: 140%">{{ step.description }}</p>
+        </md-card-content>
+
+    </md-card>
+</div>

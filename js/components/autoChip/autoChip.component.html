@@ -1,0 +1,26 @@
+<md-content md-theme="input" layout="column" layout-padding>
+        <md-chips
+                md-autocomplete-snap
+                style="padding-bottom: 0; margin-bottom: 0"
+                ng-model="$ctrl.toolObjs" id="searchBar"
+                md-transform-chip="$ctrl.newTool($chip)"
+                md-on-remove="$ctrl.remove()"
+                secondary-placeholder="enter another tool"
+        >
+            <md-autocomplete
+                    md-selected-item="selectedItem"
+                    md-search-text="searchText"
+                    md-items="item in $ctrl.querySearch"
+                    md-item-text="item.name"
+                    placeholder="Enter the tools you have"
+            >
+                <span md-highlight-text="searchText">{{item.name}}</span>
+            </md-autocomplete>
+            <md-chip-template>
+        <span>
+            {{$chip.name}}
+        </span>
+            </md-chip-template>
+        </md-chips>
+        <!--<md-icon class="material-icons">&#xE8B6;</md-icon>-->
+</md-content>

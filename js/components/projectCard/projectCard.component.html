@@ -1,0 +1,26 @@
+<md-content layout-padding="">
+<div layout="row" layout-sm="column" layout-align="space-around">
+    <md-progress-circular md-mode="indeterminate" ng-if="$ctrl.isLoading"></md-progress-circular>
+</div>
+</md-content>
+
+<div class='md-padding' layout="row" layout-wrap>
+    <md-card style="width: 30%; min-width:30%" ng-repeat="project in $ctrl.projects">
+        <img ng-src="{{project.project_photo}}" class="md-card-image" alt="Washed Out" width="100%">
+
+        <md-card-title-text><h2>{{project.project_name}}</h2></md-card-title-text>
+
+        <md-card-content>
+            <p>{{project.project_description}}</p>
+        </md-card-content>
+
+        <md-card-content>
+            <p><b>Relevance</b></p>
+                <md-progress-linear md-mode="determinate" value="{{ (project.own_count/project.req_count)*100 }}"></md-progress-linear>
+        </md-card-content>
+
+        <md-card-actions layout="row" layout-align="center center">
+            <md-button><a href="view_project.php?pid={{ project.project_id }}">View Project</a></md-button>
+        </md-card-actions>
+    </md-card>
+</div>

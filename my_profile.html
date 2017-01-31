@@ -28,6 +28,7 @@
     <script src="js/components/addStep/addStep.component.js"></script>
     <script src="js/components/autoChip/autoChip.component.js"></script>
     <script src="js/components/projectCard/projectCard.component.js"></script>
+    <script src="js/components/createProfile/createProfile.component.js"></script>
 
 </head>
 <body ng-app="diyApp">
@@ -77,17 +78,9 @@
     </div>
 </md-toolbar>
 
-<div class="headerImage"></div>
+<!--createProfile Angular Component-->
+<create-profile></create-profile>
 
-<!--&lt;!&ndash;search bar&ndash;&gt;-->
-<!--<auto-chip></auto-chip>-->
-
-<!--&lt;!&ndash;main content&ndash;&gt;-->
-<!--<div class="main" layout="row" flex="80" style="margin:0 auto;">-->
-    <!--<project-card></project-card>-->
-<!--</div>-->
-
-<app></app>
 
 <!--side nav-->
 <div ng-controller="AppCtrl" layout="column" ng-cloak>
