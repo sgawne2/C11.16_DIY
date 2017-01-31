@@ -31,11 +31,11 @@
         <md-button ng-click="toggleLeft()"><md-icon md-font-set="material-icons">dehaze</md-icon></md-button>
 
         <!--<div class="logo"></div>-->
-        <h2><a href="index.html">Mac<span class="boldText">DIY</span>ver</a></h2>
+        <h2><a href="index.php">Mac<span class="boldText">DIY</span>ver</a></h2>
         <span flex=""></span>
 
 
-        <md-button><a href="submit_project.html">Submit Project</a></md-button>
+        <md-button><a href="submit_project.php">Submit Project</a></md-button>
         <md-button>My Profile</md-button>
         <md-button>Login</md-button>
     </div>
