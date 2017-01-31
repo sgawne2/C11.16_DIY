@@ -6,7 +6,7 @@
 
     <md-input-container flex="70">
         <label>Description</label>
-        <textarea ng-model="step.description"></textarea>
+        <textarea ng-model="step.description" name="steps[{{ $index + 1 }}][text_fields][stp_txt]"></textarea>
     </md-input-container>
 
     <div class="button-row hide-xs" layout="row">
