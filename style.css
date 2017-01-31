@@ -1,3 +1,23 @@
+@font-face{
+    font-family: gotham-black;
+    src: url(fonts/gotham-black.ttf);
+}
+
+h2 > a{
+    font-family: gotham-black, Sans-Serif;
+    font-size:30px;
+    color:#FEC77E;
+}
+
+.orangeText{
+    /*color:#FFE0B2;*/
+    color:white;
+}
+
+.tealText{
+    color:#B4DFD4;
+}
+
 button.accordion {
     background-color: #eee;
     color: #444;
@@ -71,13 +91,25 @@ li{
     background-color:red;
 }
 
+/*.logo{*/
+    /*background-image: url("images/logo1.png");*/
+    /*height:50px;*/
+    /*width:200px;*/
+    /*position:relative;*/
+    /*background-repeat: no-repeat;*/
+    /*background-size:cover;*/
+/*}*/
+
+
 .logo{
-    background-image: url("images/logo.png");
-    height:50px;
-    width:50px;
+    background-image: url("images/logoBit.png");
+    height:35px;
+    width:30px;
     position:relative;
     background-repeat: no-repeat;
     background-size:cover;
+    bottom:5px;
+
 }
 
 .material-icons{
