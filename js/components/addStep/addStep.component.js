@@ -1,4 +1,4 @@
-function addStepController($scope){
+function addStepController(){
     var ctrl = this;
     ctrl.steps = [{}];
 

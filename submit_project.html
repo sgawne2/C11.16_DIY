@@ -73,14 +73,16 @@
 
 <div layout="column" style="height:5%;"></div>
 
-
 <!--Project Title Input-->
-<form id="project_name_only">
-    <md-input-container class="add-form-input" layout="row" layout-align="center" flex="40" flex-offset="30">
-        <label for="add-todo">Project Title</label>
+<md-list-item>
+<form id="project_name_only" flex="40" flex-offset="30" layout-align="center">
+    <md-input-container class="add-form-input" layout="row" layout-align="center">
+        <label for="add-todo">Project Title &nbsp;(Photo Required)</label>
         <input id="add-todo" type="text" name = "proj_name">
     </md-input-container>
 </form>
+    <add-photo></add-photo>
+</md-list-item>
 
 <div layout="column" style="height:5%;"></div>
 

@@ -222,3 +222,14 @@ md-progress-linear .md-container{
 md-progress-circular path{
     stroke: #FFA726;
 }
+
+add-photo{
+    position:relative;
+    bottom:20px;
+}
+
+add-photo img{
+    border-radius: 5px;
+    position:relative;
+    top:20px
+}
