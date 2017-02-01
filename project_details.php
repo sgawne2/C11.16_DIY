@@ -29,6 +29,12 @@ JOIN `projects` AS `p`
 	ON i.project_id = p.project_id
 WHERE p.project_id = " . $pid;
 
+//get comments for a specific project id -VL
+//$comments_pid = "
+//SELECT `comment_text`, `comment_date`
+//FROM `p_comments`
+//WHERE project_id= " . $pid;
+
 $output = [];
 
 $query = $project_info;
@@ -54,6 +60,16 @@ if( mysqli_num_rows($result) ) {
         $output['steps'][] = $row;
     }
 }
+
+// new query added by VL
+//$query = $comments_pid;
+//$result = mysqli_query($conn, $query);
+//if( mysqli_num_rows($result) ) {
+//    while( $row = mysqli_fetch_assoc($result) ) {
+//        print("comment: ");
+//        $output['comments'][] = $row;
+//    }
+//}
 
 echo json_encode($output);
 ?>

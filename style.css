@@ -173,3 +173,12 @@ md-progress-linear .md-container{
 md-progress-circular path{
     stroke: #FFA726;
 }
+
+/* temporary, delete once project comments have been angularized -VL */
+.comment_container {
+    align:      center;
+    height:     50vh;
+    width:      50vw;
+    border:     0.5em dashed purple;
+    background-color:   pink;
+}

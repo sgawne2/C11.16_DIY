@@ -11,10 +11,10 @@
 
     <link rel="stylesheet" type="text/css" href="style.css">
 
-    <!-- Google Analytics tracking code -->
+    <!-- Google Analytics tracking code -VL -->
     <?php include_once("google_analytics.php") ?>
 
-    <!-- include the jQuery library as we are using jQuery functions -VL -->
+    <!-- include the jQuery library as we are using jQuery functions (AJAX) -VL -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
     <!-- Angular Material requires Angular.js Libraries -->
@@ -36,7 +36,7 @@
             $(".md-raised").click(function() {
                 console.log("inside click handler");
                 $.ajax({
-                    data:       $("#project_name_only").serialize(),  // Serialize grabs the text from a form element -VL
+                    data:       $("#project_form").serialize(),  // Serialize grabs the text from a form element -VL
                     dataType:   'text',
                     url:        'db/insert_project.php',
                     method:     'post',
@@ -75,7 +75,7 @@
 
 <div layout="column" style="height:5%;"></div>
 
-<form id="project_name_only">
+<form id="project_form">
     <!--Project Title Input-->
     <md-input-container class="add-form-input" layout="row" layout-align="center" flex="40" flex-offset="30">
         <label for="add-todo">Project Title</label>

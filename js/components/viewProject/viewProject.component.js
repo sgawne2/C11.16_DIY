@@ -35,6 +35,7 @@ function viewProjectController($http, $location){
             ctrl.project_info = response.data.info;
             ctrl.tools = response.data.tools;
             ctrl.steps = response.data.steps;
+            // ctrl.comments = response.data.comments;
         });
 }
 

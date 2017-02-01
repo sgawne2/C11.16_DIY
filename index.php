@@ -12,6 +12,13 @@
     <!-- Google Analytics tracking code -VL -->
     <?php include_once("google_analytics.php") ?>
 
+    <!-- Pinterest -->
+    <script
+        type="text/javascript"
+        async defer
+        src="//assets.pinterest.com/js/pinit.js"
+    ></script>
+
     <!-- Angular Material requires Angular.js Libraries -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
@@ -84,6 +91,14 @@
 
             <!-- Facebook Send & Number of Likes button -->
             <div class="fb-share-button" data-href="http://54.202.109.201/C11.16_DIY" data-layout="button_count" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F54.202.109.201%2FC11.16_DIY&amp;src=sdkpreparse">Share</a></div>
+
+            <!-- Twitter button -->
+            <a href="https://twitter.com/intent/tweet?screen_name=vern080" class="twitter-mention-button" data-show-count="false">Tweet to @vern080</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+            <!-- Pinterest button -->
+            <a href="https://www.pinterest.com/pin/create/button/">
+                <img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" />
+            </a>
         </h2>
         <span flex=""></span>
 

@@ -6,6 +6,12 @@
 
     <link rel="stylesheet" type="text/css" href="style.css">
 
+    <!-- Google Analytics tracking code -VL -->
+    <?php include_once("google_analytics.php") ?>
+
+    <!-- include the jQuery library as we are using jQuery functions (AJAX) -VL -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
     <!-- Angular Material requires Angular.js Libraries -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
@@ -20,6 +26,31 @@
     <script src="js/components/addStep/addStep.component.js"></script>
     <script src="js/components/toolSelector/toolSelector.component.js"></script>
     <script src="js/components/viewProject/viewProject.component.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $(".md-raised").click(function() {
+                console.log("inside click handler");
+
+                $.ajax({
+                    data:       $("#comment_project").serialize(),  // Serialize grabs the text from a form element -VL
+                    dataType:   'text',
+                    url:        'db/insert_comment.php',
+                    method:     'post',
+                    success: function(result) {
+                        console.log("success!");
+                        console.log(result);    // result returns anything in html, anything that gets printed -VL
+                    },
+                    error: function(result) {
+                        console.log("failure");
+                        console.log(result);
+                    }
+                })
+
+                get_comments();
+            });
+        });
+    </script>
 </head>
 <body ng-app="diyApp">
 
@@ -43,6 +74,58 @@
 
 <!--Angular View Project Component-->
 <view-project></view-project>
+
+<!--Project comments -->
+<form id="comment_project">
+    <input type="text" value="<?php print($_GET["pid"]); ?>" name="p_id">
+
+    <md-input-container flex="40" flex-offset="30" layout="row">
+        <label>Enter comments</label>
+        <textarea ng-model="project.description" name="proj_comment" ></textarea>
+
+
+        <div layout="row" layout-align="end start" flex="90">
+            <md-button class="md-raised md-warn" layout-align="right" style="background-color: #00BFA5">Submit</md-button>
+        </div>
+    </md-input-container>
+</form>
+
+<?php
+    require('db/mysql_connect.php');
+    // get comments for a specific project id -VL
+    $query = "
+        SELECT `comment_text`, `comment_date` 
+        FROM `p_comments` 
+        WHERE project_id=226";
+
+    $result = mysqli_query($conn, $query);
+    if( mysqli_num_rows($result) ) {
+        while( $row = mysqli_fetch_assoc($result) ) {
+            $output[] = $row;
+        }
+    }
+?>
+
+<div class="comment_container">
+    <div>
+        <h2>Comments</h2> <br>
+            <?php
+                foreach($output as $key => $value) {
+                    print("date: ");
+                    print_r($value["comment_date"]);
+            ?> <br>
+            <?php
+                    print("comment: ");
+                    print_r($value["comment_text"]);
+            ?> <br><br>
+            <?php
+                }
+            ?>
+
+
+    </div>
+</div>
+
 <!--side nav-->
 <div ng-controller="AppCtrl" layout="column" ng-cloak>
     <section layout="row" flex class="side-tool-list">
