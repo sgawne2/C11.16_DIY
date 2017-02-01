@@ -28,12 +28,14 @@ ORDER BY `score` DESC
 $query = $search_by_tool;
 $result = mysqli_query($conn, $query);
 
-if( mysqli_num_rows($result) ) {
-    $output = [];
-    while( $row = mysqli_fetch_assoc($result) ) {
-        $output[] = $row;
+if($result) {
+    if (mysqli_num_rows($result)) {
+        $output = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            $output[] = $row;
+        }
+        echo json_encode($output);
     }
-    echo json_encode($output);
 }
 
 ?>
