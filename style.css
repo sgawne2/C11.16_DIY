@@ -9,6 +9,10 @@ h2 > a{
     color:#FEC77E;
 }
 
+html, body{
+    height:auto;
+}
+
 .orangeText{
     /*color:#FFE0B2;*/
     /*color:#F57C00;*/
@@ -232,4 +236,19 @@ add-photo img{
     border-radius: 5px;
     position:relative;
     top:20px
+}
+
+footer{
+    height:200px;
+    background-color: #F57C00;
+    color:white;
+}
+
+.leftProfileContent{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color:#FFB74D;
+    height:auto;
+    position:relative;
+    top:30px;
 }

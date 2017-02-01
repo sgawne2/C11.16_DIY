@@ -66,7 +66,7 @@
 
 
         <md-button><a href="submit_project.html">Submit Project</a></md-button>
-        <md-button>My Profile</md-button>
+        <md-button><a href="my_profile.html">My Profile</a></md-button>
         <md-button>Login</md-button>
     </div>
 </md-toolbar>
@@ -75,7 +75,7 @@
 
 <!--Project Title Input-->
 <md-list-item>
-<form id="project_name_only" flex="40" flex-offset="30" layout-align="center">
+<form id="project_name_only" flex="40" flex-offset="30">
     <md-input-container class="add-form-input" layout="row" layout-align="center">
         <label for="add-todo">Project Title &nbsp;(Photo Required)</label>
         <input id="add-todo" type="text" name = "proj_name">
@@ -99,7 +99,7 @@
 <tool-selector></tool-selector>
 
 <div layout="row" layout-align="end start" flex="90">
-    <md-button class="md-raised md-warn" layout-align="right" style="background-color: #00BFA5">Submit</md-button>
+    <md-button class="md-raised md-warn" layout-align="right" style="background-color: #00BFA5" ng-click="$ctrl.submit">Submit</md-button>
 </div>
 
 <!--side nav-->
