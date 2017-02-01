@@ -29,7 +29,7 @@ function viewProjectController($http, $location){
     $http({
         method: 'POST',
         data: {pid: pid},
-        url: "project_details.php"
+        url: "./db/project_details.php"
     })
         .then(function(response) {
             ctrl.project_info = response.data.info;

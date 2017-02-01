@@ -48,7 +48,7 @@ function appController($http) {
         $http({
             method: 'POST',
             data: {search: string},
-            url: "search_results.php"
+            url: "./db/search_results.php"
         })
             .then(function(response) {
                 console.log(response);

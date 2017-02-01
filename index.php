@@ -12,6 +12,9 @@
     <!-- Google Analytics tracking code -->
     <?php include_once("google_analytics.php") ?>
 
+    <!-- include the jQuery library as we are using jQuery functions -VL -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
     <!-- Angular Material requires Angular.js Libraries -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
@@ -66,7 +69,25 @@
                 var id_token = googleUser.getAuthResponse().id_token;
                 console.log("ID Token: " + id_token);
                 document.getElementById("profile-btn").setAttribute("style", "display:block");
-                document.getElementById("signout").setAttribute("style", "display:block");
+//                document.getElementById("signout").setAttribute("style", "display:block");
+
+                (function() {
+                    $.ajax({
+                        method: 'POST',
+                        url: './db/google/authenticate.php',
+                        data: {
+                            id: profile.getId(),
+                            last_name: profile.getFamilyName(),
+                            first_name: profile.getGivenName(),
+                            photo: profile.getImageUrl(),
+                            email: profile.getEmail(),
+                            token: id_token
+                        },
+                        success: function(response) {
+                            console.log(response);
+                        }
+                    })
+                })();
             }
             function signOut() {
                 var auth2 = gapi.auth2.getAuthInstance();
