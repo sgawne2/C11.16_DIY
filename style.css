@@ -1,3 +1,40 @@
+@font-face{
+    font-family: gotham-black;
+    src: url(fonts/gotham-black.ttf);
+}
+
+h2 > a{
+    font-family: gotham-black, Sans-Serif;
+    font-size:30px;
+    color:#FEC77E;
+}
+
+.orangeText{
+    /*color:#FFE0B2;*/
+    /*color:#F57C00;*/
+    color:#FF6D00;
+}
+
+.tealText{
+    color:#B4DFD4;
+}
+
+.darkTealText{
+    color: #00BFA5;
+}
+
+.headerImage > h2 > a{
+    font-size:100px;
+    line-height:50vh;
+}
+
+.headerImage > h1{
+    text-align:center;
+    color:#FF6D00;
+    position:relative;
+    bottom:20vh;
+}
+
 button.accordion {
     background-color: #eee;
     color: #444;
@@ -71,13 +108,25 @@ li{
     background-color:red;
 }
 
+/*.logo{*/
+    /*background-image: url("images/logo1.png");*/
+    /*height:50px;*/
+    /*width:200px;*/
+    /*position:relative;*/
+    /*background-repeat: no-repeat;*/
+    /*background-size:cover;*/
+/*}*/
+
+
 .logo{
-    background-image: url("images/logo.png");
-    height:50px;
-    width:50px;
+    background-image: url("images/logoBit.png");
+    height:35px;
+    width:30px;
     position:relative;
     background-repeat: no-repeat;
     background-size:cover;
+    bottom:5px;
+
 }
 
 .material-icons{
@@ -172,4 +221,39 @@ md-progress-linear .md-container{
 
 md-progress-circular path{
     stroke: #FFA726;
+}
+
+/* temporary, delete once project comments have been angularized -VL */
+.comment_container {
+    align:      center;
+    height:     50vh;
+    width:      50vw;
+    border:     0.5em dashed purple;
+    background-color:   pink;
+}
+
+add-photo{
+    position:relative;
+    bottom:20px;
+}
+
+add-photo img{
+    border-radius: 5px;
+    position:relative;
+    top:20px
+}
+
+footer{
+    height:200px;
+    background-color: #F57C00;
+    color:white;
+}
+
+.leftProfileContent{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color:#FFB74D;
+    height:auto;
+    position:relative;
+    top:30px;
 }

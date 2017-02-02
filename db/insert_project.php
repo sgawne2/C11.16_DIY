@@ -1,6 +1,4 @@
 <?php
-    session_start();
-
     /* mySQL_connect.php has $conn, which uses mysqli_connect */
     require('mysql_connect.php');
 
@@ -78,14 +76,13 @@
         print("You have not entered in all required fields or tool quantity is not a positive number");
     }
 
-    print("\n Project name: \n" . $proj_name);
+    print("\n Project name:" . $proj_name);
     print("\n tool_array: \n"); print_r($tool_array);
     print("\n steps_array: \n"); print_r($steps_array);
 
 
     // INSERT (1 of 4) INTO "PROJECTS" TABLE ***************************************************
     print("\n tool count: " . $tool_count . "\n");
-    print("\n tool_array: "); print_r($tool_array);
     print("\n tool_qty_array: "); print_r($tool_qty_array);
 
     $query_proj = "INSERT INTO `projects` SET
@@ -155,7 +152,7 @@
     }
 
     $string_of_map_tp_inputs = implode(", ", $output);
-    print("string of map_tp inputs: " . $string_of_map_tp_inputs);
+    print("\n string of map_tp inputs: " . $string_of_map_tp_inputs);
 
     $query_map_tp = "INSERT INTO `map_tp` 
             (`project_id`, `tool_id`, `tool_qty`) 

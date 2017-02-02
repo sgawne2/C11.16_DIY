@@ -2,7 +2,7 @@
     session_start();
 
     /* mysql_connect.php has $conn, which uses mysqli_connect */
-    require('gyver_connect.php');
+    require('mysql_connect.php');
 
     // INSERT INTO "PROJECTS" TABLE ***************************************************
     $proj_name = $_POST["proj_name"];
