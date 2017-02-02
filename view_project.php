@@ -45,9 +45,7 @@
                         console.log("failure");
                         console.log(result);
                     }
-                })
-
-                get_comments();
+                });
             });
         });
     </script>
@@ -75,14 +73,42 @@
 <!--Angular View Project Component-->
 <view-project></view-project>
 
-<!--Project comments -->
+<?php
+    $p_id = $_GET["pid"];
+
+    require('db/mysql_connect.php');
+    // get comments for a specific project id -VL
+    $query = "
+            SELECT AVG (rating) AS avg
+            FROM `p_comments` 
+            WHERE project_id=$p_id";
+
+    $result = mysqli_query($conn, $query);
+
+    if( mysqli_num_rows($result) ) {
+        while( $row = mysqli_fetch_assoc($result) ) {
+            $rating = $row;
+        }
+    }
+
+    print_r($rating);
+?>
+
+<p> average rating: </p> <?php print($rating["avg"]) ?>
+
+<!--Project comments, red flag and rating -VL -->
 <form id="comment_project">
+    <!-- checking the box will increment proj_red_flag by 1 upon hitting the submit button -VL -->
+    <input type="checkbox" name="proj_red_flag" value=1> Check this box if there are any issues with this project <br>
+    Please rate project (1 = bad, 5= good):
+    <input type="number" name="proj_rating" min="1" max="5">
+
+    <!-- this is needed to pass the project id into insert_comment.php -VL go ahead and hide this, but don't delete -->
     <input type="text" value="<?php print($_GET["pid"]); ?>" name="p_id">
 
     <md-input-container flex="40" flex-offset="30" layout="row">
         <label>Enter comments</label>
         <textarea ng-model="project.description" name="proj_comment" ></textarea>
-
 
         <div layout="row" layout-align="end start" flex="90">
             <md-button class="md-raised md-warn" layout-align="right" style="background-color: #00BFA5">Submit</md-button>
@@ -91,14 +117,14 @@
 </form>
 
 <?php
-    require('db/mysql_connect.php');
-    // get comments for a specific project id -VL
     $query = "
-        SELECT `comment_text`, `comment_date` 
+        SELECT `comment_text`, `rating`, `comment_date` 
         FROM `p_comments` 
-        WHERE project_id=226";
+        WHERE project_id=$p_id";
 
+    $output = [];
     $result = mysqli_query($conn, $query);
+
     if( mysqli_num_rows($result) ) {
         while( $row = mysqli_fetch_assoc($result) ) {
             $output[] = $row;
@@ -110,19 +136,32 @@
     <div>
         <h2>Comments</h2> <br>
             <?php
-                foreach($output as $key => $value) {
-                    print("date: ");
-                    print_r($value["comment_date"]);
-            ?> <br>
+                if (count($output) > 0) {
+                    foreach($output as $key => $value) {
+                        $date_time = date_create($value["comment_date"]);
+                        echo date_format($date_time, "M d Y, H:i ");
+
+                        if ($value["rating"] > 0 && $value["rating"] < 6) {
+                            print(" Rating: ");
+                            echo ($value["rating"]);
+                        }
+            ?>
+<!--                <br>-->
             <?php
-                    print("comment: ");
-                    print_r($value["comment_text"]);
-            ?> <br><br>
+//                        print("rating: ");
+//                        print_r($value["rating"]);
+            ?>
+                <br>
             <?php
+                        print_r($value["comment_text"]);
+            ?>
+                <br><br>
+            <?php
+                    }
+                } else {
+                    print("No comments for this project at this time.  Be the first to comment!");
                 }
             ?>
-
-
     </div>
 </div>
 

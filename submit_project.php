@@ -96,6 +96,10 @@
 
     <!--Angular Tool Selector Component-->
     <tool-selector></tool-selector>
+
+    <p>Do you wish to pay $20 to have your project featured in our "Featured" section on our title/search page?</p>
+    <input type="radio" name="is_featured" value=1> Yes <br>
+    <input type="radio" name="is_featured" value=0> No
 </form>
 
 <div layout="row" layout-align="end start" flex="90">

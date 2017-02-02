@@ -8,6 +8,7 @@
     /* Required for INSERT (1 of 4) into "Projects" table *********************************************/
     $proj_name = addslashes($_POST["proj_name"]);
     $proj_descrip = addslashes($_POST["proj_descrip"]);
+    $is_featured = addslashes($_POST["is_featured"]);
 //    $main_photo = addslashes($_POST["main_photo"]);
 
         /* Get tool_count, because it also goes into "projects" table */
@@ -88,7 +89,8 @@
     $query_proj = "INSERT INTO `projects` SET
         `project_name` = '$proj_name',
         `project_description` = '$proj_descrip',
-        `tool_count` = '$tool_count' ";
+        `tool_count` = '$tool_count',
+        `is_featured` = '$is_featured' ";
 //,     `project_photo` = '$main_photo' ";
 
     print("\n" . $query_proj . "\n");
