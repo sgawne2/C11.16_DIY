@@ -6,10 +6,10 @@
 
     $client = new Google_Client();
 
-//for local testing
-$guzzleClient = new \GuzzleHttp\Client(array( 'curl' => array( CURLOPT_SSL_VERIFYPEER => false, ), ));
-$client->setHttpClient($guzzleClient);
-//
+    //for local testing
+    $guzzleClient = new \GuzzleHttp\Client(array( 'curl' => array( CURLOPT_SSL_VERIFYPEER => false, ), ));
+    $client->setHttpClient($guzzleClient);
+    //
 
     $token = $_POST['token'];
     $username = $_POST['first_name'] . $_POST['last_name'];
@@ -60,5 +60,4 @@ $client->setHttpClient($guzzleClient);
     } else {
         echo "Invalid ID token";
     }
-
 ?>

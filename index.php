@@ -34,7 +34,7 @@
     <script src="js/components/addStep/addStep.component.js"></script>
     <script src="js/components/autoChip/autoChip.component.js"></script>
     <script src="js/components/projectCard/projectCard.component.js"></script>
-
+    <script src="js/components/footer/footer.component.js"></script>
 </head>
 <body ng-app="diyApp">
 
@@ -47,7 +47,8 @@
 
 
         <!--<div class="logo"></div>-->
-        <h2><a href="index.html">Mac<span class="boldText">DIY</span>ver</a></h2>
+        <div class="logo"></div>
+        <h2><a href="index.html">Mac<span class="tealText">diy</span>ver</a></h2>
         <span flex=""></span>
 
         <md-button><a href="submit_project.php">Submit Project</a></md-button>
@@ -101,7 +102,10 @@
     </div>
 </md-toolbar>
 
-<div class="headerImage"></div>
+<div class="headerImage" hide-xs hide-gt-xs hide-sm hide-gt-sm show-md show-gt-md show-lg show-gt-lg show-xl>
+    <h2><a href="index.html"><span class="orangeText">Mac</span><span class="darkTealText">diy</span><span class="orangeText">ver</span></a></h2>
+    <h1>Let's make some shit!</h1>
+</div>
 
 <!--&lt;!&ndash;search bar&ndash;&gt;-->
 <!--<auto-chip></auto-chip>-->
@@ -112,6 +116,7 @@
 <!--</div>-->
 
 <app></app>
+<footer></footer>
 
 <!--side nav-->
 <div ng-controller="AppCtrl" layout="column" ng-cloak>
@@ -195,7 +200,7 @@
         </md-sidenav>
     </section>
 </div>
-<script src="js/accordionPanel.js"></script>
 
+<script src="js/accordionPanel.js"></script>
 </body>
 </html>
