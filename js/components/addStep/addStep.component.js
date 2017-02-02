@@ -22,7 +22,22 @@ function addStepController(){
 
         ctrl.steps.push({});
         ctrl.steps = ctrl.steps.concat(end);
-    }
+    };
+
+    // $('.inputPhoto').on('change', function(e) {
+    //     var files = e.target.files;
+    //     if (files[0]) {
+    //         var fileName = files[0].name;
+    //     } else {
+    //         fileName = null;
+    //     }
+    //
+    //     ctrl.loadedPhoto = fileName;
+    //     console.log(ctrl.loadedPhoto);
+    //
+    //     $scope.$apply();
+    //
+    // });
 }
 
 angular.module('diyApp').component('addSteps', {

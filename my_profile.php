@@ -45,7 +45,8 @@
 
 
         <!--<div class="logo"></div>-->
-        <h2><a href="index.php">Mac<span class="boldText">DIY</span>ver</a></h2>
+        <div class="logo"></div>
+        <h2><a href="index.php">Mac<span class="tealText">diy</span>ver</a></h2>
         <span flex=""></span>
 
         <md-button><a href="submit_project.php">Submit Project</a></md-button>

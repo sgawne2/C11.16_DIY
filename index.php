@@ -18,6 +18,8 @@
         async defer
         src="//assets.pinterest.com/js/pinit.js"
     ></script>
+    <!-- include the jQuery library as we are using jQuery functions -VL -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
     <!-- Angular Material requires Angular.js Libraries -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
@@ -38,7 +40,7 @@
     <script src="js/components/addStep/addStep.component.js"></script>
     <script src="js/components/autoChip/autoChip.component.js"></script>
     <script src="js/components/projectCard/projectCard.component.js"></script>
-
+    <script src="js/components/footer/footer.component.js"></script>
 </head>
 <body ng-app="diyApp">
 
@@ -81,8 +83,8 @@
         <md-button ng-click="toggleLeft()"><md-icon md-font-set="material-icons">dehaze</md-icon></md-button>
 
 
-        <!--<div class="logo"></div>-->
-        <h2><a href="index.html">Mac<span class="boldText">DIY</span>ver</a>
+        <div class="logo"></div>
+        <h2><a href="index.php">Mac<span class="tealText">diy</span>ver</a></h2>
             <!-- Facebook Send button -->
             <div class="fb-send" data-href="http://54.202.109.201/C11.16_DIY"></div>
 
@@ -100,6 +102,7 @@
                 <img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" />
             </a>
         </h2>
+
         <span flex=""></span>
 
 
@@ -122,7 +125,25 @@
                 var id_token = googleUser.getAuthResponse().id_token;
                 console.log("ID Token: " + id_token);
                 document.getElementById("profile-btn").setAttribute("style", "display:block");
-                document.getElementById("signout").setAttribute("style", "display:block");
+//                document.getElementById("signout").setAttribute("style", "display:block");
+
+                (function() {
+                    $.ajax({
+                        method: 'POST',
+                        url: './db/google/authenticate.php',
+                        data: {
+                            id: profile.getId(),
+                            last_name: profile.getFamilyName(),
+                            first_name: profile.getGivenName(),
+                            photo: profile.getImageUrl(),
+                            email: profile.getEmail(),
+                            token: id_token
+                        },
+                        success: function(response) {
+                            console.log(response);
+                        }
+                    })
+                })();
             }
             function signOut() {
                 var auth2 = gapi.auth2.getAuthInstance();
@@ -136,7 +157,10 @@
     </div>
 </md-toolbar>
 
-<div class="headerImage"></div>
+<div class="headerImage" hide-xs hide-gt-xs hide-sm hide-gt-sm show-md show-gt-md show-lg show-gt-lg show-xl>
+    <h2><a href="index.html"><span class="orangeText">Mac</span><span class="darkTealText">diy</span><span class="orangeText">ver</span></a></h2>
+    <h1>Let's make some shit!</h1>
+</div>
 
 <!--&lt;!&ndash;search bar&ndash;&gt;-->
 <!--<auto-chip></auto-chip>-->
@@ -147,6 +171,7 @@
 <!--</div>-->
 
 <app></app>
+<footer></footer>
 
 <!--side nav-->
 <div ng-controller="AppCtrl" layout="column" ng-cloak>
@@ -230,7 +255,7 @@
         </md-sidenav>
     </section>
 </div>
-<script src="js/accordionPanel.js"></script>
 
+<script src="js/accordionPanel.js"></script>
 </body>
 </html>

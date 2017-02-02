@@ -4,18 +4,43 @@
 <md-list-item layout="row" layout-align="center">
     <div><b>Step {{ $index + 1 }}</b></div>
 
-    <md-input-container flex="70">
+    <md-input-container flex="60">
         <label>Description</label>
         <textarea ng-model="step.description" name="steps[{{ $index + 1 }}][text_fields][stp_txt]"></textarea>
     </md-input-container>
 
-    <div class="button-row hide-xs" layout="row">
+    <!--upload photo-->
+    <!--<md-input-container  md-no-float>-->
+        <!--<input id="textInput"-->
+               <!--ng-model="$ctrl.loadedPhoto"-->
+               <!--type="text"-->
+               <!--placeholder="No file chosen"-->
+               <!--ng-readonly="true">-->
+    <!--</md-input-container>-->
+
+    <!--<input type="file" name="file" id="fileUpload-{{$index}}" class="ng-hide inputPhoto">-->
+
+    <!--<md-button class="md-fab md-mini"-->
+               <!--style="background-color:#FFA726"-->
+               <!--ng-hide="editing"-->
+               <!--ng-click="">-->
+        <!--<input class="ng-hide" id="input-file-id" multiple type="file">-->
+        <!--<label for="fileUpload-{{$index}}">-->
+            <!--<md-icon md-font-set="material-icons">photo_camera</md-icon>-->
+            <!--<md-tooltip md-direction="top">-->
+                <!--Add Photo-->
+            <!--</md-tooltip>-->
+        <!--</label>-->
+    <!--</md-button>-->
+    <!--upload photo end-->
+
+    <div class="button-row" layout="row">
         <md-button class="md-fab md-warn md-mini"
                    ng-hide="editing"
                    ng-click="$ctrl.add()">
             <md-icon md-font-set="material-icons">add</md-icon>
             <md-tooltip md-direction="top">
-                Add
+                Add Step
             </md-tooltip>
         </md-button>
 
@@ -36,9 +61,13 @@
                     ng-if="$ctrl.steps.length-1">
             <md-icon md-font-set="material-icons">arrow_upward</md-icon>
             <md-tooltip md-direction="top">
-                Insert
+                Insert Step
             </md-tooltip>
         </md-button>
+
+        <add-photo></add-photo>
+
+
     </div>
 </md-list-item>
 <md-divider></md-divider>

@@ -61,8 +61,8 @@
         <!--hamburger icon-->
         <md-button ng-click="toggleLeft()"><md-icon md-font-set="material-icons">dehaze</md-icon></md-button>
 
-        <!--<div class="logo"></div>-->
-        <h2><a href="index.php">Mac<span class="boldText">DIY</span>ver</a></h2>
+        <div class="logo"></div>
+        <h2><a href="index.php">Mac<span class="tealText">diy</span>ver</a></h2>
         <span flex=""></span>
 
 

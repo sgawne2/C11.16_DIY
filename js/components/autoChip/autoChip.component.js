@@ -96,7 +96,7 @@ function chipController($q, $http, $timeout) {
         var defer = $q.defer();
         $http({
             method: 'GET',
-            url: "autocomplete.php"
+            url: "./db/autocomplete.php"
         })
             .then(function(response) {
                 // console.log(response.data);

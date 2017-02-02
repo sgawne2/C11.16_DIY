@@ -30,6 +30,7 @@
     <script src="js/diyApp/diyApp.js"></script>
     <script src="js/components/addStep/addStep.component.js"></script>
     <script src="js/components/toolSelector/toolSelector.component.js"></script>
+    <script src="js/components/addPhoto/addPhoto.component.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -61,27 +62,29 @@
 
         <!--hamburger icon-->
         <md-button ng-click="toggleLeft()"><md-icon md-font-set="material-icons">dehaze</md-icon></md-button>
-
-        <!--<div class="logo"></div>-->
-        <h2><a href="index.php">Mac<span class="boldText">DIY</span>ver</a></h2>
+        <div class="logo"></div>
+        <h2><a href="index.php">Mac<span class="tealText">diy</span>ver</a></h2>
         <span flex=""></span>
 
 
         <md-button><a href="submit_project.php">Submit Project</a></md-button>
-        <md-button>My Profile</md-button>
+        <md-button><a href="my_profile.php">My Profile</a></md-button>
         <md-button>Login</md-button>
     </div>
 </md-toolbar>
 
 <div layout="column" style="height:5%;"></div>
 
-<form id="project_form">
-    <!--Project Title Input-->
-    <md-input-container class="add-form-input" layout="row" layout-align="center" flex="40" flex-offset="30">
-        <label for="add-todo">Project Title</label>
+<!--Project Title Input-->
+<md-list-item>
+<form id="project_name_only" flex="40" flex-offset="30">
+    <md-input-container class="add-form-input" layout="row" layout-align="center">
+        <label for="add-todo">Project Title &nbsp;(Photo Required)</label>
         <input id="add-todo" type="text" name = "proj_name">
     </md-input-container>
-
+</form>
+    <add-photo></add-photo>
+</md-list-item>
 
     <div layout="column" style="height:5%;"></div>
 
@@ -99,7 +102,7 @@
 </form>
 
 <div layout="row" layout-align="end start" flex="90">
-    <md-button class="md-raised md-warn" layout-align="right" style="background-color: #00BFA5">Submit</md-button>
+    <md-button class="md-raised md-warn" layout-align="right" style="background-color: #00BFA5" ng-click="$ctrl.submit">Submit</md-button>
 </div>
 
 <!--side nav-->
