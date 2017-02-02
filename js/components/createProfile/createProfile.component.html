@@ -4,10 +4,17 @@
 
     <div class="leftProfileContent" flex="20">
         <section layout="row" layout-sm="column" layout-align="center center" layout-wrap="" style="position:relative; top:20px">
-            <img ng-src="images/profile-placeholder.png" width="70%" style="margin:auto; display:block; border-radius:10px;">
-            <md-button class="md-raised md-warn" style="background-color: #00BFA5;">Edit</md-button>
-        </section>
+            <img src="images/profile-placeholder.png" width="70%" style="margin:auto; display:block; border-radius:10px;">
+            <!--<md-button class="md-raised md-warn" style="background-color: #00BFA5;">Edit</md-button>-->
+            <input type="file" name="file" id="fileUpload" class="ng-hide">
 
+            <md-button class="md-raised md-warn" style="background-color: #00BFA5;"
+                       ng-hide="editing"
+                       ng-click="">
+                <input class="ng-hide" id="input-file-id" multiple type="file">
+                <label for="fileUpload">Edit</label>
+            </md-button>
+        </section>
 
         <section layout="row" layout-sm="column" layout-align="center center" layout-wrap="" style="position:relative; top:60px">
             <md-button>View Submitted Projects</md-button>

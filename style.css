@@ -8,6 +8,12 @@ h2 > a{
     font-size:30px;
     color:#FEC77E;
 }
+.headerImageText{
+    font-size:100px;
+    line-height:35vh;
+    font-family: gotham-black, Sans-Serif;
+    color:#FEC77E;
+}
 
 html, body{
     height:auto;
@@ -25,11 +31,6 @@ html, body{
 
 .darkTealText{
     color: #00BFA5;
-}
-
-.headerImage > h2 > a{
-    font-size:100px;
-    line-height:50vh;
 }
 
 .headerImage > h1{
@@ -247,8 +248,9 @@ footer{
 .leftProfileContent{
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    background-color:#FFB74D;
+    background-color:#FFA726;
     height:auto;
     position:relative;
     top:30px;
+    color:white;
 }
