@@ -250,3 +250,10 @@ footer{
     top:30px;
     color:white;
 }
+
+.leftProfileContent section img{
+    height:200px;
+    width:200px;
+    object-fit:cover;
+    border-radius:10px;
+}
