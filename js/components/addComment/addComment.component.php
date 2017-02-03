@@ -13,6 +13,7 @@
 <!--Rate this project-->
 <div flex="70" flex-offset="15" layout-align="end">
     <div class="button-row" layout="row">
+
         <p><b>How was this project?</b></p>
 
         <div ng-mouseleave="$ctrl.stopHovering()" class="rateProject">
@@ -30,12 +31,14 @@
         <p><b>Flag as inappropriate</b></p>
         <md-button class="md-fab md-warn md-mini"
                    ng-hide="editing"
-                   ng-click="$ctrl.changeInputs()">
+                   ng-click="$ctrl.showConfirm($event)">
             <md-icon md-font-set="material-icons">flag</md-icon>
             <md-tooltip md-direction="top">
                 Report
             </md-tooltip>
         </md-button>
+
+
     </div>
 </div>
 

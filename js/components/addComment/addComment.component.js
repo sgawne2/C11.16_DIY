@@ -1,4 +1,4 @@
-function addCommentController(){
+function addCommentController($mdDialog){
     var ctrl = this;
     ctrl.rating = 0;
     ctrl.redFlag = 0;
@@ -61,10 +61,22 @@ function addCommentController(){
 
     };
 
-    ctrl.changeInputs = function(){
-        ctrl.redFlag = 1;
-    }
+    ctrl.showConfirm = function(ev) {
 
+        console.log('hello');
+        ctrl.confirm = $mdDialog.confirm()
+            .title('Are you sure you want to report this project?')
+            .ariaLabel('Lucky day')
+            .targetEvent(ev)
+            .ok('Yes')
+            .cancel('No');
+
+        $mdDialog.show(ctrl.confirm).then(function() {
+            ctrl.redFlag = 1;
+        }, function() {
+            ctrl.redFlag = 0;
+        });
+    };
 
 }
 
