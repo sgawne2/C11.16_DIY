@@ -116,38 +116,38 @@
 //    }
 //?>
 
-<div class="comment_container">
-    <div>
-        <h2>Comments</h2> <br>
-            <?php
-                if (count($output) > 0) {
-                    foreach($output as $key => $value) {
-                        $date_time = date_create($value["comment_date"]);
-                        echo date_format($date_time, "M d Y, H:i ");
-
-                        if ($value["rating"] > 0 && $value["rating"] < 6) {
-                            print(" Rating: ");
-                            echo ($value["rating"]);
-                        }
-            ?>
+<!--<div class="comment_container">-->
+<!--    <div>-->
+<!--        <h2>Comments</h2> <br>-->
+<!--            --><?php
+//                if (count($output) > 0) {
+//                    foreach($output as $key => $value) {
+//                        $date_time = date_create($value["comment_date"]);
+//                        echo date_format($date_time, "M d Y, H:i ");
+//
+//                        if ($value["rating"] > 0 && $value["rating"] < 6) {
+//                            print(" Rating: ");
+//                            echo ($value["rating"]);
+//                        }
+//            ?>
+<!--<!--                <br>-->-->
+<!--            --><?php
+////                        print("rating: ");
+////                        print_r($value["rating"]);
+//            ?>
 <!--                <br>-->
-            <?php
-//                        print("rating: ");
-//                        print_r($value["rating"]);
-            ?>
-                <br>
-            <?php
-                        print_r($value["comment_text"]);
-            ?>
-                <br><br>
-            <?php
-                    }
-                } else {
-                    print("No comments for this project at this time.  Be the first to comment!");
-                }
-            ?>
-    </div>
-</div>
+<!--            --><?php
+//                        print_r($value["comment_text"]);
+//            ?>
+<!--                <br><br>-->
+<!--            --><?php
+//                    }
+//                } else {
+//                    print("No comments for this project at this time.  Be the first to comment!");
+//                }
+//            ?>
+<!--    </div>-->
+<!--</div>-->
 
 <!--side nav-->
 <div ng-controller="AppCtrl" layout="column" ng-cloak>

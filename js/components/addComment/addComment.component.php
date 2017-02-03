@@ -59,12 +59,9 @@
     </div>
 
     <md-card-content>
-        <p style="line-height: 140%">{{ $ctrl.project_info.project_description }}</p>
 
-        <h3>Required Tools</h3>
-        <ul class="viewProjectToolList">
-            <li ng-repeat="tool in $ctrl.tools">{{ tool.name }}</li>
-        </ul>
+        <p style="line-height: 140%">Hello, this is a sample comment.</p>
+
     </md-card-content>
 </md-card>
 
