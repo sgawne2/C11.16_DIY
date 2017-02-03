@@ -268,3 +268,11 @@ footer{
     object-fit:cover;
     border-radius:10px;
 }
+
+.rateProject > .material-icons{
+    color:#F57C00;
+    font-size:30px;
+    position:relative;
+    top:8px;
+    left:8px;
+}

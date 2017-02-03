@@ -26,6 +26,7 @@
     <script src="js/components/addStep/addStep.component.js"></script>
     <script src="js/components/toolSelector/toolSelector.component.js"></script>
     <script src="js/components/viewProject/viewProject.component.js"></script>
+    <script src="js/components/addComment/addComment.component.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -74,63 +75,46 @@
 <view-project></view-project>
 
 <?php
-    $p_id = $_GET["pid"];
-
-    require('db/mysql_connect.php');
-    // get comments for a specific project id -VL
-    $query = "
-            SELECT AVG (rating) AS avg
-            FROM `p_comments` 
-            WHERE project_id=$p_id";
-
-    $result = mysqli_query($conn, $query);
-
-    if( mysqli_num_rows($result) ) {
-        while( $row = mysqli_fetch_assoc($result) ) {
-            $rating = $row;
-        }
-    }
-
-    print_r($rating);
-?>
-
-<p> average rating: </p> <?php print($rating["avg"]) ?>
+//    $p_id = $_GET["pid"];
+//
+//    require('db/mysql_connect.php');
+//    // get comments for a specific project id -VL
+//    $query = "
+//            SELECT AVG (rating) AS avg
+//            FROM `p_comments`
+//            WHERE project_id=$p_id";
+//
+//    $result = mysqli_query($conn, $query);
+//
+//    if( mysqli_num_rows($result) ) {
+//        while( $row = mysqli_fetch_assoc($result) ) {
+//            $rating = $row;
+//        }
+//    }
+//
+//    print_r($rating);
+//?>
+<!---->
+<!--<p> average rating: </p> --><?php //print($rating["avg"]) ?>
 
 <!--Project comments, red flag and rating -VL -->
-<form id="comment_project">
-    <!-- checking the box will increment proj_red_flag by 1 upon hitting the submit button -VL -->
-    <input type="checkbox" name="proj_red_flag" value=1> Check this box if there are any issues with this project <br>
-    Please rate project (1 = bad, 5= good):
-    <input type="number" name="proj_rating" min="1" max="5">
-
-    <!-- this is needed to pass the project id into insert_comment.php -VL go ahead and hide this, but don't delete -->
-    <input type="text" value="<?php print($_GET["pid"]); ?>" name="p_id">
-
-    <md-input-container flex="40" flex-offset="30" layout="row">
-        <label>Enter comments</label>
-        <textarea ng-model="project.description" name="proj_comment" ></textarea>
-
-        <div layout="row" layout-align="end start" flex="90">
-            <md-button class="md-raised md-warn" layout-align="right" style="background-color: #00BFA5">Submit</md-button>
-        </div>
-    </md-input-container>
-</form>
+<add-comment></add-comment>
 
 <?php
-    $query = "
-        SELECT `comment_text`, `rating`, `comment_date` 
-        FROM `p_comments` 
-        WHERE project_id=$p_id";
-
-    $output = [];
-    $result = mysqli_query($conn, $query);
-
-    if( mysqli_num_rows($result) ) {
-        while( $row = mysqli_fetch_assoc($result) ) {
-            $output[] = $row;
-        }
-    }
-?>
+//    $query = "
+//        SELECT `comment_text`, `rating`, `comment_date`
+//        FROM `p_comments`
+//        WHERE project_id=$p_id";
+//
+//    $output = [];
+//    $result = mysqli_query($conn, $query);
+//
+//    if( mysqli_num_rows($result) ) {
+//        while( $row = mysqli_fetch_assoc($result) ) {
+//            $output[] = $row;
+//        }
+//    }
+//?>
 
 <div class="comment_container">
     <div>
