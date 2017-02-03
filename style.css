@@ -276,3 +276,12 @@ footer{
     top:8px;
     left:8px;
 }
+
+.md-button.md-default-theme.md-primary, .md-button.md-primary{
+    background-color:#FF6D00;
+    color:white;
+}
+button.md-primary.md-button.md-default-theme.md-ink-ripple.md-focused{
+    background-color:#FF6D00;
+    color:white;
+}

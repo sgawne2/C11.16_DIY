@@ -63,7 +63,6 @@ function addCommentController($mdDialog){
 
     ctrl.showConfirm = function(ev) {
 
-        console.log('hello');
         ctrl.confirm = $mdDialog.confirm()
             .title('Are you sure you want to report this project?')
             .ariaLabel('Lucky day')

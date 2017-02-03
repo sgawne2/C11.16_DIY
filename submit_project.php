@@ -90,15 +90,26 @@
         <textarea ng-model="project.description" name="proj_descrip" ></textarea>
     </md-input-container>
 
-    <!--Angular Project Steps Component-->
-    <add-steps></add-steps>
-
     <!--Angular Tool Selector Component-->
     <tool-selector></tool-selector>
 
-    <p>Do you wish to pay $20 to have your project featured in our "Featured" section on our title/search page?</p>
-    <input type="radio" name="is_featured" value=1> Yes <br>
-    <input type="radio" name="is_featured" value=0> No
+    <!--Angular Project Steps Component-->
+    <add-steps></add-steps>
+
+    <md-content>
+        <div layout="column" style="height:3%;"></div>
+        <p style="font-size:18px; text-align:center">Do you wish to pay $20 to have your project <b>featured</b> on our home page?</p>
+<!--        <input type="radio" name="is_featured" value=1> Yes <br>-->
+<!--        <input type="radio" name="is_featured" value=0> No-->
+
+        <md-radio-group ng-model="featuredProjectChoice" layout="row" layout-align="center">
+            <md-radio-button value="yes" class="md-warn">Yes</md-radio-button>
+            <md-radio-button value="no" class="md-warn">No Thanks</md-radio-button>
+        </md-radio-group>
+        <div layout="column" style="height:3%;"></div>
+
+    </md-content>
+
 </form>
 
 <div layout="row" layout-align="end start" flex="90">
