@@ -1,7 +1,7 @@
 function addCommentController(){
     var ctrl = this;
     ctrl.rating = 0;
-    ctrl.redFlag = false;
+    ctrl.redFlag = 0;
 
     ctrl.stars = [
         {filled: false},
@@ -16,7 +16,7 @@ function addCommentController(){
         if (!ctrl.isRated){
             for (var i=0; i<=index; i++){
                 ctrl.stars[i].filled = true;
-                ctrl.rating = i;
+                ctrl.rating = i + 1;
             }
 
             for (var j=index+1; j<ctrl.stars.length; j++){
@@ -29,6 +29,7 @@ function addCommentController(){
 
     ctrl.stopHovering = function(){
         if (!ctrl.isRated){
+            ctrl.rating = 0;
             for (var i=0; ctrl.stars.length; i++){
                 ctrl.stars[i].filled = false;
             }
@@ -38,7 +39,7 @@ function addCommentController(){
     ctrl.makeRating = function(index){
 
         if(ctrl.isRated){
-            if (index === ctrl.rating){
+            if (index === ctrl.rating - 1){
                 ctrl.stars = [
                     {filled: false},
                     {filled: false},
@@ -61,7 +62,7 @@ function addCommentController(){
     };
 
     ctrl.changeInputs = function(){
-        ctrl.redFlag = true;
+        ctrl.redFlag = 1;
     }
 
 
