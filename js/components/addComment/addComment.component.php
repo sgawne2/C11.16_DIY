@@ -48,12 +48,12 @@
 
     <md-input-container flex="65" flex-offset="15">
         <label>Comments</label>
-        <textarea ng-model="project.description" name="proj_comment"></textarea>
+<!--        <textarea ng-model="project.description" name="proj_comment"></textarea>-->
+        <textarea ng-model="$ctrl.comments[0].comment_text" name="proj_comment"></textarea>
     </md-input-container>
-    <md-button class="md-raised md-warn" flex="5" layout-align="right end" style="background-color: #00BFA5" ng-click="$ctrl.submit">Submit</md-button>
+    <md-button class="md-raised md-warn" flex="5" layout-align="right end" style="background-color: #00BFA5" ng-click="$ctrl.submit()">Submit</md-button>
 </md-list-item>
 </form>
-
 
 <!--posted comments section-->
 <md-card flex="70" flex-offset="15" style="max-height:none">
@@ -63,7 +63,11 @@
 
     <md-card-content>
 
-        <p style="line-height: 140%">Hello, this is a sample comment.</p>
+<!--        <p style="line-height: 140%" ng-if="$ctrl.show">{{ project.description }}</p>-->
+        <p style="line-height: 140%" ng-if="$ctrl.show">{{ $ctrl.comments[0].user_id }}</p>
+        <p style="line-height: 140%" ng-if="$ctrl.show">{{ $ctrl.comments[0].comment_text }}</p>
+        <p style="line-height: 140%" ng-if="$ctrl.show">{{ $ctrl.comments[0].comment_date }}</p>
+        <md-divider></md-divider>
 
     </md-card-content>
 </md-card>

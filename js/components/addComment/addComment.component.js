@@ -2,6 +2,13 @@ function addCommentController($mdDialog){
     var ctrl = this;
     ctrl.rating = 0;
     ctrl.redFlag = 0;
+    ctrl.comments = [
+        {
+        user_id: 1234,
+        comment_text: '',
+        comment_date: 2/3
+        }
+    ];
 
     ctrl.stars = [
         {filled: false},
@@ -76,6 +83,12 @@ function addCommentController($mdDialog){
             ctrl.redFlag = 0;
         });
     };
+
+    ctrl.submit = function(){
+
+        ctrl.comments.push();
+        ctrl.show = true;
+    }
 
 }
 
