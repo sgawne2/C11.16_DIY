@@ -77,12 +77,12 @@
 
 <!--Project Title Input-->
 <md-list-item>
-<form id="project_name_only" flex="40" flex-offset="30">
+<form id="project_form" flex="40" flex-offset="30">
     <md-input-container class="add-form-input" layout="row" layout-align="center">
         <label for="add-todo">Project Title &nbsp;(Photo Required)</label>
         <input id="add-todo" type="text" name = "proj_name">
     </md-input-container>
-</form>
+
     <add-photo></add-photo>
 </md-list-item>
 

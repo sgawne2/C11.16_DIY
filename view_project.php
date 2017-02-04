@@ -73,33 +73,34 @@
 <!--Angular View Project Component-->
 <view-project></view-project>
 
+<!-- Get the average rating for a specific project and display -VL -->
 <?php
     $p_id = $_GET["pid"];
-
     require('db/mysql_connect.php');
-    // get comments for a specific project id -VL
-    $query = "
+
+    $query_rating = "
             SELECT AVG (rating) AS avg
             FROM `p_comments` 
             WHERE project_id=$p_id";
 
-    $result = mysqli_query($conn, $query);
+    $result_rating = mysqli_query($conn, $query_rating);
 
-    if( mysqli_num_rows($result) ) {
-        while( $row = mysqli_fetch_assoc($result) ) {
+    /* the mySQL AVG function gives a single number, so it's only 1 row -VL */
+    if( mysqli_num_rows($result_rating) ) {
+        while( $row = mysqli_fetch_assoc($result_rating) ) {
             $rating = $row;
         }
     }
-
-    print_r($rating);
 ?>
 
-<p> average rating: </p> <?php print($rating["avg"]) ?>
+<p>
+    average rating: <?php print(number_format($rating["avg"],1)) ?>
+</p>
 
-<!--Project comments, red flag and rating -VL -->
+<!--User can input project comments, red flag and rating -VL -->
 <form id="comment_project">
     <!-- checking the box will increment proj_red_flag by 1 upon hitting the submit button -VL -->
-    <input type="checkbox" name="proj_red_flag" value=1> Check this box if there are any issues with this project <br>
+    <input type="checkbox" name="proj_red_flag" value=1> Flag this project <br>
     Please rate project (1 = bad, 5= good):
     <input type="number" name="proj_rating" min="1" max="5">
 
@@ -116,6 +117,7 @@
     </md-input-container>
 </form>
 
+<!-- Gather all comments for the project -VL -->
 <?php
     $query = "
         SELECT `comment_text`, `rating`, `comment_date` 
@@ -132,6 +134,7 @@
     }
 ?>
 
+<!-- Display the comments -->
 <div class="comment_container">
     <div>
         <h2>Comments</h2> <br>
