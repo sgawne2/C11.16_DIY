@@ -1,39 +1,11 @@
 <div layout="column" layout-align="center" flex="100">
-    <h2>Footer</h2>
 
-    <div>
-        <div display="inline-block">
-            <!-- Facebook Like and Share buttons -->
-            <!-- the "like" button is giving us an error when clicked
-            <!--<div display="inline-block" class="fb-like" data-href="http://macdiyver.com/C11.16_DIY" data-width="10" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>-->
-
-            <!-- Facebook Send & Number of Likes button -VL -->
-            <!-- Probably don't want to include this at first, since we have a low number of likes -->
-            <div class="fb-share-button" data-href="http://macdiyver.com" data-layout="button" data-size="large" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fmacdiyver.com%2F&amp;src=sdkpreparse">Share</a></div>
-
-            <!-- Twitter button -->
-            <a href="https://twitter.com/intent/tweet?screen_name=vern080" display="inline-block" class="twitter-mention-button" data-show-count="false">Tweet to @vern080</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-            <!-- Pinterest button -->
-            <a href="https://www.pinterest.com/pin/create/button/">
-                <img display="inline-block" src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" />
-            </a>
-        </div>
-
-        <div display="inline-block">
-            <ul>
-                <!--<li> <a href="http://macdiyver.com/C11.16_DIY/index.php">Home Page</a> </li>-->
-                <li> <a href="index.php">Home Page</a> </li>
+        <div class="footerLinks" layout="row" layout-align="center" flex="80" flex-offset="10">
+            <ul flex="80" flex-offset="10">
 
                 <!--<li> <a href="http://macdiyver.com/C11.16_DIY/terms_of_servce.php">Terms of Service</a> </li>-->
                 <li> <a href="terms_of_service.php">Terms of Service</a> </li>
 
-                <!--<li> <a href="http://macdiyver.com/C11.16_DIY/about_us.php">About Us</a> </li>-->
-                <li> <a href="about_us.php">About Us</a> </li>
-            </ul>
-        </div>
-        <div display="inline-block">
-            <ul>
                 <!--<li> <a href="http://macdiyver.com/C11.16_DIY/footer_links/contact_us.php">Contact Us</a></li>-->
                 <li> <a href="contact_us.php">Contact Us</a> </li>
 
@@ -43,5 +15,126 @@
                 <li> <a href="http://macdiyver.com/C11.16_DIY/_wordPress/wordpress/index.php">Blog</a> </li>
             </ul>
         </div>
+
+
+    <div class="button-row" layout="row" layout-align="center" flex="40" flex-offset="30" style="margin:0;">
+        <md-button class="md-fab md-mini"
+                   ng-hide="editing"
+                   ng-click="$ctrl.add()"
+                   style="background-color: #3b5998">
+            <md-icon><img src="images/facebook.png" width="30px"></md-icon>
+            <md-tooltip md-direction="top">
+                Share
+            </md-tooltip>
+        </md-button>
+        <span flex="5"></span>
+        <md-button class="md-fab md-mini"
+                   ng-disabled="editing"
+                   ng-click="$ctrl.delete(step)"
+                   style="background-color: #0084b4">
+            <md-icon><img src="images/twitter.png" width="30px"></md-icon>
+            <md-tooltip md-direction="top">
+                Tweet
+            </md-tooltip>
+        </md-button>
+        <span flex="5"></span>
+        <md-button class="md-fab md-mini"
+                   style="background-color: #c92228"
+                   ng-hide="editing"
+                   ng-click="$ctrl.insert(step)"
+                   ng-if="$ctrl.steps.length-1">
+            <md-icon><img src="images/pinterest.png" width="30px"></md-icon>
+            <md-tooltip md-direction="top">
+                Pin it
+            </md-tooltip>
+        </md-button>
     </div>
+
+    <p style="text-align:center">&copy; Macdiyver</p>
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div>-->
+    <!--<div display="inline-block">-->
+        <!--&lt;!&ndash; Facebook Like and Share buttons &ndash;&gt;-->
+        <!--&lt;!&ndash; the "like" button is giving us an error when clicked-->
+        <!--&lt;!&ndash;<div display="inline-block" class="fb-like" data-href="http://macdiyver.com/C11.16_DIY" data-width="10" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>&ndash;&gt;-->
+
+        <!--&lt;!&ndash; Facebook Send & Number of Likes button -VL &ndash;&gt;-->
+        <!--&lt;!&ndash; Probably don't want to include this at first, since we have a low number of likes &ndash;&gt;-->
+        <!--<div class="fb-share-button" data-href="http://macdiyver.com" data-layout="button" data-size="large" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fmacdiyver.com%2F&amp;src=sdkpreparse">Share</a></div>-->
+
+        <!--&lt;!&ndash; Twitter button &ndash;&gt;-->
+        <!--<a href="https://twitter.com/intent/tweet?screen_name=vern080" display="inline-block" class="twitter-mention-button" data-show-count="false">Tweet to @vern080</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+
+        <!--&lt;!&ndash; Pinterest button &ndash;&gt;-->
+        <!--<a href="https://www.pinterest.com/pin/create/button/">-->
+            <!--<img display="inline-block" src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" />-->
+        <!--</a>-->
+    <!--</div>-->
+
+    <!--<div display="inline-block">-->
+        <!--<ul>-->
+            <!--&lt;!&ndash;<li> <a href="http://macdiyver.com/C11.16_DIY/index.php">Home Page</a> </li>&ndash;&gt;-->
+            <!--<li> <a href="index.php">Home Page</a> </li>-->
+
+            <!--&lt;!&ndash;<li> <a href="http://macdiyver.com/C11.16_DIY/terms_of_servce.php">Terms of Service</a> </li>&ndash;&gt;-->
+            <!--<li> <a href="terms_of_service.php">Terms of Service</a> </li>-->
+
+            <!--&lt;!&ndash;<li> <a href="http://macdiyver.com/C11.16_DIY/about_us.php">About Us</a> </li>&ndash;&gt;-->
+            <!--<li> <a href="about_us.php">About Us</a> </li>-->
+        <!--</ul>-->
+    <!--</div>-->
+
+    <!--<ul>-->
+        <!--&lt;!&ndash;<li> <a href="http://macdiyver.com/C11.16_DIY/footer_links/contact_us.php">Contact Us</a></li>&ndash;&gt;-->
+        <!--<li> <a href="contact_us.php">Contact Us</a> </li>-->
+
+        <!--&lt;!&ndash;<li> <a href="http://macdiyver.com/C11.16_DIY/faq.php"></a> </li>&ndash;&gt;-->
+        <!--<li> <a href="faq.php">Frequently Asked Questions</a></li>-->
+
+        <!--<li> <a href="http://macdiyver.com/C11.16_DIY/_wordPress/wordpress/index.php">Blog</a> </li>-->
+    <!--</ul>-->
+<!--</div>-->
+<!--</div>-->
