@@ -20,7 +20,6 @@
     <div class="button-row" layout="row" layout-align="center" flex="40" flex-offset="30" style="margin:0;">
         <md-button class="md-fab md-mini fb-share-button"
                    ng-hide="editing"
-                   ng-click="$ctrl.add()"
                    style="background-color: #3b5998"
                    data-href="http://macdiyver.com"
                    data-layout="button"
@@ -39,12 +38,10 @@
 
         <md-button class="md-fab md-mini"
                    ng-disabled="editing"
-                   ng-click="$ctrl.delete(step)"
                    style="background-color: #0084b4">
             <md-icon><a href="https://twitter.com/intent/tweet?screen_name=vern080"
-                        class="twitter-mention-button"
                         data-show-count="false"><img src="images/twitter.png" width="30px"></a>
-                        <!--<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+                        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
             </md-icon>
             <md-tooltip md-direction="top">
                 Tweet
@@ -55,10 +52,10 @@
 
         <md-button class="md-fab md-mini"
                    style="background-color: #c92228"
-                   ng-hide="editing"
-                   ng-click="$ctrl.insert(step)"
-                   ng-if="$ctrl.steps.length-1">
-            <md-icon><a href="https://www.pinterest.com/pin/create/button/"><img src="images/pinterest.png" width="30px"></a></md-icon>
+                   ng-hide="editing">
+            <md-icon><a href="https://www.pinterest.com/pin/create/button/" ng-hide="true">
+                <img src="images/pinterest.png" width="30px"></a>
+            </md-icon>
             <md-tooltip md-direction="top">
                 Pin it
             </md-tooltip>

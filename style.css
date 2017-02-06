@@ -93,7 +93,7 @@ li{
 
 .main{
     box-sizing: border-box;
-    height: 100%;
+    max-height:none;
 }
 
 .headerImage{
