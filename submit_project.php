@@ -72,9 +72,9 @@
 <div layout="column" style="height:5%;"></div>
 
 <!--Project Title Input-->
+<form id="project_form">
 <md-list-item>
-<form id="project_form" flex="40" flex-offset="30">
-    <md-input-container class="add-form-input" layout="row" layout-align="center">
+    <md-input-container class="add-form-input" layout="row" layout-align="center" flex="40" flex-offset="30">
         <label for="add-todo">Project Title &nbsp;(Photo Required)</label>
         <input id="add-todo" type="text" name = "proj_name">
     </md-input-container>
@@ -110,11 +110,11 @@
 
     </md-content>
 
+    <div layout="row" layout-align="end start" flex="90">
+        <md-button class="md-raised md-warn" layout-align="right" style="background-color: #00BFA5" ng-click="$ctrl.submit">Submit</md-button>
+    </div>
 </form>
 
-<div layout="row" layout-align="end start" flex="90">
-    <md-button class="md-raised md-warn" layout-align="right" style="background-color: #00BFA5" ng-click="$ctrl.submit">Submit</md-button>
-</div>
 
 <!--side nav-->
 <side-panel></side-panel>

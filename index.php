@@ -123,10 +123,8 @@
 </md-toolbar>
 
 <div class="headerImage" hide-xs hide-gt-xs hide-sm hide-gt-sm show-md show-gt-md show-lg show-gt-lg show-xl>
-
-    <h2><a href="index.html"><span class="orangeText">Mac</span><span class="darkTealText">diy</span><span class="orangeText">ver</span></a></h2>
+    <h2 class="headerImageText"><span class="orangeText">Mac</span><span class="darkTealText">diy</span><span class="orangeText">ver</span></h2>
     <h1>Let's make some stuff!</h1>
-
 </div>
 
 <!--&lt;!&ndash;search bar&ndash;&gt;-->
