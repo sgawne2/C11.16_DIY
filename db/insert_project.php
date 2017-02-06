@@ -2,6 +2,8 @@
     /* mySQL_connect.php has $conn, which uses mysqli_connect */
     require('mysql_connect.php');
 
+print_r ($_POST);
+exit();
     /* Initialize variables: */
     $tool_qty_negativeORzero = false;
 

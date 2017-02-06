@@ -75,7 +75,9 @@
 <!--Angular View Project Component-->
 <view-project></view-project>
 
+<!-- Get the average rating for a specific project and display -VL -->
 <?php
+
 //    $p_id = $_GET["pid"];
 //
 //    require('db/mysql_connect.php');
@@ -101,7 +103,35 @@
 <!--Project comments, red flag and rating -VL -->
 <add-comment></add-comment>
 
+
+<p>
+    average rating: <?php print(number_format($rating["avg"],1)) ?>
+</p>
+
+<!--User can input project comments, red flag and rating -VL -->
+<form id="comment_project">
+    <!-- checking the box will increment proj_red_flag by 1 upon hitting the submit button -VL -->
+    <input type="checkbox" name="proj_red_flag" value=1> Flag this project <br>
+    Please rate project (1 = bad, 5= good):
+    <input type="number" name="proj_rating" min="1" max="5">
+
+    <!-- this is needed to pass the project id into insert_comment.php -VL go ahead and hide this, but don't delete -->
+    <input type="text" value="<?php print($_GET["pid"]); ?>" name="p_id">
+
+    <md-input-container flex="40" flex-offset="30" layout="row">
+        <label>Enter comments</label>
+        <textarea ng-model="project.description" name="proj_comment" ></textarea>
+
+        <div layout="row" layout-align="end start" flex="90">
+            <md-button class="md-raised md-warn" layout-align="right" style="background-color: #00BFA5">Submit</md-button>
+        </div>
+    </md-input-container>
+</form>
+
+
+<!-- Gather all comments for the project -VL -->
 <?php
+
 //    $query = "
 //        SELECT `comment_text`, `rating`, `comment_date`
 //        FROM `p_comments`
@@ -136,19 +166,7 @@
 ////                        print("rating: ");
 ////                        print_r($value["rating"]);
 //            ?>
-<!--                <br>-->
-<!--            --><?php
-//                        print_r($value["comment_text"]);
-//            ?>
-<!--                <br><br>-->
-<!--            --><?php
-//                    }
-//                } else {
-//                    print("No comments for this project at this time.  Be the first to comment!");
-//                }
-//            ?>
-<!--    </div>-->
-<!--</div>-->
+
 
 <!--side nav-->
 <side-panel></side-panel>

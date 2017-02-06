@@ -18,6 +18,7 @@
         async defer
         src="//assets.pinterest.com/js/pinit.js"
     ></script>
+
     <!-- include the jQuery library as we are using jQuery functions -VL -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
@@ -43,29 +44,10 @@
     <script src="js/components/footer/footer.component.js"></script>
     <script src="js/components/sidePanel/sidePanel.component.js"></script>
 </head>
+
 <body ng-app="diyApp">
 
 <!-- Facebook share and like button templates -VL -->
-    <!-- FB "Send" button -->
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-
-    <!-- FB "Like and Share" buttons -VL -->
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-
     <!-- FB "Share w/# of likes" button -VL -->
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
@@ -86,24 +68,6 @@
 
         <div class="logo"></div>
         <h2><a href="index.php">Mac<span class="tealText">diy</span>ver</a></h2>
-            <!-- Facebook Send button -->
-            <div class="fb-send" data-href="http://54.202.109.201/C11.16_DIY"></div>
-
-            <!-- Facebook Like and Share buttons -->
-            <div class="fb-like" data-href="http://54.202.109.201/C11.16_DIY" data-width="10" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
-
-            <!-- Facebook Send & Number of Likes button -->
-            <div class="fb-share-button" data-href="http://54.202.109.201/C11.16_DIY" data-layout="button_count" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F54.202.109.201%2FC11.16_DIY&amp;src=sdkpreparse">Share</a></div>
-
-            <!-- Twitter button -->
-            <a href="https://twitter.com/intent/tweet?screen_name=vern080" class="twitter-mention-button" data-show-count="false">Tweet to @vern080</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-            <!-- Pinterest button -->
-            <a href="https://www.pinterest.com/pin/create/button/">
-                <img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" />
-            </a>
-        </h2>
-
         <span flex=""></span>
 
 
@@ -159,8 +123,10 @@
 </md-toolbar>
 
 <div class="headerImage" hide-xs hide-gt-xs hide-sm hide-gt-sm show-md show-gt-md show-lg show-gt-lg show-xl>
-    <h2 class="headerImageText"><span class="orangeText">Mac</span><span class="darkTealText">diy</span><span class="orangeText">ver</span></h2>
-    <h1>Let's make some shit!</h1>
+
+    <h2><a href="index.html"><span class="orangeText">Mac</span><span class="darkTealText">diy</span><span class="orangeText">ver</span></a></h2>
+    <h1>Let's make some stuff!</h1>
+
 </div>
 
 <!--&lt;!&ndash;search bar&ndash;&gt;-->
