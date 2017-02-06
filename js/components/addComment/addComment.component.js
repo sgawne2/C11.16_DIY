@@ -2,11 +2,13 @@ function addCommentController($mdDialog){
     var ctrl = this;
     ctrl.rating = 0;
     ctrl.redFlag = 0;
+    ctrl.date = new Date().getTime();
+
     ctrl.comments = [
         {
         user_id: 1234,
         comment_text: '',
-        comment_date: 2/3
+        comment_date: ctrl.date
         }
     ];
 
