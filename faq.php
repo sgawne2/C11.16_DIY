@@ -1,4 +1,8 @@
 <html>
+    <head>
+
+    </head>
+
     <body>
         <p> Frequently Asked Questions </p>
         <ol>

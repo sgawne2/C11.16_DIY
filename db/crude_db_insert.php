@@ -1,6 +1,4 @@
 <?php
-    session_start();
-
     /* mysql_connect.php has $conn, which uses mysqli_connect */
     require('mysql_connect.php');
 
