@@ -32,14 +32,30 @@
         $(document).ready(function() {
             $(".md-raised").click(function() {
                 console.log("inside click handler");
+                var formEle = $('#project_form')[0];
+                var data = new FormData(formEle);
                 $.ajax({
-                    data:       $("#project_form").serialize(),  // Serialize grabs the text from a form element -VL
-                    dataType:   'text',
+                    data:       data,
+                    dataType:   "JSON",
                     url:        'db/insert_project.php',
-                    method:     'post',
+                    method:     'POST',
+                    mimeType: "multipart/form-data",
+                    processData: false,
+                    contentType: false,
                     success: function(result) {
                         console.log("success!");
                         console.log(result);    // result returns anything in html, anything that gets printed -VL
+                        if (result.errors) {
+                            alert(result.errors);
+                        } else {
+                            if (result.pid) {
+                                if (result.is_featured) {
+                                    window.location = 'db/stripe/feature_project.php?pid=' + result.pid;
+                                } else {
+                                    window.location = 'view_project.php?pid=' + result.pid;
+                                }
+                            }
+                        }
                     },
                     error: function(result) {
                         console.log("failure");
@@ -49,6 +65,12 @@
             });
         });
     </script>
+    <style>
+        md-radio-button:focus {
+            outline:none;
+            border:0;
+        }
+    </style>
 </head>
 <body ng-app="diyApp">
 
@@ -72,7 +94,7 @@
 <div layout="column" style="height:5%;"></div>
 
 <!--Project Title Input-->
-<form id="project_form">
+<form id="project_form" method="POST" action="db/insert_project.php" enctype="multipart/form-data">
 <md-list-item>
     <md-input-container class="add-form-input" layout="row" layout-align="center" flex="40" flex-offset="30">
         <label for="add-todo">Project Title &nbsp;(Photo Required)</label>
@@ -102,10 +124,11 @@
 <!--        <input type="radio" name="is_featured" value=1> Yes <br>-->
 <!--        <input type="radio" name="is_featured" value=0> No-->
 
-        <md-radio-group ng-model="featuredProjectChoice" layout="row" layout-align="center">
-            <md-radio-button value="yes" class="md-warn">Yes</md-radio-button>
-            <md-radio-button value="no" class="md-warn">No Thanks</md-radio-button>
+        <md-radio-group ng-model="featuredProjectChoice" layout="row" layout-align="center" ng-init="featured = 0">
+            <md-radio-button value="yes" class="md-warn" ng-click="featured = 1">Yes</md-radio-button>
+            <md-radio-button value="no" class="md-warn" ng-click="featured = 0">No Thanks</md-radio-button>
         </md-radio-group>
+        <input type="number" name="is_featured" ng-model="featured" value=0 class="ng-hide">
         <div layout="column" style="height:3%;"></div>
 
     </md-content>
