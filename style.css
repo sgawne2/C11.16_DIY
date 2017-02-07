@@ -253,13 +253,13 @@ footer{
 }
 
 .leftProfileContent{
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-radius:5px;
     background-color:#FFA726;
-    height:auto;
+    /*height:auto;*/
     position:relative;
     top:30px;
     color:white;
+    height:70%;
 }
 
 .leftProfileContent section img{
