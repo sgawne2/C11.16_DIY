@@ -309,3 +309,7 @@ button.md-primary.md-button.md-default-theme.md-ink-ripple.md-focused{
 .contactUsCard h2, h3{
     color: #00BFA5;
 }
+
+.md-button.md-fab{
+    z-index:0;
+}

@@ -37,6 +37,7 @@
     <script src="js/components/projectCard/projectCard.component.js"></script>
     <script src="js/components/createProfile/createProfile.component.js"></script>
     <script src="js/components/sidePanel/sidePanel.component.js"></script>
+    <script src="js/components/footer/footer.component.js"></script>
 
 </head>
 <body ng-app="diyApp">
@@ -93,5 +94,6 @@
 
 <!--side nav-->
 <side-panel></side-panel>
+<footer></footer>
 </body>
 </html>
