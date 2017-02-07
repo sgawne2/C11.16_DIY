@@ -10,7 +10,7 @@
     <?php include_once("google_analytics.php") ?>
 
     <!-- include the jQuery library as we are using jQuery functions (AJAX) -VL -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <!-- Angular Material requires Angular.js Libraries -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
@@ -32,11 +32,15 @@
         $(document).ready(function() {
             $(".md-raised").click(function() {
                 console.log("inside click handler");
+                var formEle = $('#project_form')[0];
+                var data = new FormData(formEle);
                 $.ajax({
-                    data:       $("#project_form").serialize(),  // Serialize grabs the text from a form element -VL
-                    dataType:   'text',
+                    data:       data,
                     url:        'db/insert_project.php',
-                    method:     'post',
+                    method:     'POST',
+                    mimeType: "multipart/form-data",
+                    processData: false,
+                    contentType: false,
                     success: function(result) {
                         console.log("success!");
                         console.log(result);    // result returns anything in html, anything that gets printed -VL
@@ -72,7 +76,7 @@
 <div layout="column" style="height:5%;"></div>
 
 <!--Project Title Input-->
-<form id="project_form">
+<form id="project_form" method="POST" action="db/insert_project.php" enctype="multipart/form-data">
 <md-list-item>
     <md-input-container class="add-form-input" layout="row" layout-align="center" flex="40" flex-offset="30">
         <label for="add-todo">Project Title &nbsp;(Photo Required)</label>

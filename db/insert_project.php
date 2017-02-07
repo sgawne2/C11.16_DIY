@@ -1,9 +1,9 @@
 <?php
     /* mySQL_connect.php has $conn, which uses mysqli_connect */
     require('mysql_connect.php');
-
-print_r ($_POST);
-exit();
+include('file_handler.php');
+//print_r ($_POST);
+//exit();
     /* Initialize variables: */
     $tool_qty_negativeORzero = false;
 
@@ -92,8 +92,9 @@ exit();
         `project_name` = '$proj_name',
         `project_description` = '$proj_descrip',
         `tool_count` = '$tool_count',
-        `is_featured` = '$is_featured' ";
-//,     `project_photo` = '$main_photo' ";
+        `is_featured` = '$is_featured',
+        `project_photo` = '$main_photo' 
+        ";
 
     print("\n" . $query_proj . "\n");
     $result_proj = mysqli_query($conn, $query_proj);    // Insert action
