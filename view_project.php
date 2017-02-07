@@ -28,6 +28,7 @@
     <script src="js/components/viewProject/viewProject.component.js"></script>
     <script src="js/components/addComment/addComment.component.js"></script>
     <script src="js/components/sidePanel/sidePanel.component.js"></script>
+    <script src="js/components/footer/footer.component.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -170,5 +171,6 @@
 
 <!--side nav-->
 <side-panel></side-panel>
+<footer></footer>
 </body>
 </html>
