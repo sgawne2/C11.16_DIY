@@ -6,6 +6,7 @@
     </div>
 
     <md-card-content>
+        <img ng-src="{{$ctrl.project_info.project_photo}}" width="100%" style="border-radius:5px;">
         <p style="line-height: 140%">{{ $ctrl.project_info.project_description }}</p>
 
         <h3>Required Tools</h3>
@@ -31,6 +32,8 @@
 
     </md-card>
 </div>
+
+<add-comment></add-comment>
 
 <!--<div class="container" ng-repeat="comment in $ctrl.comments">-->
     <!--<div layout="column" style="height:5%;"></div>-->
