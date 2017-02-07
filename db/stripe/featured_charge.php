@@ -1,7 +1,7 @@
 <?php
 //    echo $_POST['stripeToken'];
 require_once('init.php');
-$pid = $_POST['pid'];
+$pid = intval($_POST['pid']);
 if ( isset($_POST['stripeToken']) ) {
     $token = $_POST['stripeToken'];
 
@@ -14,7 +14,7 @@ if ( isset($_POST['stripeToken']) ) {
         ]);
         $query = "
         UPDATE `projects`
-        SET `is_premium` = 1
+        SET `is_featured` = 1
         WHERE `project_id` = ". $pid
         ;
 //        echo $_POST['pid'];
