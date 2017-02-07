@@ -15,6 +15,12 @@
     <!-- Google Analytics tracking code -->
     <?php include_once("google_analytics.php") ?>
 
+    <!-- Pinterest -->
+    <script
+        type="text/javascript"
+        async defer
+        src="//assets.pinterest.com/js/pinit.js"
+    ></script>
 
     <!-- Angular Material requires Angular.js Libraries -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
@@ -37,6 +43,7 @@
     <script src="js/components/projectCard/projectCard.component.js"></script>
     <script src="js/components/createProfile/createProfile.component.js"></script>
     <script src="js/components/sidePanel/sidePanel.component.js"></script>
+    <script src="js/components/footer/footer.component.js"></script>
 
 </head>
 <body ng-app="diyApp">
@@ -94,20 +101,28 @@
     </div>
 
     <md-card-content>
-        <div>
+
             <ol>
-                <li> If I submit a project, does it get displayed right away? </li>
+                <li> 1. What is the purpose of this site? </li>
+                <li><b>To allow people to search and submit DIY projects based on the materials or tools they have.</b></li><br>
+                <li> 2. Can I submit a project without an account? </li>
+                <li><b>No. However, signing up is free and easy. Then you can share your project ideas with the community!</b></li><br>
+                <li> 3. If I submit a project, does it get displayed right away? </li>
                 <li><b>Yes.</b></li><br>
-                <li> Can I search for projects normally, that is without having to type in a bunch of tools? </li>
+                <li> 4. Can I search for projects normally, that is without having to type in a bunch of tools? </li>
                 <li><b>Not at this time, but that feature will be added in release 1.2.</b></li><br>
-                <li> How much does it cost to feature a project? </li>
-                <li><b>$20</b></li><br>
+                <li> 5. How much does it cost to feature a project of mine? </li>
+                <li><b>$20.</b></li><br>
+                <li> 6. What's the blog for? </li>
+                <li><b>Our blog allows users to share their experience and process of making a project.</b></li><br>
             </ol>
-        </div>
+
     </md-card-content>
 </md-card>
 
 <!--side nav-->
 <side-panel></side-panel>
+<div layout="column" style="height:5%;"></div>
+<footer></footer>
 </body>
 </html>
