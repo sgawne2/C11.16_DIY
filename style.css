@@ -301,3 +301,11 @@ button.md-primary.md-button.md-default-theme.md-ink-ripple.md-focused{
     padding-left:20px;
     padding-right:20px;
 }
+
+.aboutUsCard h2, h3{
+    color: #00BFA5;
+}
+
+.contactUsCard h2, h3{
+    color: #00BFA5;
+}
