@@ -5,24 +5,24 @@
 </md-content>
 
 <div class='md-padding' layout="row" layout-wrap>
-    <md-card ng-repeat="project in $ctrl.projects" flex-xs="100" flex-gt-xs="100" flex-sm="45" flex-gt-sm="30" flex-gt-md="30" flex-lg="30" flex-gt-lg="30">
+    <md-card ng-repeat="project in $ctrl.projects" class="individualProjectCard" flex-xs="100" flex-gt-xs="100" flex-sm="45" flex-gt-sm="30" flex-gt-md="30" flex-lg="30" flex-gt-lg="30">
         <a href="view_project.php?pid={{ project.project_id }}">
-       <img ng-src="{{project.project_photo}}" class="md-card-image" alt="{{project.project_name}}" width="100%">
+           <img ng-src="{{project.project_photo}}" class="md-card-image" alt="{{project.project_name}}" width="100%">
 
-        <md-card-title-text><h2 style="color:black">{{project.project_name}}</h2></md-card-title-text>
+            <md-card-title-text><h2 style="color:black">{{project.project_name}}</h2></md-card-title-text>
 
-        <md-card-content>
-            <p style="color:black">{{project.project_description}}</p>
-        </md-card-content>
+            <md-card-content>
+                <p style="color:black">{{project.project_description}}</p>
+            </md-card-content>
 
-        <md-card-content>
-            <p style="color:black"><b>Relevance</b></p>
-                <md-progress-linear md-mode="determinate" value="{{ (project.own_count/project.req_count)*100 }}"></md-progress-linear>
-        </md-card-content>
+            <md-card-content>
+                <p style="color:black"><b>Relevance</b></p>
+                    <md-progress-linear md-mode="determinate" value="{{ (project.own_count/project.req_count)*100 }}"></md-progress-linear>
+            </md-card-content>
 
-        <md-card-actions layout="row" layout-align="center center">
-            <md-button>View Project</md-button>
-        </md-card-actions>
-            </a>
+            <md-card-actions layout="row" layout-align="center center">
+                <md-button>View Project</md-button>
+            </md-card-actions>
+        </a>
     </md-card>
 </div>

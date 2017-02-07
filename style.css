@@ -172,6 +172,17 @@ project-card {
     width:100%;
 }
 
+.individualProjectCard{
+    position:relative;
+    transition-duration:.6s;
+    transition-timing-function: ease-out;
+}
+
+.individualProjectCard:hover{
+    top:-4px;
+    box-shadow: 0 3px 10px #a0a0a0;
+}
+
 a:link{
     color:white;
     text-decoration:none;
