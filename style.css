@@ -281,10 +281,12 @@ footer{
     background-color:#FF6D00;
     color:white;
 }
+
 button.md-primary.md-button.md-default-theme.md-ink-ripple.md-focused{
     background-color:#FF6D00;
     color:white;
 }
+
 .footerLinks{
     width:100%;
 }
@@ -292,4 +294,9 @@ button.md-primary.md-button.md-default-theme.md-ink-ripple.md-focused{
 .footerLinks > ul >li{
     display:inline-block;
     padding: 30px 15px 0 15px;
+}
+
+.postedComments:nth-child(even){
+    background-color: #f8f8f8;
+    padding-top:8px;
 }

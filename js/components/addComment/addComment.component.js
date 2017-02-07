@@ -2,15 +2,6 @@ function addCommentController($mdDialog){
     var ctrl = this;
     ctrl.rating = 0;
     ctrl.redFlag = 0;
-    ctrl.date = new Date().getTime();
-
-    ctrl.comments = [
-        {
-        user_id: 1234,
-        comment_text: '',
-        comment_date: ctrl.date
-        }
-    ];
 
     ctrl.stars = [
         {filled: false},
@@ -86,11 +77,31 @@ function addCommentController($mdDialog){
         });
     };
 
+
+
+    ctrl.date = new Date().getTime();
+
+    ctrl.commentsArray = [];
+
+    ctrl.commentsObject = {
+        user_id: 1234,
+        comment_text: '',
+        comment_date: ctrl.date
+    };
+
+
     ctrl.submit = function(){
 
-        ctrl.comments.push();
+        ctrl.commentsArray.push(ctrl.commentsObject);
+        console.log(ctrl.commentsArray);
+        ctrl.commentsObject = {
+            user_id: 1234,
+            comment_text: '',
+            comment_date: ctrl.date
+        };
         ctrl.show = true;
-    }
+    };
+
 
 }
 
