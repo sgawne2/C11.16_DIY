@@ -1,4 +1,4 @@
-function addCommentController($mdDialog){
+function addCommentController($mdDialog, $animate){
     var ctrl = this;
     ctrl.rating = 0;
     ctrl.redFlag = 0;
@@ -59,6 +59,19 @@ function addCommentController($mdDialog){
             ctrl.isRated = true;
         }
 
+        ctrl.triggerAnimation();
+
+    };
+
+    ctrl.triggerAnimation = function(){
+
+        $animate.on('click', container,
+            function callback(element, phase) {
+                // cool we detected an enter animation within the container
+            });
+            console.log('hello');
+
+
     };
 
     ctrl.showConfirm = function(ev) {
@@ -101,6 +114,8 @@ function addCommentController($mdDialog){
         };
         ctrl.show = true;
     };
+
+    ctrl.pid = location.search.split('pid=')[1];
 
 
 }

@@ -1,14 +1,10 @@
-
-
-
-
 <div layout="column" style="height:5%;"></div>
 
 <form id="comment_project">
 
     <input type="text" name="proj_red_flag" ng-model="$ctrl.redFlag" ng-hide="true"><br>
     <input type="text" name="proj_rating" ng-model="$ctrl.rating" ng-hide="true">
-<!--    <input type="text" value="--><?php //print($_GET["pid"]); ?><!--" name="p_id" ng-hide="true">-->
+    <input type="text" name="p_id" ng-model="$ctrl.pid" ng-hide="true">
 
 <!--Rate this project-->
 <div flex="70" flex-offset="15" layout-align="end">
@@ -67,7 +63,9 @@
         <div ng-repeat="comment in $ctrl.commentsArray" class="postedComments">
             <p style="line-height: 140%" ng-if="$ctrl.show">{{ $ctrl.commentsArray[$index].user_id }}</p>
             <p style="line-height: 140%" ng-if="$ctrl.show">{{ $ctrl.commentsArray[$index].comment_text }}</p>
-            <p style="line-height: 140%" ng-if="$ctrl.show">{{ $ctrl.commentsArray[$index].comment_date | date: 'mediumDate' }}</p>
+            <div layout="row" layout-align="end end">
+                <p style="line-height: 140%; font-size:14px" ng-if="$ctrl.show">Posted {{ $ctrl.commentsArray[$index].comment_date | date: 'mediumDate' }}</p>
+            </div>
             <md-divider></md-divider>
         </div>
     </md-card-content>
