@@ -291,3 +291,13 @@ button.md-primary.md-button.md-default-theme.md-ink-ripple.md-focused{
     background-color: #f8f8f8;
     padding-top:8px;
 }
+
+.footerLinks > ul{
+    padding:0;
+}
+
+.footerLinks > ul >li{
+    display: inline-block;
+    padding-left:20px;
+    padding-right:20px;
+}
