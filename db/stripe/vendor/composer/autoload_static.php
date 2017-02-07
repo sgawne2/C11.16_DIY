@@ -16,7 +16,7 @@ class ComposerStaticInit71fd95455387299c07ba27372b41b61e
     public static $prefixDirsPsr4 = array (
         'Stripe\\' => 
         array (
-            0 => __DIR__ . '/..',
+            0 => __DIR__ . '/..' . '/stripe/stripe-php/lib',
         ),
     );
 
