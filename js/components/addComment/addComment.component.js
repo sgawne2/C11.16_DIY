@@ -98,6 +98,7 @@ function addCommentController($mdDialog, $animate, $http){
                 ctrl.isRated = false;
                 ctrl.showStars(index);
                 ctrl.isRated = true;
+                ctrl.insert_rating();
             }
         } else{
             ctrl.isRated = true;
