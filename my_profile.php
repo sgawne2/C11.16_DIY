@@ -38,6 +38,8 @@
     <script src="js/components/createProfile/createProfile.component.js"></script>
     <script src="js/components/sidePanel/sidePanel.component.js"></script>
     <script src="js/components/footer/footer.component.js"></script>
+    <script src="js/components/contactInfo/contactInfo.component.js"></script>
+    <script src="js/components/myProjects/myProjects.component.js"></script>
 
 </head>
 <body ng-app="diyApp">
@@ -90,7 +92,6 @@
 
 <!--createProfile Angular Component-->
 <create-profile></create-profile>
-
 
 <!--side nav-->
 <side-panel></side-panel>

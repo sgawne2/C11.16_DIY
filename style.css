@@ -173,8 +173,9 @@ project-card {
 }
 
 .individualProjectCard{
+    top:0;
     position:relative;
-    transition-duration:.6s;
+    transition-duration:.2s;
     transition-timing-function: ease-out;
 }
 
@@ -270,7 +271,7 @@ footer{
     position:relative;
     top:30px;
     color:white;
-    height:70%;
+    height:60%;
 }
 
 .leftProfileContent section img{
