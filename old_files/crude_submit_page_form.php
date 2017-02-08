@@ -1,9 +1,5 @@
 <!-- MacDIYver project   Vernon Louie    January 23, 2017    -->
 
-<?php
-    session_start();
-?>
-
 <html>
     <!-- include the jQuery library as we are using jQuery functions -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
