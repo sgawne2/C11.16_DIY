@@ -32,6 +32,8 @@ function createProfileController($scope){
         }
 
     });
+
+
 }
 
 angular.module('diyApp').component('createProfile', {

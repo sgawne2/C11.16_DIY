@@ -1,35 +1,4 @@
-<div layout="column" style="height:5%;"></div>
+<project-card projects="$ctrl.data" is-loading="$ctrl.loading"></project-card>
 
-<div layout="row" flex="90" flex-offset="5">
 
-    <div class="leftProfileContent" flex="20">
-        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap="" style="position:relative; top:20px">
 
-            <!--<div class="ProfileImageContainer">-->
-            <img src="images/profile-placeholder.png">
-            <!--</div>-->
-
-            <!--<md-button class="md-raised md-warn" style="background-color: #00BFA5;">Edit</md-button>-->
-            <input type="file" name="file" id="fileUpload" class="ng-hide">
-
-            <md-button class="md-raised md-warn" style="background-color: #00BFA5; width:50%"
-                       ng-hide="editing"
-                       ng-click="">
-                <input class="ng-hide" id="input-file-id" multiple type="file">
-                <label for="fileUpload">Edit</label>
-            </md-button>
-        </section>
-
-        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap="" style="position:relative; top:60px">
-            <md-button style="width:100%">My Projects</md-button>
-            <md-button style="width:100%">Favorite Projects</md-button>
-            <md-button style="width:100%">Contact Info</md-button>
-        </section>
-
-    </div>
-
-    <div flex="80">
-        <project-card projects="$ctrl.data" is-loading="$ctrl.loading"></project-card>
-    </div>
-
-</div>

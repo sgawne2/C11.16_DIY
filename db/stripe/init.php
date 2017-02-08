@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('mysql_connect.php');
+require_once('../mysql_connect.php');
 require_once('vendor/autoload.php');
 require_once('stripe_keys.php');
 //composer's auto loader
