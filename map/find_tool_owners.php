@@ -1,3 +1,4 @@
+
 <?php
     require('../db/mysql_connect.php');
 
@@ -12,12 +13,12 @@
     } else {
         /* Join 3 tables together and get data from each */
         $query = "
-            SELECT u.user_name, u.street_address, u.city, u.zip_code, u.state, t.tool_name, m.tool_description 
-            FROM map_tu AS m
-            JOIN users AS u ON m.user_id = u.user_id
-            JOIN tools AS t ON m.tool_id = t.tool_id
-            WHERE t.tool_name = '$tool_name'
-                " ;
+                SELECT u.user_name, u.street_address, u.city, u.zip_code, u.state, t.tool_name, m.tool_description 
+                FROM map_tu AS m
+                JOIN users AS u ON m.user_id = u.user_id
+                JOIN tools AS t ON m.tool_id = t.tool_id
+                WHERE t.tool_name = '$tool_name'
+                    " ;
 
         $output = [];
 
@@ -72,3 +73,4 @@
         </table>
     </body>
 </html>
+
