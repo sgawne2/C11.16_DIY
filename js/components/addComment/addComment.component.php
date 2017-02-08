@@ -61,7 +61,7 @@
 
 <!--        <p style="line-height: 140%" ng-if="$ctrl.show">{{ project.description }}</p>-->
         <div ng-repeat="comment in $ctrl.commentsArray" class="postedComments">
-            <p style="line-height: 140%" ng-if="$ctrl.show">{{ $ctrl.commentsArray[$index].user_id }}</p>
+            <p style="line-height: 140%" ng-if="$ctrl.show">{{ $ctrl.commentsArray[$index].user_name }}</p>
             <p style="line-height: 140%" ng-if="$ctrl.show">{{ $ctrl.commentsArray[$index].comment_text }}</p>
             <div layout="row" layout-align="end end">
                 <p style="line-height: 140%; font-size:14px" ng-if="$ctrl.show">Posted {{ $ctrl.commentsArray[$index].comment_date | date: 'mediumDate' }}</p>
