@@ -21,7 +21,7 @@ function addCommentController($mdDialog, $animate, $http){
             method: "POST",
             data:   {
                         proj_id:        ctrl.pid,
-                        user_id:        42,
+                        user_id:        ctrl.userId,
                         proj_rating:    ctrl.rating
                     },
             url:    "./db/rating_insert.php"
@@ -142,19 +142,20 @@ function addCommentController($mdDialog, $animate, $http){
 
     ctrl.commentsObject = {
         user_id: ctrl.userId,
+        user_name: ctrl.userName,
         comment_text: '',
         comment_date: ctrl.date
     };
 
-
     ctrl.submit = function(){
         ctrl.insert_comment();
-
+    console.log(ctrl.commentsObject);
         ctrl.commentsArray.unshift(ctrl.commentsObject);
         console.log(ctrl.commentsArray);
 
         ctrl.commentsObject = {
             user_id: ctrl.userId,
+            user_name: ctrl.userName,
             comment_text: '',
             comment_date: ctrl.date
         };
@@ -196,7 +197,8 @@ angular.module('diyApp').component('addComment', {
     templateUrl: './js/components/addComment/addComment.component.php',
     controller: addCommentController,
     bindings: {
-        userId: '<'
+        userId: '<',
+        userName: '<'
     },
     transclude: true
 });

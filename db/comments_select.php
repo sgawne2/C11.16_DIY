@@ -12,7 +12,7 @@
         print("There is no project id passed in.  Not selecting from database.");
     } else {
         $query = "
-            SELECT pc.comment_text, pc.comment_date, u.user_name
+            SELECT pc.comment_text, pc.comment_date, pc.user_id, u.user_name
             FROM `p_comments` AS pc
             JOIN users AS u ON pc.user_id = u.user_id
             WHERE project_id=$proj_id 
