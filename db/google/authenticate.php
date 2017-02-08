@@ -44,6 +44,7 @@
                     $output[] = $row;
                 }
                 echo json_encode($output);
+                $id = $output[0]['user_id'];
             }
             else {
                 $query = $create_user;
@@ -52,6 +53,7 @@
                 if (mysqli_affected_rows($conn)) {      // Get project_id of newly inserted project = $id
                     $id = mysqli_insert_id($conn);
                     print("User ID: " . $id . "\n");
+
                 } else {
                     print("\n Failure \n");
                 }
