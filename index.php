@@ -46,6 +46,7 @@ session_start();
     <script src="js/components/projectCard/projectCard.component.js"></script>
     <script src="js/components/footer/footer.component.js"></script>
     <script src="js/components/sidePanel/sidePanel.component.js"></script>
+    <script src="js/components/featuredProjects/featuredProjects.component.js"></script>
 </head>
 
 <body ng-app="diyApp">
