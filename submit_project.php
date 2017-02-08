@@ -27,6 +27,7 @@
     <script src="js/components/toolSelector/toolSelector.component.js"></script>
     <script src="js/components/addPhoto/addPhoto.component.js"></script>
     <script src="js/components/sidePanel/sidePanel.component.js"></script>
+    <script src="js/components/footer/footer.component.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -69,6 +70,12 @@
         md-radio-button:focus {
             outline:none;
             border:0;
+        }
+
+        a.fb-xfbml-parse-ignore img{
+            position:relative;
+            right:2px;
+            top:6px
         }
     </style>
 </head>
@@ -141,6 +148,7 @@
 
 <!--side nav-->
 <side-panel></side-panel>
-
+<div layout="column" style="height:5%;"></div>
+<footer></footer>
 </body>
 </html>

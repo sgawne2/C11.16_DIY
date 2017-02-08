@@ -37,7 +37,10 @@
     <script src="js/components/projectCard/projectCard.component.js"></script>
     <script src="js/components/createProfile/createProfile.component.js"></script>
     <script src="js/components/sidePanel/sidePanel.component.js"></script>
+    <script src="js/components/footer/footer.component.js"></script>
+    <script src="js/components/contactInfo/contactInfo.component.js"></script>
     <script src="js/components/myProjects/myProjects.component.js"></script>
+    <script src="js/components/userInfoDisplay/userInfoDisplay.component.js"></script>
 
 </head>
 <body ng-app="diyApp">
@@ -88,11 +91,63 @@
     </div>
 </md-toolbar>
 
-<my-projects></my-projects>
+<!--createProfile Angular Component-->
+<div layout="column" style="height:5%;"></div>
+
+<div layout="row" flex="90" flex-offset="5" style="max-height:none; height:auto">
+
+    <div class="leftProfileContent" flex="20">
+        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap="" style="position:relative; top:20px">
+
+            <!--<div class="ProfileImageContainer">-->
+            <img src="images/profile-placeholder.png">
+            <!--</div>-->
+
+            <!--<md-button class="md-raised md-warn" style="background-color: #00BFA5;">Edit</md-button>-->
+            <input type="file" name="file" id="fileUpload" class="ng-hide">
+
+            <md-button class="md-raised md-warn" style="background-color: #00BFA5; width:50%"
+                       ng-hide="editing"
+                       ng-click="">
+                <input class="ng-hide" id="input-file-id" multiple type="file">
+                <label for="fileUpload">Edit</label>
+            </md-button>
+        </section>
+
+        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap="" style="position:relative; top:60px">
+            <md-button style="width:100%" ng-click="$ctrl.selection = 'myProjects' "><a href="">My Projects</a></md-button>
+            <md-button style="width:100%" ng-click="$ctrl.selection = 'contactInfo' ">Contact Info</md-button>
+            <md-button style="width:100%" ng-click="$ctrl.selection = 'viewProfile' ">View Profile</md-button>
+        </section>
+
+    </div>
+
+    <div flex="80" style="max-height:none">
+        <md-content layout-padding="">
+            <div ng-switch on="$ctrl.selection">
+
+                <div ng-switch-when="contactInfo">
+                    <contact-info></contact-info>
+                </div>
+
+                <div ng-switch-default>
+                    <my-projects></my-projects>
+                </div>
+
+                <div ng-switch-when="viewProfile">
+                    <user-info-display></user-info-display>
+                </div>
+            </div>
+        </md-content>
+    </div>
+
+
+</div>
 
 
 <!--side nav-->
 <side-panel></side-panel>
+<footer></footer>
 </body>
 </html>
 

@@ -1,0 +1,45 @@
+<form name="userForm">
+
+    <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm="">
+            <label>User name</label>
+            <input ng-model="$ctrl.profile.username">
+        </md-input-container>
+    </div>
+
+    <md-input-container class="md-block" flex-gt-sm="">
+        <label>Email</label>
+        <input ng-model="$ctrl.profile.email">
+    </md-input-container>
+
+    <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm="">
+            <label>City</label>
+            <input ng-model="user.city">
+        </md-input-container>
+
+        <md-input-container class="md-block" flex-gt-sm="">
+            <label>State</label>
+            <md-select ng-model="user.state">
+                <md-option ng-repeat="state in states" value="{{state.abbrev}}">
+                    {{state.abbrev}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+
+    <md-input-container class="md-block">
+        <label>Hobbies</label>
+        <textarea ng-model="$ctrl.profile.hobbies" md-maxlength="500" rows="4" md-select-on-focus=""></textarea>
+    </md-input-container>
+
+    <md-input-container class="md-block">
+        <label>Biography</label>
+        <textarea ng-model="$ctrl.profile.bio" md-maxlength="500" rows="4" md-select-on-focus=""></textarea>
+    </md-input-container>
+
+
+    <div layout="row" layout-align="end start" flex="100">
+        <md-button class="md-raised md-warn" layout-align="right" style="background-color: #00BFA5" ng-click="$ctrl.createProfileObject()">Submit</md-button>
+    </div>
+</form>
