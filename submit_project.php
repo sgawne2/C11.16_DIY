@@ -1,8 +1,6 @@
-
 <?php
-    session_start();
+session_start();
 ?>
-
 <html lang="en" >
 <head>
     <!--Angular Material Style Sheets-->
@@ -11,10 +9,10 @@
 
     <link rel="stylesheet" type="text/css" href="style.css">
 
-    <!-- Google Analytics tracking code -->
+    <!-- Google Analytics tracking code -VL -->
     <?php include_once("google_analytics.php") ?>
 
-    <!-- include the jQuery library as we are using jQuery functions -VL -->
+    <!-- include the jQuery library as we are using jQuery functions (AJAX) -VL -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
     <!-- Angular Material requires Angular.js Libraries -->
@@ -31,19 +29,37 @@
     <script src="js/components/addStep/addStep.component.js"></script>
     <script src="js/components/toolSelector/toolSelector.component.js"></script>
     <script src="js/components/addPhoto/addPhoto.component.js"></script>
+    <script src="js/components/sidePanel/sidePanel.component.js"></script>
+    <script src="js/components/footer/footer.component.js"></script>
 
     <script>
         $(document).ready(function() {
             $(".md-raised").click(function() {
                 console.log("inside click handler");
+                var formEle = $('#project_form')[0];
+                var data = new FormData(formEle);
                 $.ajax({
-                    data:       $("#project_name_only").serialize(),  // Serialize grabs the text from a form element -VL
-                    dataType:   'text',
+                    data:       data,
+                    dataType:   "JSON",
                     url:        'db/insert_project.php',
-                    method:     'post',
+                    method:     'POST',
+                    mimeType: "multipart/form-data",
+                    processData: false,
+                    contentType: false,
                     success: function(result) {
                         console.log("success!");
                         console.log(result);    // result returns anything in html, anything that gets printed -VL
+                        if (result.errors) {
+                            alert(result.errors);
+                        } else {
+                            if (result.pid) {
+                                if (result.is_featured) {
+                                    window.location = 'db/stripe/feature_project.php?pid=' + result.pid;
+                                } else {
+                                    window.location = 'view_project.php?pid=' + result.pid;
+                                }
+                            }
+                        }
                     },
                     error: function(result) {
                         console.log("failure");
@@ -53,6 +69,18 @@
             });
         });
     </script>
+    <style>
+        md-radio-button:focus {
+            outline:none;
+            border:0;
+        }
+
+        a.fb-xfbml-parse-ignore img{
+            position:relative;
+            right:2px;
+            top:6px
+        }
+    </style>
 </head>
 <body ng-app="diyApp">
 
@@ -76,13 +104,14 @@
 <div layout="column" style="height:5%;"></div>
 
 <!--Project Title Input-->
+<form id="project_form" method="POST" action="db/insert_project.php" enctype="multipart/form-data">
+    <input type="text" name="uid" value="<?=$_SESSION['user_id'];?>" class="ng-hide">
 <md-list-item>
-<form id="project_name_only" flex="40" flex-offset="30">
-    <md-input-container class="add-form-input" layout="row" layout-align="center">
+    <md-input-container class="add-form-input" layout="row" layout-align="center" flex="40" flex-offset="30">
         <label for="add-todo">Project Title &nbsp;(Photo Required)</label>
         <input id="add-todo" type="text" name = "proj_name">
     </md-input-container>
-</form>
+
     <add-photo></add-photo>
 </md-list-item>
 
@@ -94,101 +123,35 @@
         <textarea ng-model="project.description" name="proj_descrip" ></textarea>
     </md-input-container>
 
+    <!--Angular Tool Selector Component-->
+    <tool-selector></tool-selector>
+
     <!--Angular Project Steps Component-->
     <add-steps></add-steps>
 
-    <!--Angular Tool Selector Component-->
-    <tool-selector></tool-selector>
+    <md-content>
+        <div layout="column" style="height:3%;"></div>
+        <p style="font-size:18px; text-align:center">Do you wish to pay $20 to have your project <b>featured</b> on our home page?</p>
+<!--        <input type="radio" name="is_featured" value=1> Yes <br>-->
+<!--        <input type="radio" name="is_featured" value=0> No-->
+
+        <md-radio-group ng-model="featuredProjectChoice" layout="row" layout-align="center" ng-init="featured = 0">
+            <md-radio-button value="yes" class="md-warn" ng-click="featured = 1">Yes</md-radio-button>
+            <md-radio-button value="no" class="md-warn" ng-click="featured = 0">No Thanks</md-radio-button>
+        </md-radio-group>
+        <input type="number" name="is_featured" ng-model="featured" value=0 class="ng-hide">
+        <div layout="column" style="height:3%;"></div>
+
+    </md-content>
+
+    <div layout="row" layout-align="end start" flex="90">
+        <md-button class="md-raised md-warn" layout-align="right" style="background-color: #00BFA5" ng-click="$ctrl.submit">Submit</md-button>
+    </div>
 </form>
 
-<div layout="row" layout-align="end start" flex="90">
-    <md-button class="md-raised md-warn" layout-align="right" style="background-color: #00BFA5" ng-click="$ctrl.submit">Submit</md-button>
-</div>
-
 <!--side nav-->
-<div ng-controller="AppCtrl" layout="column" ng-cloak>
-    <section layout="row" flex class="side-tool-list">
-        <md-sidenav class="md-sidenav-left" md-component-id="left"
-                    md-disable-backdrop md-whiteframe="4" style="position:fixed; top:64px;">
-            <md-toolbar>
-                <h1 class="md-toolbar-tools" style="background-color: #00BFA5;">Pick the tools you have!</h1>
-            </md-toolbar>
-            <md-content layout-margin>
-                <p>Select you category of interest and then check the items that you have to get your project started</p>
-
-                <!--left side tool category list-->
-                <button class="accordion"
-                        style="background-color: #00BFA5; color:white;"><b>Woodworking</b></button>
-                <div class="panel">
-                    <!--woodworking tool list-->
-                    <ul>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Hammer</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Nails</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Screwdriver</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Saw</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">X-acto Blade</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Screws</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Crowbar</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Wrench</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Bansaw</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Allen Wrench</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Monkey Wrench</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Wood</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Plumbing Pipes</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Electrical Wires</md-checkbox></li>
-                    </ul>
-                </div>
-
-                <button class="accordion"
-                        style="background-color: #00BFA5; color:white;"><b>Technology</b></button>
-                <div class="panel">
-                    <!--technology tool list-->
-                    <ul>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Hammer</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Nails</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Screwdriver</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Saw</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">X-acto Blade</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Screws</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Crowbar</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Wrench</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Bansaw</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Allen Wrench</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Monkey Wrench</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Wood</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Plumbing Pipes</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Electrical Wires</md-checkbox></li>
-                    </ul>
-                </div>
-
-                <button class="accordion"
-                        style="background-color: #00BFA5; color:white;"><b>Arts & Crafts</b></button>
-                <div class="panel">
-                    <!--arts & crafts tool list-->
-                    <ul>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Hammer</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Nails</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Screwdriver</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Saw</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">X-acto Blade</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Screws</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Crowbar</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Wrench</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Bansaw</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Allen Wrench</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Monkey Wrench</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Wood</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Plumbing Pipes</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Electrical Wires</md-checkbox></li>
-                    </ul>
-                </div>
-
-            </md-content>
-        </md-sidenav>
-    </section>
-</div>
-
-<script src="js/accordionPanel.js"></script>
-
+<side-panel></side-panel>
+<div layout="column" style="height:5%;"></div>
+<footer></footer>
 </body>
 </html>

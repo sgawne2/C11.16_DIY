@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html lang="en" >
 <head>
     <meta name="google-signin-scope" content="profile email">
@@ -9,8 +12,15 @@
 
     <link rel="stylesheet" type="text/css" href="style.css">
 
-    <!-- Google Analytics tracking code -->
+    <!-- Google Analytics tracking code -VL -->
     <?php include_once("google_analytics.php") ?>
+
+    <!-- Pinterest -->
+    <script
+        type="text/javascript"
+        async defer
+        src="//assets.pinterest.com/js/pinit.js"
+    ></script>
 
     <!-- include the jQuery library as we are using jQuery functions -VL -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -35,8 +45,21 @@
     <script src="js/components/autoChip/autoChip.component.js"></script>
     <script src="js/components/projectCard/projectCard.component.js"></script>
     <script src="js/components/footer/footer.component.js"></script>
+    <script src="js/components/sidePanel/sidePanel.component.js"></script>
 </head>
+
 <body ng-app="diyApp">
+
+<!-- Facebook share and like button templates -VL -->
+    <!-- FB "Share w/# of likes" button -VL -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
 
 <!--sticky header-->
 <md-toolbar layout="column" ng-controller="AppCtrl">
@@ -46,10 +69,10 @@
         <md-button ng-click="toggleLeft()"><md-icon md-font-set="material-icons">dehaze</md-icon></md-button>
 
 
-        <!--<div class="logo"></div>-->
         <div class="logo"></div>
-        <h2><a href="index.html">Mac<span class="tealText">diy</span>ver</a></h2>
+        <h2><a href="index.php">Mac<span class="tealText">diy</span>ver</a></h2>
         <span flex=""></span>
+
 
         <md-button><a href="submit_project.php">Submit Project</a></md-button>
         <md-button id="profile-btn" style="display:none">My Profile</md-button>
@@ -101,10 +124,9 @@
         </script>
     </div>
 </md-toolbar>
-
 <div class="headerImage" hide-xs hide-gt-xs hide-sm hide-gt-sm show-md show-gt-md show-lg show-gt-lg show-xl>
-    <h2><a href="index.html"><span class="orangeText">Mac</span><span class="darkTealText">diy</span><span class="orangeText">ver</span></a></h2>
-    <h1>Let's make some shit!</h1>
+    <h2 class="headerImageText"><span class="orangeText">Mac</span><span class="darkTealText">diy</span><span class="orangeText">ver</span></h2>
+    <h1>Let's make some stuff!</h1>
 </div>
 
 <!--&lt;!&ndash;search bar&ndash;&gt;-->
@@ -119,88 +141,6 @@
 <footer></footer>
 
 <!--side nav-->
-<div ng-controller="AppCtrl" layout="column" ng-cloak>
-    <section layout="row" flex class="side-tool-list">
-        <md-sidenav class="md-sidenav-left" md-component-id="left"
-                    md-disable-backdrop md-whiteframe="4" style="position:fixed; top:64px;">
-            <md-toolbar>
-                <h1 class="md-toolbar-tools" style="background-color: #00BFA5;">Pick the tools you have!</h1>
-            </md-toolbar>
-            <md-content layout-margin>
-                <p>Select your category of interest and then check the items that you have to get your project started</p>
-
-                <!--left side tool category list-->
-                <button class="accordion"
-                        style="background-color: #00BFA5; color:white;"><b>Woodworking</b></button>
-                <div class="panel">
-                    <!--woodworking tool list-->
-                    <ul>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Hammer</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Nails</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Screwdriver</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Saw</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">X-acto Blade</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Screws</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Crowbar</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Wrench</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Bansaw</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Allen Wrench</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Monkey Wrench</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Wood</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Plumbing Pipes</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Electrical Wires</md-checkbox></li>
-                    </ul>
-                </div>
-
-                <button class="accordion"
-                        style="background-color: #00BFA5; color:white;"><b>Technology</b></button>
-                <div class="panel">
-                    <!--technology tool list-->
-                    <ul>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Hammer</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Nails</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Screwdriver</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Saw</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">X-acto Blade</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Screws</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Crowbar</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Wrench</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Bansaw</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Allen Wrench</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Monkey Wrench</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Wood</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Plumbing Pipes</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Electrical Wires</md-checkbox></li>
-                    </ul>
-                </div>
-
-                <button class="accordion"
-                        style="background-color: #00BFA5; color:white;"><b>Arts & Crafts</b></button>
-                <div class="panel">
-                    <!--arts & crafts tool list-->
-                    <ul>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Hammer</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Nails</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Screwdriver</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Saw</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">X-acto Blade</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Screws</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Crowbar</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Wrench</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Bansaw</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Allen Wrench</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Monkey Wrench</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Wood</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Plumbing Pipes</md-checkbox></li>
-                        <li><md-checkbox class="orangeCheckBox" [checked]="todo.completed">Electrical Wires</md-checkbox></li>
-                    </ul>
-                </div>
-
-            </md-content>
-        </md-sidenav>
-    </section>
-</div>
-
-<script src="js/accordionPanel.js"></script>
+<side-panel></side-panel>
 </body>
 </html>

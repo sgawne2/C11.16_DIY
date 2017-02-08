@@ -35,11 +35,15 @@ function viewProjectController($http, $location){
             ctrl.project_info = response.data.info;
             ctrl.tools = response.data.tools;
             ctrl.steps = response.data.steps;
+            // ctrl.comments = response.data.comments;
         });
 }
 
 angular.module('diyApp').component('viewProject', {
     templateUrl: './js/components/viewProject/viewProject.component.html',
     controller: viewProjectController,
+    bindings: {
+        userId: '<'
+    },
     transclude: true
 });

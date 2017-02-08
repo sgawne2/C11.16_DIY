@@ -9,6 +9,13 @@ h2 > a{
     color:#FEC77E;
 }
 
+.headerImageText{
+    font-size:100px;
+    line-height:35vh;
+    font-family: gotham-black, Sans-Serif;
+    color:#FEC77E;
+}
+
 .orangeText{
     /*color:#FFE0B2;*/
     /*color:#F57C00;*/
@@ -21,11 +28,6 @@ h2 > a{
 
 .darkTealText{
     color: #00BFA5;
-}
-
-.headerImage > h2 > a{
-    font-size:100px;
-    line-height:50vh;
 }
 
 .headerImage > h1{
@@ -90,7 +92,7 @@ li{
 
 .main{
     box-sizing: border-box;
-    height: 100%;
+    max-height:none;
 }
 
 .headerImage{
@@ -169,6 +171,18 @@ project-card {
     width:100%;
 }
 
+.individualProjectCard{
+    top:0;
+    position:relative;
+    transition-duration:.2s;
+    transition-timing-function: ease-out;
+}
+
+.individualProjectCard:hover{
+    top:-4px;
+    box-shadow: 0 3px 10px #a0a0a0;
+}
+
 a:link{
     color:white;
     text-decoration:none;
@@ -223,6 +237,15 @@ md-progress-circular path{
     stroke: #FFA726;
 }
 
+/* temporary, delete once project comments have been angularized -VL */
+.comment_container {
+    align:      center;
+    height:     50vh;
+    width:      50vw;
+    border:     0.5em dashed purple;
+    background-color:   pink;
+}
+
 add-photo{
     position:relative;
     bottom:20px;
@@ -241,10 +264,63 @@ footer{
 }
 
 .leftProfileContent{
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    background-color:#FFB74D;
-    height:auto;
+    border-radius:5px;
+    background-color:#FFA726;
+    /*height:auto;*/
     position:relative;
     top:30px;
+    color:white;
+    height:60%;
+}
+
+.leftProfileContent section img{
+    height:200px;
+    width:200px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.rateProject > .material-icons{
+    color:#F57C00;
+    font-size:30px;
+    position:relative;
+    top:8px;
+    left:8px;
+}
+
+.md-button.md-default-theme.md-primary, .md-button.md-primary{
+    background-color:#FF6D00;
+    color:white;
+}
+
+button.md-primary.md-button.md-default-theme.md-ink-ripple.md-focused{
+    background-color:#FF6D00;
+    color:white;
+}
+
+.postedComments:nth-child(even){
+    background-color: #f8f8f8;
+    padding-top:8px;
+}
+
+.footerLinks > ul{
+    padding:0;
+}
+
+.footerLinks > ul >li{
+    display: inline-block;
+    padding-left:20px;
+    padding-right:20px;
+}
+
+.aboutUsCard h2, h3{
+    color: #00BFA5;
+}
+
+.contactUsCard h2, h3{
+    color: #00BFA5;
+}
+
+.md-button.md-fab{
+    z-index:0;
 }
