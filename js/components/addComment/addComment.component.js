@@ -37,7 +37,8 @@ function addCommentController($mdDialog, $animate, $http){
             method: "post",
             data:   {
                 proj_id:        ctrl.pid,
-                proj_comment:   ctrl.commentsObject.comment_text
+                proj_comment:   ctrl.commentsObject.comment_text,
+                user_id:        ctrl.userId
             },
             url:    "./db/comment_insert.php"
         })
@@ -140,7 +141,7 @@ function addCommentController($mdDialog, $animate, $http){
     ctrl.commentsArray = [];
 
     ctrl.commentsObject = {
-        user_id: 1234,
+        user_id: ctrl.userId,
         comment_text: '',
         comment_date: ctrl.date
     };
@@ -153,7 +154,7 @@ function addCommentController($mdDialog, $animate, $http){
         console.log(ctrl.commentsArray);
 
         ctrl.commentsObject = {
-            user_id: 1234,
+            user_id: ctrl.userId,
             comment_text: '',
             comment_date: ctrl.date
         };
@@ -194,5 +195,8 @@ function addCommentController($mdDialog, $animate, $http){
 angular.module('diyApp').component('addComment', {
     templateUrl: './js/components/addComment/addComment.component.php',
     controller: addCommentController,
+    bindings: {
+        userId: '<'
+    },
     transclude: true
 });

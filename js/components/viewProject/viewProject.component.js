@@ -62,5 +62,8 @@ function viewProjectController($http, $location){
 angular.module('diyApp').component('viewProject', {
     templateUrl: './js/components/viewProject/viewProject.component.html',
     controller: viewProjectController,
+    bindings: {
+        userId: '<'
+    },
     transclude: true
 });

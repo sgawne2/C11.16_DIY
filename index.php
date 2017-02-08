@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html lang="en" >
 <head>
     <meta name="google-signin-scope" content="profile email">
@@ -121,7 +124,6 @@
         </script>
     </div>
 </md-toolbar>
-
 <div class="headerImage" hide-xs hide-gt-xs hide-sm hide-gt-sm show-md show-gt-md show-lg show-gt-lg show-xl>
     <h2 class="headerImageText"><span class="orangeText">Mac</span><span class="darkTealText">diy</span><span class="orangeText">ver</span></h2>
     <h1>Let's make some stuff!</h1>

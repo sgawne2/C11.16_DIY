@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html lang="en" >
 <head>
     <!--Angular Material Style Sheets-->
@@ -102,6 +105,7 @@
 
 <!--Project Title Input-->
 <form id="project_form" method="POST" action="db/insert_project.php" enctype="multipart/form-data">
+    <input type="text" name="uid" value="<?=$_SESSION['user_id'];?>" class="ng-hide">
 <md-list-item>
     <md-input-container class="add-form-input" layout="row" layout-align="center" flex="40" flex-offset="30">
         <label for="add-todo">Project Title &nbsp;(Photo Required)</label>
@@ -144,7 +148,6 @@
         <md-button class="md-raised md-warn" layout-align="right" style="background-color: #00BFA5" ng-click="$ctrl.submit">Submit</md-button>
     </div>
 </form>
-
 
 <!--side nav-->
 <side-panel></side-panel>
