@@ -1,13 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
     <head>
         <link type="text/css" rel="stylesheet" href="map_style.css" />
         <script src="map.js"></script>
-
-        <!--<script async defer-->
-        <!--src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrs1E9ETofrHeLWg27W6_eHO9Ky6fmuus&callback=initMap">-->
-        <!--</script>-->
 
         <!-- include the jQuery library as we are using jQuery functions -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

@@ -37,7 +37,27 @@ function viewProjectController($http, $location){
             ctrl.steps = response.data.steps;
             // ctrl.comments = response.data.comments;
         });
+
+    /* Gets the average rating of the project */
+    $http({
+        method: 'post',
+        data:   {proj_id:   pid},
+        url:    "./db/get_rating.php"
+    })
+        .then(function(response) {
+            console.log("response.data: ", response.data);
+            avg_rating = parseFloat(response.data.avg);
+            console.log("avg_rating: ", avg_rating);
+
+            if (avg_rating < 1 || avg_rating > 5) {
+                ctrl.rating = "Not rated yet";
+            } else {
+                ctrl.rating = response.data.avg;
+            }
+        })
+
 }
+
 
 angular.module('diyApp').component('viewProject', {
     templateUrl: './js/components/viewProject/viewProject.component.html',
