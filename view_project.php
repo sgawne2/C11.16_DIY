@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html lang="en" >
 <head>
     <!--Angular Material Style Sheets-->
@@ -55,7 +58,7 @@
 </md-toolbar>
 
 <!--Angular View Project Component-->
-<view-project></view-project>
+<view-project user-id="<?= $_SESSION['user_id'] ?>" user-name="<?= $_SESSION['user_name'] ?>"></view-project>
 
 <!--side nav-->
 <side-panel></side-panel>

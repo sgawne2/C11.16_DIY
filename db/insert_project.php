@@ -12,6 +12,11 @@ $insertOk = false;
     $proj_name = addslashes($_POST["proj_name"]);
     $proj_descrip = addslashes($_POST["proj_descrip"]);
     $is_featured = addslashes($_POST["is_featured"]);
+    if ($_POST["uid"] === "") {
+        $author_id = 0;
+    } else {
+        $author_id = addslashes($_POST["uid"]);
+    }
 //    $main_photo = addslashes($_POST["main_photo"]);
 
         /* Get tool_count, because it also goes into "projects" table */
@@ -98,7 +103,8 @@ $insertOk = false;
         `project_name` = '$proj_name',
         `project_description` = '$proj_descrip',
         `tool_count` = '$tool_count',
-        `project_photo` = '$main_photo' 
+        `project_photo` = '$main_photo' ,
+        `author_id` = $author_id
         ";
 //`is_featured` = '$is_featured',
 if ($insertOk) {

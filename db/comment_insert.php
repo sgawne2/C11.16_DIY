@@ -7,13 +7,15 @@
 //    print("POST: "); print_r($_POST);
     $proj_id = addslashes( $_POST["proj_id"] ) ;
     $proj_comment = addslashes( $_POST["proj_comment"] );
+    $user_id = addslashes( $_POST["user_id"] );
 
     if ($proj_id === "" || $proj_comment === "") {
         print("Project ID or project comment is blank.  Not inserting into database.");
     } else {
         $query = "INSERT INTO `p_comments` SET
                 `project_id` = $proj_id,             
-                `comment_text` = '$proj_comment' ";
+                `comment_text` = '$proj_comment',
+                 `user_id` = $user_id";
 
         $result = mysqli_query($conn, $query);
 

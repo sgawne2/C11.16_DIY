@@ -7,7 +7,7 @@ if ( isset($_POST['stripeToken']) ) {
 
     try{
         \Stripe\Charge::create([
-            "amount" => 1000,
+            "amount" => 2000,
             "currency" => "usd",
             "description" => "Example charge",
             "source" => $token

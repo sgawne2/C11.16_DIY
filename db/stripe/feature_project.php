@@ -24,7 +24,7 @@ Click to activate premium features
         src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="<?php echo $stripe['publishable_key']; ?>"
         data-email="<?php echo $user['email']; ?>"
-        data-amount="1000"
+        data-amount="2000"
         data-currency="usd"
         data-name="MacDIYver"
         data-description="Featured Project Status"
