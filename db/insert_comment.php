@@ -6,6 +6,10 @@
     $proj_comment = addslashes($_POST["proj_comment"]);
     $proj_rating = addslashes($_POST["proj_rating"]);
 
+    print("POST: "); print_r($_POST);
+    print("proj_comment: " . $proj_comment);
+    print("proj_rating: " . $proj_rating);
+
     /* proj_red_flag is set to 1 if the checkbox is checked in view_project.php; otherwise it's undefined */
     if (isset($_POST["proj_red_flag"])) {
         $proj_red_flag = addslashes($_POST["proj_red_flag"]);
@@ -28,7 +32,7 @@
     }
 
     $query = "UPDATE `projects` 
-              SET proj_red_flag = proj_red_flag + $proj_red_flag
+              SET proj_red_flag = proj_red_flag + 1
               WHERE project_id = $proj_id";
 
     $result = mysqli_query($conn, $query);
