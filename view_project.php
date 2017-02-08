@@ -58,7 +58,7 @@ session_start();
 </md-toolbar>
 
 <!--Angular View Project Component-->
-<view-project user-id="<?= $_SESSION['user_id'] ?>"></view-project>
+<view-project user-id="<?= $_SESSION['user_id'] ?>" user-name="<?= $_SESSION['user_name'] ?>"></view-project>
 
 <!--side nav-->
 <side-panel></side-panel>
