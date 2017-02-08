@@ -1,5 +1,4 @@
 <?php
-    /* mySQL_connect.php has $conn, which uses mysqli_connect */
     require('mysql_connect.php');
 
     $proj_id = addslashes($_POST["p_id"]);
@@ -16,9 +15,6 @@
     } else {
         $proj_red_flag = 0;
     }
-
-//    print("howdy!");
-//    print_r($proj_comment);
 
     if ($proj_comment === "" && ($proj_rating < 1 || $proj_rating > 5) ) {
         print("Not adding comments and rating, because there is no comment and rating is not between 1 and 5 inclusive.");
