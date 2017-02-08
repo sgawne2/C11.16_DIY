@@ -9,7 +9,7 @@
     $proj_id = addslashes($_POST["proj_id"]);
 
     if ($proj_id === "") {
-        print("There is no project id passed in");
+        print("There is no project id passed in.  Not selecting from database.");
     } else {
         $query = "
         SELECT `comment_text`, `comment_date`

@@ -16,9 +16,6 @@
         src="//assets.pinterest.com/js/pinit.js"
     ></script>
 
-    <!-- include the jQuery library as we are using jQuery functions (AJAX) -VL -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
     <!-- Angular Material requires Angular.js Libraries -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
@@ -59,31 +56,6 @@
 
 <!--Angular View Project Component-->
 <view-project></view-project>
-
-<!-- Get the average rating for a specific project and display -VL -->
-<?php
-    $p_id = $_GET["pid"];
-
-    require('db/mysql_connect.php');
-    // get comments for a specific project id -VL
-    $query = "
-            SELECT AVG (rating) AS avg
-            FROM `p_comments`
-            WHERE project_id=$p_id";
-
-    $result = mysqli_query($conn, $query);
-
-    if( mysqli_num_rows($result) ) {
-        while( $row = mysqli_fetch_assoc($result) ) {
-            $rating = $row;
-        }
-    }
-?>
-
-<p>
-    average rating: <?php print(number_format($rating["avg"],1)) ?>
-</p>
-
 
 <!--side nav-->
 <side-panel></side-panel>

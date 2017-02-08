@@ -15,13 +15,14 @@ function addCommentController($mdDialog, $animate, $http){
             });
     };
 
-    /* method for inserting rating into "p_comments" table */
+    /* method for inserting rating into "p_ratings" table -VL */
     ctrl.insert_rating = function() {
         $http({
             method: "POST",
             data:   {
-                        proj_id:       ctrl.pid,
-                        proj_rating:   ctrl.rating
+                        proj_id:        ctrl.pid,
+                        user_id:        42,
+                        proj_rating:    ctrl.rating
                     },
             url:    "./db/rating_insert.php"
         })
@@ -30,7 +31,7 @@ function addCommentController($mdDialog, $animate, $http){
             });
     };
 
-    /* method for inserting comment into "p_comments" table */
+    /* method for inserting comment into "p_comments" table -VL */
     ctrl.insert_comment = function() {
         $http({
             method: "post",
@@ -67,7 +68,7 @@ function addCommentController($mdDialog, $animate, $http){
         }
     };
 
-    ctrl.isRated = false;
+    ctrl.isRated = false;       // isRated denotes whether the project has received a rating or not -VL
 
     ctrl.stopHovering = function(){
         if (!ctrl.isRated){
@@ -167,7 +168,7 @@ function addCommentController($mdDialog, $animate, $http){
         $http({
             method: 'post',
             data:   {proj_id:   ctrl.pid},
-            url: "./db/comments_select.php"
+            url:    "./db/comments_select.php"
         })
             .then(function(response) {
                 if(response) {
