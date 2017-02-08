@@ -37,7 +37,20 @@ function viewProjectController($http, $location){
             ctrl.steps = response.data.steps;
             // ctrl.comments = response.data.comments;
         });
+
+    /* Gets the average rating of the project */
+    $http({
+        method: 'post',
+        data:   {proj_id:   pid},
+        url:    "./db/get_rating.php"
+    })
+        .then(function(response) {
+            console.log(response.data);
+            ctrl.rating = response.data.avg;
+        })
+
 }
+
 
 angular.module('diyApp').component('viewProject', {
     templateUrl: './js/components/viewProject/viewProject.component.html',
