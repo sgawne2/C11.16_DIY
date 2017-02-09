@@ -66,7 +66,7 @@ session_start();
         <h3>You provide the tools, and we provide the plan!</h3>
         <p>You tell <em>Macdiyver</em> the tools and materials that you have available, and <em>Macdiyver</em> will help you find the perfect project, so that you can spend more time making and less time making excuses.</p>
         <p>We created <em>Macdiyver</em> as our final project for the LearningFuze Full Immersion Web Development Bootcamp as a culmination of all of the technologies that we've learned about over the past twelve weeks. Our front end utilizes Angular in order to deliver a dynamic and responsive user experience. Our back end is in PHP.</p>
-        <h2>Meet the Team!</h2>
+        <h3>Meet the Team!</h3>
         <h3>Sean</h3>
         <p>The Full-Stack Developer</p>
         <h3>Vernon</h3>
