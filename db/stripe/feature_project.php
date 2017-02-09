@@ -38,7 +38,7 @@ if ($user['is_premium']) {
 </head>
 <body>
 
-<md-card style="max-height:none; width:40vw; margin: auto; position:relative; top:35%">
+<md-card style="max-height:none; width:41vw; margin: auto; position:relative; top:30%">
     <div style="background-color: #00BFA5; color:white; width:100%; text-align:center">
         <h2>Payment</h2>
     </div>
