@@ -46,20 +46,17 @@
             });
             var geocoder = new google.maps.Geocoder();
 
-            var address_array = ["11 Windridge, Aliso Viejo, CA", "9080 Irvine Center Drive, Irvine, CA", "Disneyland"];
+            var address_array = ["11 Windridge, Aliso Viejo, CA", "9080 Irvine Center Drive, Irvine, CA", "Disneyland", "Knotts Berry Farm"];
 
             for (var i=0; i < address_array.length; ++i) {
 //                var geocoder = new google.maps.Geocoder();
 
                 geocodeAddress(geocoder, map, address_array[i]);
             }
-
 //            document.getElementById('submit').addEventListener('click', function() {
 //                geocodeAddress(geocoder, map);
 //            });
         }
-
-
 
         function geocodeAddress(geocoder, resultsMap, address) {
 //            var address = document.getElementById('address').value;
