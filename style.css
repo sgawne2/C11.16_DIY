@@ -106,6 +106,7 @@ li{
     background-size:cover;
 }
 
+
 .md-input-container{
     background-color:red;
 }
@@ -323,4 +324,17 @@ button.md-primary.md-button.md-default-theme.md-ink-ripple.md-focused{
 
 .md-button.md-fab{
     z-index:0;
+}
+
+.featuredProjectsText{
+    background-color: #F57C00;
+    border-radius:5px;
+    color:white;
+    height:auto;
+    width:350px;
+    line-height:50px;
+}
+
+.backgroundProjectCardFill{
+    background-color:gray;
 }

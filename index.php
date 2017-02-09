@@ -46,6 +46,7 @@ session_start();
     <script src="js/components/projectCard/projectCard.component.js"></script>
     <script src="js/components/footer/footer.component.js"></script>
     <script src="js/components/sidePanel/sidePanel.component.js"></script>
+    <script src="js/components/featuredProjects/featuredProjects.component.js"></script>
 </head>
 
 <body ng-app="diyApp">
@@ -64,10 +65,22 @@ session_start();
 <!--sticky header-->
 <?php include('header.php'); ?>
 
+
 <div class="headerImage" hide-xs hide-gt-xs hide-sm hide-gt-sm show-md show-gt-md show-lg show-gt-lg show-xl>
     <h2 class="headerImageText"><span class="orangeText">Mac</span><span class="darkTealText">diy</span><span class="orangeText">ver</span></h2>
     <h1>Let's make some stuff!</h1>
 </div>
+
+<!--<div class="headerImage" hide-xs hide-gt-xs hide-sm hide-gt-sm show-md show-gt-md show-lg show-gt-lg show-xl>-->
+<!--    <img class="image2" src="images/technology1.jpg">-->
+<!--<!--    <img class="image1" src="images/tool-box.jpg">-->
+<!--<!--    <img class="image3" src="images/art_supplies.jpg">-->
+<!--</div>-->
+<!---->
+<!--<div class="homepageTextContainer" layout-align="center">-->
+<!--    <h2 class="headerImageText"><span class="orangeText">Mac</span><span class="darkTealText">diy</span><span class="orangeText">ver</span></h2>-->
+<!--    <h1>Let's make some stuff!</h1>-->
+<!--</div>-->
 
 <!--&lt;!&ndash;search bar&ndash;&gt;-->
 <!--<auto-chip></auto-chip>-->
@@ -82,5 +95,6 @@ session_start();
 
 <!--side nav-->
 <side-panel></side-panel>
+
 </body>
 </html>
