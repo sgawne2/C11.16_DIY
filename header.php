@@ -1,8 +1,8 @@
 <md-toolbar layout="column" ng-controller="AppCtrl">
     <div class="md-toolbar-tools">
 
-        <!--hamburger icon-->
-        <md-button ng-click="toggleLeft()"><md-icon md-font-set="material-icons">dehaze</md-icon></md-button>
+<!--        <!--hamburger icon-->
+<!--        <md-button ng-click="toggleLeft()"><md-icon md-font-set="material-icons">dehaze</md-icon></md-button>-->
 
 
         <div class="logo"></div>
@@ -11,7 +11,7 @@
 
 
         <md-button><a href="submit_project.php">Submit Project</a></md-button>
-        <md-button id="profile-btn" style="display:none">My Profile</md-button>
+        <md-button id="profile-btn" style="display:none"><a href="my_profile.php">My Profile</a></md-button>
         <!--<md-button id="signout" style="display:none" onclick="signOut()">Log out</md-button>-->
         <div class="g-signin2" data-onsuccess="onSignIn" data-theme="light"></div>
         <script>

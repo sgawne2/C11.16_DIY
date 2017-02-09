@@ -42,6 +42,20 @@ function featuredProjectsController(){
             req_count: 3,
             score: null
         }];
+
+    ctrl.getResult = function(string) {
+        ctrl.loading = true;
+        $http({
+            method: 'POST',
+            data: {search: string},
+            url: "./db/get_featured.php"
+        })
+            .then(function(response) {
+                console.log(response);
+                ctrl.loading = false;
+                ctrl.data = response.data;
+            });
+    };
 }
 
 angular.module('diyApp').component('featuredProjects', {
