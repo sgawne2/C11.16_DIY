@@ -3,6 +3,10 @@
     src: url(fonts/gotham-black.ttf);
 }
 
+body{
+    padding-bottom:200px;
+}
+
 h2 > a{
     font-family: gotham-black, Sans-Serif;
     font-size:30px;
@@ -263,6 +267,10 @@ footer{
     height:200px;
     background-color: #F57C00;
     color:white;
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
 }
 
 .leftProfileContent{
