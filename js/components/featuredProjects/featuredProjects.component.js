@@ -3,9 +3,9 @@ function featuredProjectsController(){
 
     ctrl.featuredData = [{
         project_id: 4,
-        project_name: 'Crate Coffee Table',
-        project_photo: 'images/table.jpg',
-        project_description: 'Create an awesome table from crates.',
+        project_name: 'CPU Fan Drone',
+        project_photo: 'images/drone.jpg',
+        project_description: 'seems legit',
         owned_tools: null,
         own_count: 4,
         req_count: 7,

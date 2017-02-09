@@ -34,7 +34,6 @@ session_start();
     <script src="js/components/toolSelector/toolSelector.component.js"></script>
     <script src="js/components/viewProject/viewProject.component.js"></script>
     <script src="js/components/addComment/addComment.component.js"></script>
-    <script src="js/components/sidePanel/sidePanel.component.js"></script>
     <script src="js/components/footer/footer.component.js"></script>
 </head>
 <body ng-app="diyApp">
@@ -45,8 +44,6 @@ session_start();
 <!--Angular View Project Component-->
 <view-project user-id="<?= $_SESSION['user_id'] ?>" user-name="<?= $_SESSION['user_name'] ?>"></view-project>
 
-<!--side nav-->
-<side-panel></side-panel>
 <footer></footer>
 </body>
 </html>

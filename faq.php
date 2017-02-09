@@ -45,7 +45,6 @@ session_start();
     <script src="js/components/autoChip/autoChip.component.js"></script>
     <script src="js/components/projectCard/projectCard.component.js"></script>
     <script src="js/components/createProfile/createProfile.component.js"></script>
-    <script src="js/components/sidePanel/sidePanel.component.js"></script>
     <script src="js/components/footer/footer.component.js"></script>
 
 </head>
@@ -81,8 +80,6 @@ session_start();
     </md-card-content>
 </md-card>
 
-<!--side nav-->
-<side-panel></side-panel>
 <div layout="column" style="height:5%;"></div>
 <footer></footer>
 </body>
