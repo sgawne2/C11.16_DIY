@@ -34,34 +34,16 @@ session_start();
     <script src="js/components/toolSelector/toolSelector.component.js"></script>
     <script src="js/components/viewProject/viewProject.component.js"></script>
     <script src="js/components/addComment/addComment.component.js"></script>
-    <script src="js/components/sidePanel/sidePanel.component.js"></script>
     <script src="js/components/footer/footer.component.js"></script>
 </head>
 <body ng-app="diyApp">
 
 <!--sticky header-->
-<md-toolbar layout="column" ng-controller="AppCtrl">
-    <div class="md-toolbar-tools">
-
-        <!--hamburger icon-->
-        <md-button ng-click="toggleLeft()"><md-icon md-font-set="material-icons">dehaze</md-icon></md-button>
-
-        <div class="logo"></div>
-        <h2><a href="index.php">Mac<span class="tealText">diy</span>ver</a></h2>
-        <span flex=""></span>
-
-
-        <md-button><a href="submit_project.php">Submit Project</a></md-button>
-        <md-button>My Profile</md-button>
-        <md-button>Login</md-button>
-    </div>
-</md-toolbar>
+<?php include('header.php'); ?>
 
 <!--Angular View Project Component-->
 <view-project user-id="<?= $_SESSION ? $_SESSION['user_id'] : 0; ?>" user-name="<?= $_SESSION ? $_SESSION['user_name'] : "Anonymous" ?>"></view-project>
 
-<!--side nav-->
-<side-panel></side-panel>
 <footer></footer>
 </body>
 </html>

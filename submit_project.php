@@ -35,7 +35,6 @@ session_start();
     <script src="js/components/addStep/addStep.component.js"></script>
     <script src="js/components/toolSelector/toolSelector.component.js"></script>
     <script src="js/components/addPhoto/addPhoto.component.js"></script>
-    <script src="js/components/sidePanel/sidePanel.component.js"></script>
     <script src="js/components/footer/footer.component.js"></script>
 
     <script>
@@ -141,8 +140,6 @@ session_start();
     </div>
 </form>
 
-<!--side nav-->
-<side-panel></side-panel>
 <div layout="column" style="height:5%;"></div>
 <footer></footer>
 </body>
