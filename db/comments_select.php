@@ -12,11 +12,12 @@
         print("There is no project id passed in.  Not selecting from database.");
     } else {
         $query = "
-        SELECT `comment_text`, `comment_date`
-        FROM `p_comments`
-        WHERE project_id=$proj_id 
-        ORDER BY `comment_date` DESC
-        LIMIT 10";
+            SELECT pc.comment_text, pc.comment_date, pc.user_id, u.user_name
+            FROM `p_comments` AS pc
+            JOIN users AS u ON pc.user_id = u.user_id
+            WHERE project_id=$proj_id 
+            ORDER BY `comment_date` DESC
+            LIMIT 10";
 
         $output = [];
         $result = mysqli_query($conn, $query);
@@ -25,7 +26,6 @@
 
         if( mysqli_num_rows($result) ) {
             while( $row = mysqli_fetch_assoc($result) ) {
-                $row["user_id"] = 8;
                 $output[] = $row;
             }
         }

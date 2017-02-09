@@ -1,5 +1,11 @@
+<?php
+session_start();
+?>
 <html lang="en" >
 <head>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="91270851940-5lgc81fgbnda478gb40n80nqi207rnpe.apps.googleusercontent.com">
+
     <!--Angular Material Style Sheets-->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -20,6 +26,9 @@
 
     <!-- Angular Material Library -->
     <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+    <!-- Google Sign In -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     <!--Local Script Sources-->
     <script src="js/diyApp/diyApp.js"></script>
@@ -82,26 +91,13 @@
 <body ng-app="diyApp">
 
 <!--sticky header-->
-<md-toolbar layout="column" ng-controller="AppCtrl">
-    <div class="md-toolbar-tools">
-
-        <!--hamburger icon-->
-        <md-button ng-click="toggleLeft()"><md-icon md-font-set="material-icons">dehaze</md-icon></md-button>
-        <div class="logo"></div>
-        <h2><a href="index.php">Mac<span class="tealText">diy</span>ver</a></h2>
-        <span flex=""></span>
-
-
-        <md-button><a href="submit_project.php">Submit Project</a></md-button>
-        <md-button><a href="my_profile.php">My Profile</a></md-button>
-        <md-button>Login</md-button>
-    </div>
-</md-toolbar>
+<?php include('header.php'); ?>
 
 <div layout="column" style="height:5%;"></div>
 
 <!--Project Title Input-->
 <form id="project_form" method="POST" action="db/insert_project.php" enctype="multipart/form-data">
+    <input type="text" name="uid" value="<?=$_SESSION['user_id'];?>" class="ng-hide">
 <md-list-item>
     <md-input-container class="add-form-input" layout="row" layout-align="center" flex="40" flex-offset="30">
         <label for="add-todo">Project Title &nbsp;(Photo Required)</label>
@@ -144,7 +140,6 @@
         <md-button class="md-raised md-warn" layout-align="right" style="background-color: #00BFA5" ng-click="$ctrl.submit">Submit</md-button>
     </div>
 </form>
-
 
 <!--side nav-->
 <side-panel></side-panel>

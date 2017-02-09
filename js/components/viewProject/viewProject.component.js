@@ -45,15 +45,25 @@ function viewProjectController($http, $location){
         url:    "./db/get_rating.php"
     })
         .then(function(response) {
-            console.log(response.data);
-            ctrl.rating = response.data.avg;
+            console.log("response.data: ", response.data);
+            avg_rating = parseFloat(response.data.avg);
+            console.log("avg_rating: ", avg_rating);
+
+            if (avg_rating < 1 || avg_rating > 5) {
+                ctrl.rating = "Not rated yet";
+            } else {
+                ctrl.rating = response.data.avg;
+            }
         })
 
 }
 
-
 angular.module('diyApp').component('viewProject', {
     templateUrl: './js/components/viewProject/viewProject.component.html',
     controller: viewProjectController,
+    bindings: {
+        userId: '<',
+        userName: '@'
+    },
     transclude: true
 });

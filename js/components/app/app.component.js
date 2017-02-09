@@ -58,6 +58,8 @@ function appController($http) {
     };
 
     ctrl.loading = false;
+
+    ctrl.case = 1;
 }
 
 angular.module('diyApp').component('app', {
