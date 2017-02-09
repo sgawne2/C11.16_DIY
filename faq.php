@@ -62,19 +62,19 @@ session_start();
 
     <md-card-content>
 
-            <ol>
+            <ol class="faqs">
                 <li> 1. What is the purpose of this site? </li>
-                <li><b>To allow people to search and submit DIY projects based on the materials or tools they have.</b></li><br>
+                <li class="answer"><b>To allow people to search and submit DIY projects based on the materials or tools they have.</b></li><br>
                 <li> 2. Can I submit a project without an account? </li>
-                <li><b>No. However, signing up is free and easy. Then you can share your project ideas with the community!</b></li><br>
+                <li class="answer"><b>No. However, signing up is free and easy. Then you can share your project ideas with the community!</b></li><br>
                 <li> 3. If I submit a project, does it get displayed right away? </li>
-                <li><b>Yes.</b></li><br>
+                <li class="answer"><b>Yes.</b></li><br>
                 <li> 4. Can I search for projects normally, that is without having to type in a bunch of tools? </li>
-                <li><b>Not at this time, but that feature will be added in release 1.2.</b></li><br>
+                <li class="answer"><b>Not at this time, but that feature will be added in release 1.2.</b></li><br>
                 <li> 5. How much does it cost to feature a project of mine? </li>
-                <li><b>$20.</b></li><br>
+                <li class="answer"><b>$20.</b></li><br>
                 <li> 6. What's the blog for? </li>
-                <li><b>Our blog allows users to share their experience and process of making a project.</b></li><br>
+                <li class="answer"><b>Our blog allows users to share their experience and process of making a project.</b></li><br>
             </ol>
 
     </md-card-content>
