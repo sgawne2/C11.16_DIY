@@ -3,6 +3,7 @@
     src: url(fonts/gotham-black.ttf);
 }
 
+
 h2 > a{
     font-family: gotham-black, Sans-Serif;
     font-size:30px;
