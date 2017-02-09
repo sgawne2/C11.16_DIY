@@ -62,7 +62,7 @@ session_start();
 
     <md-card-content class="ContactUsCard">
         <h3>Please email us</h3>
-        <p>hyperbolvoid@gmail.com</p>
+        <p><a href="mailto:hyperbolvoid@gmail.com">hyperbolvoid@gmail.com</a></p>
 
     </md-card-content>
 </md-card>

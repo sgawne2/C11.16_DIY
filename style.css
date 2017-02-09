@@ -323,6 +323,26 @@ button.md-primary.md-button.md-default-theme.md-ink-ripple.md-focused{
     color: #00BFA5;
 }
 
+.contactUsCard p>a:hover{
+    text-decoration:none;
+    color:black;
+}
+
+.contactUsCard p>a:link{
+    text-decoration:none;
+    color:black;
+}
+
+.contactUsCard p>a:visited{
+    text-decoration:none;
+    color:black;
+}
+
+.contactUsCard p>a:active{
+    text-decoration:none;
+    color:black;
+}
+
 .md-button.md-fab{
     z-index:0;
 }
