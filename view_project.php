@@ -42,7 +42,7 @@ session_start();
 <?php include('header.php'); ?>
 
 <!--Angular View Project Component-->
-<view-project user-id="<?= $_SESSION['user_id'] ?>" user-name="<?= $_SESSION['user_name'] ?>"></view-project>
+<view-project user-id="<?= $_SESSION ? $_SESSION['user_id'] : 0; ?>" user-name="<?= $_SESSION ? $_SESSION['user_name'] : "Anonymous" ?>"></view-project>
 
 <footer></footer>
 </body>
