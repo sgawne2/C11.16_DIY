@@ -61,10 +61,10 @@
 
 <!--        <p style="line-height: 140%" ng-if="$ctrl.show">{{ project.description }}</p>-->
         <div ng-repeat="comment in $ctrl.commentsArray" class="postedComments">
-            <p style="line-height: 140%" ng-if="$ctrl.show">{{ comment.user_name }}</p>
-            <p style="line-height: 140%" ng-if="$ctrl.show">{{ comment.comment_text }}</p>
+            <p style="line-height: 140%; padding-left:15px" ng-if="$ctrl.show"><b>{{ comment.user_name }}</b></p>
+            <p style="line-height: 140%; padding-left:15px" ng-if="$ctrl.show">{{ comment.comment_text }}</p>
             <div layout="row" layout-align="end end">
-                <p style="line-height: 140%; font-size:14px" ng-if="$ctrl.show">Posted {{ comment.comment_date | date: 'mediumDate' }}</p>
+                <p style="line-height: 140%; font-size:14px; padding-right:15px" ng-if="$ctrl.show">Posted {{ comment.comment_date | date: 'mediumDate' }}</p>
             </div>
             <md-divider></md-divider>
         </div>
