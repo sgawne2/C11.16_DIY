@@ -15,12 +15,12 @@
                 <p style="color:black">{{project.project_description}}</p>
             </md-card-content>
 
-            <md-card-content>
+            <md-card-content style="position:relative; bottom:30px; padding:40px">
                 <p style="color:black"><b>Relevance</b></p>
                     <md-progress-linear md-mode="determinate" value="{{ (project.own_count/project.req_count)*100 }}"></md-progress-linear>
             </md-card-content>
 
-            <md-card-actions layout="row" layout-align="center center">
+            <md-card-actions layout="row" layout-align="center center" style="position:absolute; bottom:10px; display:block; margin:0 auto; width:100%; margin-top:20px">
                 <md-button>View Project</md-button>
             </md-card-actions>
         </a>
