@@ -19,6 +19,7 @@ $backgrounds = [
 ?>
 <html lang="en" >
 <head>
+
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="91270851940-5lgc81fgbnda478gb40n80nqi207rnpe.apps.googleusercontent.com">
 
