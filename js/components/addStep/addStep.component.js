@@ -4,6 +4,8 @@ function addStepController(){
 
     ctrl.add = function(){
         ctrl.steps.push({});
+
+        ctrl.scrollToStep();
     };
 
     ctrl.delete = function(step){
