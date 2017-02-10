@@ -11,7 +11,7 @@ function addCommentController($mdDialog, $animate, $http){
             url:    "./db/project_flag.php"
         })
             .then(function(response) {
-                console.log("response: ", response);
+                // console.log("response: ", response);
             });
     };
 
@@ -27,7 +27,7 @@ function addCommentController($mdDialog, $animate, $http){
             url:    "./db/rating_insert.php"
         })
             .then(function(response) {
-                console.log("response: ", response);
+                // console.log("response: ", response);
             });
     };
 
@@ -43,7 +43,7 @@ function addCommentController($mdDialog, $animate, $http){
             url:    "./db/comment_insert.php"
         })
             .then(function(response) {
-                console.log("response: ", response);
+                // console.log("response: ", response);
             });
     };
 
@@ -115,7 +115,7 @@ function addCommentController($mdDialog, $animate, $http){
             function callback(element, phase) {
                 // cool we detected an enter animation within the container
             });
-            console.log('hello');
+            // console.log('hello');
 
 
     };
@@ -150,9 +150,9 @@ function addCommentController($mdDialog, $animate, $http){
 
     ctrl.submit = function(){
         ctrl.insert_comment();
-    console.log(ctrl.commentsObject);
+    // console.log(ctrl.commentsObject);
         ctrl.commentsArray.unshift(ctrl.commentsObject);
-        console.log(ctrl.commentsArray);
+        // console.log(ctrl.commentsArray);
 
         ctrl.commentsObject = {
             user_id: ctrl.userId,
@@ -176,8 +176,8 @@ function addCommentController($mdDialog, $animate, $http){
             .then(function(response) {
                 if(response) {
                     ctrl.commentsArray = response.data;
-                    console.log("commentsArray: ");
-                    console.log(ctrl.commentsArray);
+                    // console.log("commentsArray: ");
+                    // console.log(ctrl.commentsArray);
                     ctrl.show = true;
                 // defer.resolve((function (hash) {
                         //

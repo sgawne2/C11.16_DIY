@@ -51,7 +51,7 @@ function appController($http) {
             url: "./db/search_results.php"
         })
             .then(function(response) {
-                console.log(response);
+                // console.log(response);
                 ctrl.loading = false;
                 ctrl.data = response.data;
             });

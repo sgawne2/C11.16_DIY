@@ -45,9 +45,9 @@ function viewProjectController($http, $location){
         url:    "./db/get_rating.php"
     })
         .then(function(response) {
-            console.log("response.data: ", response.data);
+            // console.log("response.data: ", response.data);
             avg_rating = parseFloat(response.data.avg);
-            console.log("avg_rating: ", avg_rating);
+            // console.log("avg_rating: ", avg_rating);
 
             if (avg_rating < 1 || avg_rating > 5) {
                 ctrl.rating = "Not rated yet";

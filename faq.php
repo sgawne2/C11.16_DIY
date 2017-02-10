@@ -76,21 +76,21 @@ session_start();
                 <li> 5. How much does it cost to feature a project of mine? </li>
                 <li class="answer"><b>$20.</b></li><br>
                 <li> 6. What's the blog for? </li>
-                <li class="answer"><b>$20.</b></li><br>
+                <li class="answer"><b>To express new ideas and create diverse dialogue across the home projects and artistic communities.</b></li><br>
                 <li> 7. What if I dont have all the tools for the completing the project? </li>
-                <li class="answer"><b>$20.</b></li><br>
-                <li> 8. What if I want to revisit a project I started but did have not completed yet? </li>
-                <li class="answer"><b>$20.</b></li><br>
+                <li class="answer"><b>Click on "search" next to the tools when viewing the projects.  Take advantage of our neighborhood tool search and meet your neighbors!</b></li><br>
+                <li> 8. What if I want to revisit a project I started but did not complete yet? </li>
+                <li class="answer"><b>That feature will be forthcoming in release 1.2.</b></li><br>
                 <li> 9. What should I do if a certain project requires or recommends certain skills I do not have? </li>
-                <li class="answer"><b>$20.</b></li><br>
+                <li class="answer"><b>Sorry we are not programmed to respond in that area.</b></li><br>
                 <li> 10. Can I sort projects according to difficulty? </li>
-                <li class="answer"><b>$20.</b></li><br>
+                <li class="answer"><b>We do not have a difficulty rating for projects yet, but we will consider that for a later release.</b></li><br>
                 <li> 11. What should I do if I find a project that might be dangerous or illegal? </li>
-                <li class="answer"><b>$20.</b></li><br>
+                <li class="answer"><b>Please click on the "Flag as inappropriate" Flag to bring to our attention.</b></li><br>
                 <li> 12. What if one or more of the tools/materials is hazardous (i.e. propane tanks or aerosol cans)? </li>
-                <li class="answer"><b>$20.</b></li><br>
+                <li class="answer"><b>See question 11.</b></li><br>
                 <li> 13. What happens if the project I submit get flagged? </li>
-                <li class="answer"><b>$20.</b></li><br>
+                <li class="answer"><b>In release 1.2, you will be notified via email that your project has been flagged.  We will later determine if the project should be pulled from the site altogether.</b></li><br>
 
             </ol>
 
