@@ -1,5 +1,5 @@
 function projectCardController(){
-    var ctrl = this;
+
 }
 
 angular.module('diyApp').component('projectCard', {

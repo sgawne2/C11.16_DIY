@@ -61,98 +61,12 @@
 
 <!--        <p style="line-height: 140%" ng-if="$ctrl.show">{{ project.description }}</p>-->
         <div ng-repeat="comment in $ctrl.commentsArray" class="postedComments">
-            <p style="line-height: 140%" ng-if="$ctrl.show">{{ comment.user_name }}</p>
-            <p style="line-height: 140%" ng-if="$ctrl.show">{{ comment.comment_text }}</p>
+            <p style="line-height: 140%; padding-left:15px" ng-if="$ctrl.show"><b>{{ comment.user_name }}</b></p>
+            <p style="line-height: 140%; padding-left:15px" ng-if="$ctrl.show">{{ comment.comment_text }}</p>
             <div layout="row" layout-align="end end">
-                <p style="line-height: 140%; font-size:14px" ng-if="$ctrl.show">Posted {{ comment.comment_date | date: 'mediumDate' }}</p>
+                <p style="line-height: 140%; font-size:14px; padding-right:15px" ng-if="$ctrl.show">Posted {{ comment.comment_date | date: 'mediumDate' }}</p>
             </div>
             <md-divider></md-divider>
         </div>
     </md-card-content>
 </md-card>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<form id="comment_project">-->
-<!--    <!-- checking the box will increment proj_red_flag by 1 upon hitting the submit button -VL -->
-<!---->
-<!--    <input type="checkbox" name="proj_red_flag" value=1> Check this box if there are any issues with this project <br>-->
-<!--    Please rate project (1 = bad, 5= good):-->
-<!--    <input type="number" name="proj_rating" min="1" max="5">-->
-<!---->
-<!--    this is needed to pass the project id into insert_comment.php -VL go ahead and hide this, but don't delete-->
-<!--    <input type="text" value="--><?php //print($_GET["pid"]); ?><!--" name="p_id">-->
-<!---->
-<!--    <md-input-container flex="40" flex-offset="30" layout="row">-->
-<!--        <label>Comments</label>-->
-<!--        <textarea ng-model="project.description" name="proj_comment" ></textarea>-->
-<!---->
-<!--        <div layout="row" layout-align="end start" flex="90">-->
-<!--            <md-button class="md-raised md-warn" layout-align="right" style="background-color: #00BFA5">Submit</md-button>-->
-<!--        </div>-->
-<!--    </md-input-container>-->
-<!---->
-<!--</form>-->
-
-
-
-<!--working original!-->
-
-<!--<div layout="column" style="height:5%;"></div>-->
-<!---->
-<!---->
-<!--    <div flex="70" flex-offset="15" layout-align="end">-->
-<!--        <div class="button-row" layout="row">-->
-<!--            <p><b>How was this project?</b></p>-->
-<!---->
-<!--            <div ng-mouseleave="$ctrl.stopHovering()" class="rateProject">-->
-<!--                <i class="material-icons" ng-mouseover="$ctrl.showStars($index)" ng-click="$ctrl.makeRating($index)" ng-repeat="empty_star in $ctrl.stars">{{ empty_star.filled ? 'star' : 'star_border' }}</i>-->
-<!--            </div>-->
-<!---->
-<!--            <span flex=""></span>-->
-<!--            <p><b>Flag as inappropriate</b></p>-->
-<!--            <md-button class="md-fab md-warn md-mini"-->
-<!--                       ng-hide="editing"-->
-<!--                       ng-click="$ctrl.add()">-->
-<!--                <md-icon md-font-set="material-icons">flag</md-icon>-->
-<!--                <md-tooltip md-direction="top">-->
-<!--                    Report-->
-<!--                </md-tooltip>-->
-<!--            </md-button>-->
-<!--        </div>-->
-<!--    </div>-->
-<!---->
-<!--    <div layout="column" style="height:5%;"></div>-->
-<!--    <md-list-item>-->
-<!---->
-<!--        <md-input-container flex="65" flex-offset="15">-->
-<!--            <label>Comments</label>-->
-<!--            <textarea ng-model="project.description" name="proj_comment"></textarea>-->
-<!--        </md-input-container>-->
-<!--        <md-button class="md-raised md-warn" flex="5" layout-align="right end" style="background-color: #00BFA5" ng-click="$ctrl.submit">Submit</md-button>-->
-<!--    </md-list-item>-->

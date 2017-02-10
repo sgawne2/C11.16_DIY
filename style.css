@@ -1,8 +1,11 @@
 @font-face{
     font-family: gotham-black;
-    src: url(fonts/gotham-black.ttf);
+    src: url(fonts/gotham-black.TTF);
 }
 
+body {
+    min-height: 100%;
+}
 
 h2 > a{
     font-family: gotham-black, Sans-Serif;
@@ -323,6 +326,26 @@ button.md-primary.md-button.md-default-theme.md-ink-ripple.md-focused{
     color: #00BFA5;
 }
 
+.contactUsCard p>a:hover{
+    text-decoration:none;
+    color:black;
+}
+
+.contactUsCard p>a:link{
+    text-decoration:none;
+    color:black;
+}
+
+.contactUsCard p>a:visited{
+    text-decoration:none;
+    color:black;
+}
+
+.contactUsCard p>a:active{
+    text-decoration:none;
+    color:black;
+}
+
 .md-button.md-fab{
     z-index:0;
 }
@@ -338,4 +361,8 @@ button.md-primary.md-button.md-default-theme.md-ink-ripple.md-focused{
 
 .backgroundProjectCardFill{
     background-color:gray;
+}
+
+ol.faqs li.answer{
+    text-indent:15px;
 }
