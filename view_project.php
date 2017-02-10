@@ -3,6 +3,9 @@ session_start();
 ?>
 <html lang="en" >
 <head>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="91270851940-5lgc81fgbnda478gb40n80nqi207rnpe.apps.googleusercontent.com">
+
     <!--Angular Material Style Sheets-->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -28,6 +31,9 @@ session_start();
     <!-- Angular Material Library -->
     <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
 
+    <!-- Google Sign In -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
     <!--Local Script Sources-->
     <script src="js/diyApp/diyApp.js"></script>
     <script src="js/components/addStep/addStep.component.js"></script>
@@ -35,6 +41,78 @@ session_start();
     <script src="js/components/viewProject/viewProject.component.js"></script>
     <script src="js/components/addComment/addComment.component.js"></script>
     <script src="js/components/footer/footer.component.js"></script>
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrs1E9ETofrHeLWg27W6_eHO9Ky6fmuus&callback=initMap">
+    </script>
+
+    <script>
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 8,
+                center: {lat: 33, lng: -117}
+            });
+            var geocoder = new google.maps.Geocoder();
+            var address_array = ["11 Windridge, Aliso Viejo, CA", "9080 Irvine Center Drive, Irvine, CA", "Disneyland", "Knotts Berry Farm"];
+
+            for (var i=0; i < address_array.length; ++i) {
+                geocodeAddress(geocoder, map, address_array[i]);
+            }
+        }
+    </script>
+
+    <script>
+
+
+//        $(document).ready(function() {
+//            $("#submitButton").click(function() {
+//                console.log("inside click handler");
+//                $.ajax({
+//                    data:       $("#tool-form").serialize(),  // Serialize grabs the text from a form element
+//                    dataType:   'json',
+//                    url:        './map/find_tool_owners.php',
+//                    method:     'post',
+//                    success: function(result) {
+//                        var address;
+//                        var array = [], address_array = [];
+//
+//                        var map = new google.maps.Map(document.getElementById('map'), {
+//                            zoom: 8,
+//                            center: {lat: 33, lng: -117}
+//                        });
+//                        var geocoder = new google.maps.Geocoder();
+//
+//                        console.log("success!");
+//                        console.log("result: ", result);    // result returns anything in html, anything that gets printed
+//                        // console.log("result length: ", result.length);
+//
+//                        for (var i=0; i < result.length; ++i) {
+//                            for (x in result[i]) {
+//                                // console.log(result[i][x]);
+//                                array.push(result[i][x]);
+//                            }
+//
+//                            address = array.join(" ");
+//                            address_array.push(address);
+//                            array = [];    // reset array
+//
+//                            geocodeAddress(geocoder, map, address);
+//
+//                            console.log("address " + i + ": ", address_array[i]);
+//                        }
+//
+//                        // var geocoder = new google.maps.Geocoder();
+//                        // geocodeAddress(geocoder, map, address);
+//                    },
+//                    error: function() {
+//                        console.log("failure");
+//                        console.log(result);
+//                    }
+//                })
+//            });
+//        });
+    </script>
+
 </head>
 <body ng-app="diyApp">
 

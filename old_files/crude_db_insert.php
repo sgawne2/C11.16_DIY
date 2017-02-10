@@ -1,6 +1,6 @@
 <?php
     /* mysql_connect.php has $conn, which uses mysqli_connect */
-    require('mysql_connect.php');
+    require('../db/mysql_connect.php');
 
     // INSERT INTO "PROJECTS" TABLE ***************************************************
 //    $proj_name = $_POST["proj_name"];

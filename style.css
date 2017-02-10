@@ -3,6 +3,9 @@
     src: url(fonts/gotham-black.TTF);
 }
 
+body {
+    min-height: 100%;
+}
 
 h2 > a{
     font-family: gotham-black, Sans-Serif;
