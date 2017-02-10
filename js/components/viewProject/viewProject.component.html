@@ -9,16 +9,20 @@
         <img ng-src="{{$ctrl.project_info.project_photo}}" width="100%" style="border-radius:5px;">
         <p style="line-height: 140%">{{ $ctrl.project_info.project_description }}</p>
 
-        <h3>Required Tools</h3>
+        <h3>Required Tools
+            <span style="color: black; font-size: 12px; font-weight: normal">
+                <span style="color: #F57C00">search</span>
+            the neighborhood for tools</span>
+        </h3>
+
         <ul class="viewProjectToolList">
-            <li ng-repeat="tool in $ctrl.tools">{{ tool.name }}</li>
+            <li ng-repeat="tool in $ctrl.tools"> {{ tool.name }} | <a href="map/map_tool_share.php?tool={{ tool.name }}" target="_blank" style="color: #F57C00"> search </a></li>
         </ul>
 
         <h3>Average User Rating</h3>
             <p>{{ $ctrl.rating }}</p>
     </md-card-content>
 </md-card>
-
 
 <div class="container" ng-repeat="step in $ctrl.steps">
     <div layout="column" style="height:5%;"></div>
