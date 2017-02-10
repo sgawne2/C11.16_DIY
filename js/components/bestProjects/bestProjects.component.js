@@ -2,7 +2,7 @@ function bestProjectsController($http){
     var ctrl = this;
 
     ctrl.featuredData = [];
-
+console.log('test');
     // ctrl.getResult = function(string) {
     //     ctrl.loading = true;
         $http({

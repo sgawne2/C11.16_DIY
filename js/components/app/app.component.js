@@ -65,8 +65,8 @@ function appController($http) {
 
     ctrl.categories = [
         "Featured Projects",
-        "Recent Projects"
-        // "Best Projects"
+        "Recent Projects",
+        "Best Projects"
     ]
 }
 
