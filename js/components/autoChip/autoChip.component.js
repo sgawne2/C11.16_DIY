@@ -40,7 +40,7 @@ function chipController($q, $http, $timeout) {
     };
 
     ctrl.createFilterFor = function (query) {
-        console.log(ctrl.hashtags);
+        // console.log(ctrl.hashtags);
         var lowercaseQuery = angular.lowercase(query);
         return function filterFn(hashtag) {
             return (hashtag._lowername.indexOf(lowercaseQuery) === 0)
@@ -101,7 +101,7 @@ function chipController($q, $http, $timeout) {
             .then(function(response) {
                 // console.log(response.data);
                 ctrl.hashtags = response.data;
-                console.log(ctrl.hashtags);
+                // console.log(ctrl.hashtags);
                 defer.resolve(ctrl.hashtags.map(function (hash) {
                     hash._lowername = hash.name.toLowerCase();
                     return hash;

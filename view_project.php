@@ -47,25 +47,6 @@ session_start();
     <script src="js/components/addComment/addComment.component.js"></script>
     <script src="js/components/footer/footer.component.js"></script>
 
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrs1E9ETofrHeLWg27W6_eHO9Ky6fmuus&callback=initMap">
-    </script>
-
-    <script>
-        function initMap() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 8,
-                center: {lat: 33, lng: -117}
-            });
-            var geocoder = new google.maps.Geocoder();
-            var address_array = ["11 Windridge, Aliso Viejo, CA", "9080 Irvine Center Drive, Irvine, CA", "Disneyland", "Knotts Berry Farm"];
-
-            for (var i=0; i < address_array.length; ++i) {
-                geocodeAddress(geocoder, map, address_array[i]);
-            }
-        }
-    </script>
-
 </head>
 <body ng-app="diyApp">
 
