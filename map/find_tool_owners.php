@@ -5,8 +5,12 @@
     /* following line is to make $_POST as php expects when using $http (angular way of AJAX) -VL */
 //    $_POST = json_decode(file_get_contents('php://input'), true);
 
+//    print("GET - tool: "); print_r($_GET["tool"]);
+
     $tool_name = addslashes( $_POST["tool_name"] );
 //    print("tool name: " . $tool_name);
+
+//    $tool_name = addslashes( $_GET["tool"] );
 
     if ($tool_name === "") {
         print("Tool name is blank.  Not selecting.");
