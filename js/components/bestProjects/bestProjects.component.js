@@ -1,4 +1,4 @@
-function featuredProjectsController($http){
+function bestProjectsController($http){
     var ctrl = this;
 
     ctrl.featuredData = [];
@@ -7,7 +7,7 @@ function featuredProjectsController($http){
     //     ctrl.loading = true;
         $http({
             method: 'POST',
-            url: "./db/get_featured.php"
+            url: "./db/get_best.php"
         })
             .then(function(response) {
                 console.log(response);
@@ -17,9 +17,9 @@ function featuredProjectsController($http){
     // };
 }
 
-angular.module('diyApp').component('featuredProjects', {
-    templateUrl: './js/components/featuredProjects/featuredProjects.component.html',
-    controller: featuredProjectsController,
+angular.module('diyApp').component('bestProjects', {
+    templateUrl: './js/components/bestProjects/bestProjects.component.html',
+    controller: bestProjectsController,
     transclude: true,
     bindings: {
         projects: '<',
