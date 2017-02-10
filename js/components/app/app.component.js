@@ -60,6 +60,14 @@ function appController($http) {
     ctrl.loading = false;
 
     ctrl.case = 1;
+
+    ctrl.selection = "Featured Projects";
+
+    ctrl.categories = [
+        "Featured Projects",
+        "Recent Projects",
+        "Best Projects"
+    ]
 }
 
 angular.module('diyApp').component('app', {
