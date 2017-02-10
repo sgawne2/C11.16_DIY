@@ -1,17 +1,16 @@
-function featuredProjectsController(){
+function featuredProjectsController($http){
     var ctrl = this;
-    // ctrl.data = [
-    // ];
+
     ctrl.featuredData = [{
-        project_id: 4,
-        project_name: 'CPU Drone',
-        project_photo: 'images/drone.jpg',
-        project_description: 'This is a drone.',
-        owned_tools: null,
-        own_count: 4,
-        req_count: 7,
-        score: null
-    },
+            project_id: 4,
+            project_name: 'CPU Fan Drone',
+            project_photo: 'images/drone.jpg',
+            project_description: 'seems legit',
+            owned_tools: null,
+            own_count: 4,
+            req_count: 7,
+            score: null
+        },
         {
             project_id: 5,
             project_name: 'Industrial Pipe Lamp',
@@ -43,19 +42,18 @@ function featuredProjectsController(){
             score: null
         }];
 
-    ctrl.getResult = function(string) {
-        ctrl.loading = true;
+    // ctrl.getResult = function(string) {
+    //     ctrl.loading = true;
         $http({
             method: 'POST',
-            data: {search: string},
             url: "./db/get_featured.php"
         })
             .then(function(response) {
                 console.log(response);
                 ctrl.loading = false;
-                ctrl.data = response.data;
+                ctrl.featuredData = response.data;
             });
-    };
+    // };
 }
 
 angular.module('diyApp').component('featuredProjects', {

@@ -1,5 +1,21 @@
 <?php
 session_start();
+$slogans = [
+    "Let's make some stuff!",
+    "Turn your trash into treasure!",
+    "Turn your junk into jewels!",
+    "Turn your litter into glitter!",
+    "Turn your garbage into gold!",
+    "Turn your crap into carpentry!",
+    "Don't make waste, make wow!",
+    "It's not debris, it's de bomb!"
+];
+
+$backgrounds = [
+    "art_supplies.jpg",
+    "technology1.jpg",
+    "tool-box.jpg"
+]
 ?>
 <html lang="en" >
 <head>
@@ -45,7 +61,6 @@ session_start();
     <script src="js/components/autoChip/autoChip.component.js"></script>
     <script src="js/components/projectCard/projectCard.component.js"></script>
     <script src="js/components/footer/footer.component.js"></script>
-    <script src="js/components/sidePanel/sidePanel.component.js"></script>
     <script src="js/components/featuredProjects/featuredProjects.component.js"></script>
 </head>
 
@@ -65,23 +80,15 @@ session_start();
 <!--sticky header-->
 <?php include('header.php'); ?>
 
-<div class="headerImage" hide-xs hide-gt-xs hide-sm hide-gt-sm show-md show-gt-md show-lg show-gt-lg show-xl>
+
+<div class="headerImage" hide-xs hide-gt-xs hide-sm hide-gt-sm show-md show-gt-md show-lg show-gt-lg show-xl style="background-image: url(images/<?= $backgrounds[rand(0, count($backgrounds) - 1) ]; ?>)">
     <h2 class="headerImageText"><span class="orangeText">Mac</span><span class="darkTealText">diy</span><span class="orangeText">ver</span></h2>
-    <h1>Let's make some stuff!</h1>
+    <h1 style="font-size:40px"><?= $slogans[rand(0, count($slogans) - 1) ]; ?></h1>
+
 </div>
-
-<!--&lt;!&ndash;search bar&ndash;&gt;-->
-<!--<auto-chip></auto-chip>-->
-
-<!--&lt;!&ndash;main content&ndash;&gt;-->
-<!--<div class="main" layout="row" flex="80" style="margin:0 auto;">-->
-    <!--<project-card></project-card>-->
-<!--</div>-->
 
 <app></app>
 <footer></footer>
 
-<!--side nav-->
-<side-panel></side-panel>
 </body>
 </html>

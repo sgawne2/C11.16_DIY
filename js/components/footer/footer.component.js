@@ -1,6 +1,4 @@
 function footerController() {
-    var ctrl = this;
-
 
 }
 

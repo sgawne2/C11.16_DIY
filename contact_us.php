@@ -45,7 +45,6 @@ session_start();
     <script src="js/components/autoChip/autoChip.component.js"></script>
     <script src="js/components/projectCard/projectCard.component.js"></script>
     <script src="js/components/createProfile/createProfile.component.js"></script>
-    <script src="js/components/sidePanel/sidePanel.component.js"></script>
     <script src="js/components/footer/footer.component.js"></script>
 
 </head>
@@ -63,13 +62,11 @@ session_start();
 
     <md-card-content class="ContactUsCard">
         <h3>Please email us</h3>
-        <p>hyperbolvoid@gmail.com</p>
+        <p><a href="mailto:hyperbolvoid@gmail.com">hyperbolvoid@gmail.com</a></p>
 
     </md-card-content>
 </md-card>
 
-<!--side nav-->
-<side-panel></side-panel>
 <div layout="column" style="height:5%;"></div>
 <footer style="position:fixed; bottom:0; right:0; left:0"></footer>
 </body>

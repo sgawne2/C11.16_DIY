@@ -30,16 +30,6 @@ function toolSelectorController(){
         }
     };
 
-    // ctrl.toggleQuantity = function(){
-    //     ctrl.showQuantity = !ctrl.showQuantity;
-    //     if(ctrl.showQuantity){
-    //         ctrl.buttonText = 'Cancel';
-    //     } else {
-    //         ctrl.buttonText = 'Specify Qty';
-    //     }
-    // };
-    //
-    // ctrl.showQuantity = false;
 }
 
 angular.module('diyApp').component('toolSelector', {
