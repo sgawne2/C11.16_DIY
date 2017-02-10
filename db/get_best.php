@@ -7,9 +7,13 @@ require('mysql_connect.php');
 $search_by_tool = "
 SELECT 
   p.project_id, p.project_name, 
-  p.project_photo, p.project_description
+  p.project_photo, p.project_description, AVG (r.rating) AS `avg`
 FROM `projects` AS `p`
-WHERE p.is_featured = 1
+JOIN `p_ratings` as `r`
+  ON p.project_id = r.project_id
+GROUP BY r.project_id
+ORDER BY `avg` DESC
+LIMIT 9;
 ";
 
 $query = $search_by_tool;

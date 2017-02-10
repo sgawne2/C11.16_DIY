@@ -2,9 +2,14 @@
 
 <md-card flex="70" flex-offset="15" style="max-height:none">
     <div style="background-color: #00BFA5; color:white; width:100%">
+        <md-button class="user-btn">
+            <img src="{{ $ctrl.project_info.user_photo }}" class="user-img">
+            <md-tooltip md-direction="top">
+                {{ $ctrl.project_info.user_name }}
+            </md-tooltip>
+        </md-button>
         <h2>{{ $ctrl.project_info.project_name }}</h2>
     </div>
-
     <md-card-content>
         <img ng-src="{{$ctrl.project_info.project_photo}}" width="100%" style="border-radius:5px;">
         <p style="line-height: 140%">{{ $ctrl.project_info.project_description }}</p>

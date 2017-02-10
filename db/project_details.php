@@ -7,8 +7,10 @@ $pid = $_POST['pid'];
 //
 $project_info = "
 SELECT *
-FROM `projects`
-WHERE `project_id` = $pid
+FROM `projects` AS `p`
+JOIN `users` AS `u`
+  ON u.user_id = p.author_id
+WHERE p.project_id = $pid
 ";
 
 //get the tools for a specific project id

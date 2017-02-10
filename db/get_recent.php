@@ -9,7 +9,8 @@ SELECT
   p.project_id, p.project_name, 
   p.project_photo, p.project_description
 FROM `projects` AS `p`
-WHERE p.is_featured = 1
+ORDER BY p.project_id DESC
+LIMIT 9;
 ";
 
 $query = $search_by_tool;

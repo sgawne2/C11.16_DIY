@@ -19,6 +19,7 @@ $backgrounds = [
 ?>
 <html lang="en" >
 <head>
+
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="91270851940-5lgc81fgbnda478gb40n80nqi207rnpe.apps.googleusercontent.com">
 
@@ -62,6 +63,8 @@ $backgrounds = [
     <script src="js/components/projectCard/projectCard.component.js"></script>
     <script src="js/components/footer/footer.component.js"></script>
     <script src="js/components/featuredProjects/featuredProjects.component.js"></script>
+    <script src="js/components/recentProjects/recentProjects.component.js"></script>
+    <script src="js/components/bestProjects/bestProjects.component.js"></script>
 </head>
 
 <body ng-app="diyApp">

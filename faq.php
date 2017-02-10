@@ -74,7 +74,22 @@ session_start();
                 <li> 5. How much does it cost to feature a project of mine? </li>
                 <li class="answer"><b>$20.</b></li><br>
                 <li> 6. What's the blog for? </li>
-                <li class="answer"><b>Our blog allows users to share their experience and process of making a project.</b></li><br>
+                <li class="answer"><b>$20.</b></li><br>
+                <li> 7. What if I dont have all the tools for the completing the project? </li>
+                <li class="answer"><b>$20.</b></li><br>
+                <li> 8. What if I want to revisit a project I started but did have not completed yet? </li>
+                <li class="answer"><b>$20.</b></li><br>
+                <li> 9. What should I do if a certain project requires or recommends certain skills I do not have? </li>
+                <li class="answer"><b>$20.</b></li><br>
+                <li> 10. Can I sort projects according to difficulty? </li>
+                <li class="answer"><b>$20.</b></li><br>
+                <li> 11. What should I do if I find a project that might be dangerous or illegal? </li>
+                <li class="answer"><b>$20.</b></li><br>
+                <li> 12. What if one or more of the tools/materials is hazardous (i.e. propane tanks or aerosol cans)? </li>
+                <li class="answer"><b>$20.</b></li><br>
+                <li> 13. What happens if the project I submit get flagged? </li>
+                <li class="answer"><b>$20.</b></li><br>
+
             </ol>
 
     </md-card-content>

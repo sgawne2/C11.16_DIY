@@ -366,3 +366,21 @@ button.md-primary.md-button.md-default-theme.md-ink-ripple.md-focused{
 ol.faqs li.answer{
     text-indent:15px;
 }
+
+.user-btn {
+    float: left;
+    height: 55px;
+    width: 55px;
+    min-width: initial;
+    padding: 0;
+    margin: 5px;
+    border-radius: 30px;
+}
+
+.user-img {
+    height:50px;
+    border-radius: 30px;
+    border: 3px solid white;
+    /*float:left;*/
+    /*margin:5px;*/
+}
