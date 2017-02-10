@@ -14,6 +14,7 @@
     $token = $_POST['token'];
     $username = $_POST['first_name'];
     $email = $_POST['email'];
+    $photo = $_POST['photo'];
 
     $payload = $client->verifyIdToken($token);
     if ($payload) {
@@ -25,6 +26,16 @@
             SELECT * FROM `users`
             WHERE `provider_id` = '$userid'
         ";
+
+        $update_user = "
+            UPDATE `users`
+            SET
+            `name` = '$username',
+            `email` = '$email',
+            `user_photo` = '$photo'
+            WHERE `provider_id` = '$userid'
+            ";
+
         $create_user = "
             INSERT INTO `users`
             SET
@@ -33,6 +44,7 @@
             `user_name` = '$username',
             `name` = '$username',
             `email` = '$email'
+            `user_photo` = '$photo'
             ";
 
         $query = $find_user;
@@ -50,6 +62,9 @@
                 $premium = $output[0]['is_premium'];
                 $_SESSION['user_id'] = $id;
                 $_SESSION['user_name'] = $name;
+
+                $query = $update_user;
+                $result = mysqli_query($conn, $query);
             }
             else { // insert new user
                 $query = $create_user;
