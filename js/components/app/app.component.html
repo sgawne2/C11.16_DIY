@@ -8,14 +8,14 @@
         <project-card projects="$ctrl.data" is-loading="$ctrl.loading"></project-card>
     </div>
 
-    <div layout-align="center" flex="20" flex-offset="40" class="featuredProjectsText">
-        <h2>
-            <md-input-container>
-                <md-select ng-model="$ctrl.selection" placeholder="Featured Projects">
-                    <md-option ng-value="opt" ng-repeat="opt in $ctrl.categories">{{ opt }}</md-option>
-                </md-select>
-            </md-input-container></h2>
+    <div layout="row" layout-align="center center">
+        <md-button class="md-raised md-warn">
+            <md-select ng-model="$ctrl.selection" placeholder="Featured Projects">
+                <md-option ng-value="opt" ng-repeat="opt in $ctrl.categories">{{ opt }}</md-option>
+            </md-select>
+        </md-button>
     </div>
+
     <div ng-switch on="$ctrl.selection">
         <div class="main" layout="row" flex="80" style="margin:0 auto;" ng-switch-when="Featured Projects">
             <featured-projects></featured-projects>
