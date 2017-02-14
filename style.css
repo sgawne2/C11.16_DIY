@@ -350,15 +350,6 @@ button.md-primary.md-button.md-default-theme.md-ink-ripple.md-focused{
     z-index:0;
 }
 
-.featuredProjectsText{
-    background-color: #F57C00;
-    border-radius:5px;
-    color:white;
-    height:auto;
-    width:350px;
-    line-height:50px;
-}
-
 .backgroundProjectCardFill{
     background-color:#ecd9b7;
 }
@@ -387,4 +378,8 @@ ol.faqs li.answer{
     border: 3px solid white;
     /*float:left;*/
     /*margin:5px;*/
+}
+
+md-select{
+    margin:0;
 }
