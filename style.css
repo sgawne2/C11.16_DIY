@@ -360,7 +360,11 @@ button.md-primary.md-button.md-default-theme.md-ink-ripple.md-focused{
 }
 
 .backgroundProjectCardFill{
-    background-color:gray;
+    background-color:#ecd9b7;
+}
+
+.backgroundProjectCardFillNormal{
+    background-color:#dedede;
 }
 
 ol.faqs li.answer{
