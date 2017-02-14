@@ -380,6 +380,7 @@ ol.faqs li.answer{
     /*margin:5px;*/
 }
 
-md-select{
-    margin:0;
+.info_window {
+    height: 30px;
+    width: 30px;
 }
