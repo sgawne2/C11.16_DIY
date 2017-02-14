@@ -384,3 +384,8 @@ ol.faqs li.answer{
     /*float:left;*/
     /*margin:5px;*/
 }
+
+.info_window {
+    height: 30px;
+    width:  30px;
+}

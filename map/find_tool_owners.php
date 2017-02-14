@@ -17,7 +17,7 @@
     } else {
         /* Join 3 tables together and get data from each */
         $query = "
-                SELECT u.street_address, u.city, u.zip_code, u.state 
+                SELECT u.street_address, u.city, u.zip_code, u.state, u.user_name, u.email, u.user_photo
                 FROM map_tu AS m
                 JOIN users AS u ON m.user_id = u.user_id
                 JOIN tools AS t ON m.tool_id = t.tool_id
