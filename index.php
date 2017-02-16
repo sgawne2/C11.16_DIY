@@ -86,7 +86,6 @@ $backgrounds = [
 <!--sticky header-->
 <?php include('header.php'); ?>
 
-
 <div class="headerImage" hide-xs hide-gt-xs hide-sm hide-gt-sm show-md show-gt-md show-lg show-gt-lg show-xl style="background-image: url(images/<?= $backgrounds[rand(0, count($backgrounds) - 1) ]; ?>)">
     <h2 class="headerImageText"><span class="orangeText">Mac</span><span class="darkTealText">diy</span><span class="orangeText">ver</span></h2>
     <h1 style="font-size:40px"><?= $slogans[rand(0, count($slogans) - 1) ]; ?></h1>
