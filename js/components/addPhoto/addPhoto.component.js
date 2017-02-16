@@ -32,8 +32,6 @@ function addPhotoController($scope){
         }
 
     });
-
-
 }
 
 angular.module('diyApp').component('addPhoto', {
