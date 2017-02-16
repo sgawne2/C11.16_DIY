@@ -1,4 +1,4 @@
-function addCommentController($mdDialog, $animate, $http){
+function addCommentController($mdDialog, $http){
     var ctrl = this;
     ctrl.rating = 0;
     ctrl.redFlag = 0;
