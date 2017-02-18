@@ -25,7 +25,6 @@ function addStepController(){
         ctrl.steps.push({});
         ctrl.steps = ctrl.steps.concat(end);
     };
-
 }
 
 angular.module('diyApp').component('addSteps', {

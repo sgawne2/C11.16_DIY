@@ -1,4 +1,4 @@
-function addCommentController($mdDialog, $animate, $http){
+function addCommentController($mdDialog, $http){
     var ctrl = this;
     ctrl.rating = 0;
     ctrl.redFlag = 0;
@@ -105,19 +105,6 @@ function addCommentController($mdDialog, $animate, $http){
             ctrl.insert_rating();   // insert rating into database -VL
         }
 
-        ctrl.triggerAnimation();
-
-    };
-
-    ctrl.triggerAnimation = function(){
-
-        $animate.on('click', container,
-            function callback(element, phase) {
-                // cool we detected an enter animation within the container
-            });
-            // console.log('hello');
-
-
     };
 
     ctrl.showConfirm = function(ev) {
@@ -192,7 +179,6 @@ function addCommentController($mdDialog, $animate, $http){
 
     ctrl.load_comments();
 }
-
 
 angular.module('diyApp').component('addComment', {
     templateUrl: './js/components/addComment/addComment.component.php',
