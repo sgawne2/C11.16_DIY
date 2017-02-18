@@ -74,7 +74,7 @@ function addCommentController($mdDialog, $animate, $http){
     ctrl.stopHovering = function(){
         if (!ctrl.isRated){
             ctrl.rating = 0;
-            for (var i=0; ctrl.stars.length; i++){
+            for (var i=0; i < ctrl.stars.length; i++){
                 ctrl.stars[i].filled = false;
             }
         }
