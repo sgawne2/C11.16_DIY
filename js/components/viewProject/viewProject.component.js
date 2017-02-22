@@ -32,7 +32,6 @@ function viewProjectController($http, $location){
                 ctrl.rating = response.data.avg;
             }
         })
-
 }
 
 angular.module('diyApp').component('viewProject', {
