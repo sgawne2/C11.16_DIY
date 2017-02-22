@@ -26,6 +26,7 @@
 
         if( mysqli_num_rows($result) ) {
             while( $row = mysqli_fetch_assoc($result) ) {
+                $row['comment_date'] = strtotime($row['comment_date']) * 1000;
                 $output[] = $row;
             }
         }
