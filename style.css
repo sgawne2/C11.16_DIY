@@ -21,8 +21,6 @@ h2 > a{
 }
 
 .orangeText{
-    /*color:#FFE0B2;*/
-    /*color:#F57C00;*/
     color:#FF6D00;
 }
 
@@ -114,16 +112,6 @@ li{
 .md-input-container{
     background-color:red;
 }
-
-/*.logo{*/
-    /*background-image: url("images/logo1.png");*/
-    /*height:50px;*/
-    /*width:200px;*/
-    /*position:relative;*/
-    /*background-repeat: no-repeat;*/
-    /*background-size:cover;*/
-/*}*/
-
 
 .logo{
     background-image: url("images/logoBit.png");
@@ -242,15 +230,6 @@ md-progress-circular path{
     stroke: #FFA726;
 }
 
-/* temporary, delete once project comments have been angularized -VL */
-.comment_container {
-    align:      center;
-    height:     50vh;
-    width:      50vw;
-    border:     0.5em dashed purple;
-    background-color:   pink;
-}
-
 add-photo{
     position:relative;
     bottom:20px;
@@ -271,7 +250,6 @@ footer{
 .leftProfileContent{
     border-radius:5px;
     background-color:#FFA726;
-    /*height:auto;*/
     position:relative;
     top:30px;
     color:white;
@@ -376,8 +354,6 @@ ol.faqs li.answer{
     height:50px;
     border-radius: 30px;
     border: 3px solid white;
-    /*float:left;*/
-    /*margin:5px;*/
 }
 
 .info_window {
