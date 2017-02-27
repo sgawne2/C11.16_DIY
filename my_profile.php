@@ -52,7 +52,7 @@ session_start();
 <?php include('header.php'); ?>
 
 <!--createProfile Angular Component-->
-<create-profile></create-profile>
+<create-profile uid="<?= is_numeric($_GET['uid']) ? $_GET['uid'] : 0; ?>"></create-profile>
 
 <footer></footer>
 </body>
