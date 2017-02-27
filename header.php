@@ -8,6 +8,11 @@
 
 
         <md-button><a href="submit_project.php">Submit Project</a></md-button>
+        <?php
+        if ($_SESSION['user_name']) {
+            echo '<md-button id="profile-btn"><a href="my_profile.php?uid=' . $_SESSION['uid'] . '">' . $_SESSION['user_name'] . '</a></md-button>';
+        }
+        ?>
 <!--        <md-button id="profile-btn" style="display:none"><a href="my_profile.php">My Profile</a></md-button>-->
         <!--<md-button id="signout" style="display:none" onclick="signOut()">Log out</md-button>-->
         <div class="g-signin2" data-onsuccess="onSignIn" data-theme="light"></div>
