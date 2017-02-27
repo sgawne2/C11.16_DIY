@@ -4,13 +4,14 @@ require('mysql_connect.php');
 $_POST = json_decode(file_get_contents('php://input'), true);
 
 $uid = $_POST['uid'];
+//$uid = 7;
 //get a list of projects from a list of tools and sort by ratio of tools owned over tools required
 $search_by_tool = "
 SELECT 
   p.project_id, p.project_name, 
   p.project_photo, p.project_description
 FROM `projects` AS `p`
-WHERE p.author = $uid
+WHERE p.author_id = $uid
 ";
 
 $query = $search_by_tool;
