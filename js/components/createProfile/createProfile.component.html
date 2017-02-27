@@ -33,11 +33,11 @@
             <div ng-switch on="$ctrl.selection">
 
                 <div ng-switch-when="contactInfo">
-                    <contact-info></contact-info>
+                    <contact-info user-id="$ctrl.uid"></contact-info>
                 </div>
 
                 <div ng-switch-default>
-                    <my-projects></my-projects>
+                    <my-projects user-id="$ctrl.uid"></my-projects>
                 </div>
             </div>
         </md-content>
