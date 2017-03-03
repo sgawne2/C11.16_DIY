@@ -14,12 +14,12 @@ MacDIYver is a community for DIY enthusiasts to share their favorite DIY project
 * **Miles** - *Front-End*
 * **Vernon** - *Back-End*
 * **Sean** - *Back-End, Front-end*
-
-* **Junior Developers** - Charles, Darin, Gwen, Michael
-
-* **Greg** - Our Mentor
+* **Junior Developers** - *Charles, Darin, Gwen, Michael*
+* **Greg** - *Our Mentor*
 
 ## Acknowledgments
 
 * Fridge2plate
-* Sloan, Bill
+* Sloan, Bill, Charles: Great projects
+* Michael: New name
+* Gwen: Awesome Slogans
