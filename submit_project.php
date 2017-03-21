@@ -125,8 +125,6 @@ session_start();
     <md-content>
         <div layout="column" style="height:3%;"></div>
         <p style="font-size:18px; text-align:center">Do you wish to pay $20 to have your project <b>featured</b> on our home page?</p>
-<!--        <input type="radio" name="is_featured" value=1> Yes <br>-->
-<!--        <input type="radio" name="is_featured" value=0> No-->
 
         <md-radio-group ng-model="featuredProjectChoice" layout="row" layout-align="center" ng-init="featured = 0">
             <md-radio-button value="yes" class="md-warn" ng-click="featured = 1">Yes</md-radio-button>
