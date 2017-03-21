@@ -1,99 +1,47 @@
 <div layout="column" style="height:5%;"></div>
 
-<div layout="row" flex="90" flex-offset="5">
+<div layout="row" flex="90" flex-offset="5" style="max-height:none; height:auto">
 
     <div class="leftProfileContent" flex="20">
         <section layout="row" layout-sm="column" layout-align="center center" layout-wrap="" style="position:relative; top:20px">
-            <img ng-src="images/profile-placeholder.png" width="70%" style="margin:auto; display:block; border-radius:10px;">
-            <md-button class="md-raised md-warn" style="background-color: #00BFA5;">Edit</md-button>
+
+            <!--<div class="ProfileImageContainer">-->
+                <img src="images/profile-placeholder.png">
+            <!--</div>-->
+
+            <!--<md-button class="md-raised md-warn" style="background-color: #00BFA5;">Edit</md-button>-->
+            <input type="file" name="file" id="fileUpload" class="ng-hide">
+
+            <md-button class="md-raised md-warn" style="background-color: #00BFA5; width:50%"
+                       ng-hide="editing"
+                       ng-click="">
+                <input class="ng-hide" id="input-file-id" multiple type="file">
+                <label for="fileUpload">Edit</label>
+            </md-button>
         </section>
 
-
         <section layout="row" layout-sm="column" layout-align="center center" layout-wrap="" style="position:relative; top:60px">
-            <md-button>View Submitted Projects</md-button>
-            <md-button>View Favorite Projects</md-button>
-            <md-button>Resume Project</md-button>
-            <md-button>View Image Gallery</md-button>
-            <md-button>View My Comments</md-button>
-            <md-button>Contact Info</md-button>
+            <md-button style="width:100%" ng-click="$ctrl.selection = 'myProjects' "><a href="">My Projects</a></md-button>
+            <!--<md-button style="width:100%">Favorite Projects</md-button>-->
+            <md-button style="width:100%" ng-click="$ctrl.selection = 'contactInfo' ">Contact Info</md-button>
         </section>
 
     </div>
 
-    <div flex="80">
+    <div flex="80" style="max-height:none">
         <md-content layout-padding="">
-            <div>
-                <form name="userForm">
+            <div ng-switch on="$ctrl.selection">
 
-                    <div layout-gt-sm="row">
-                        <md-input-container class="md-block" flex-gt-sm="">
-                            <label>First name</label>
-                            <input ng-model="user.firstName">
-                        </md-input-container>
+                <div ng-switch-when="contactInfo">
+                    <contact-info user-id="$ctrl.uid"></contact-info>
+                </div>
 
-                        <md-input-container class="md-block" flex-gt-sm="">
-                            <label>Last name</label>
-                            <input ng-model="theMax">
-                        </md-input-container>
-                    </div>
-
-                    <md-input-container class="md-block" flex-gt-sm="">
-                        <label>Email</label>
-                        <input ng-model="user.email">
-                    </md-input-container>
-
-                    <md-input-container class="md-block">
-                        <label>Address</label>
-                        <input ng-model="user.address">
-                    </md-input-container>
-
-                    <md-input-container md-no-float="" class="md-block">
-                        <input ng-model="user.address2" placeholder="Address 2">
-                    </md-input-container>
-
-                    <div layout-gt-sm="row">
-                        <md-input-container class="md-block" flex-gt-sm="">
-                            <label>City</label>
-                            <input ng-model="user.city">
-                        </md-input-container>
-
-                        <md-input-container class="md-block" flex-gt-sm="">
-                            <label>State</label>
-                            <md-select ng-model="user.state">
-                                <md-option ng-repeat="state in states" value="{{state.abbrev}}">
-                                    {{state.abbrev}}
-                                </md-option>
-                            </md-select>
-                        </md-input-container>
-
-                        <md-input-container class="md-block" flex-gt-sm="">
-                            <label>Postal Code</label>
-                            <input name="postalCode" ng-model="user.postalCode" placeholder="12345" required="" ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
-
-                            <div ng-messages="userForm.postalCode.$error" role="alert" multiple="">
-                                <div ng-message="required" class="my-message">You must supply a postal code.</div>
-                                <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
-                                    code.
-                                </div>
-                                <div ng-message="md-maxlength" class="my-message">
-                                    Don't use the long version silly...we don't need to be that specific...
-                                </div>
-                            </div>
-                        </md-input-container>
-                    </div>
-
-                    <md-input-container class="md-block">
-                        <label>Biography</label>
-                        <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus=""></textarea>
-                    </md-input-container>
-
-
-                    <div layout="row" layout-align="end start" flex="100">
-                        <md-button class="md-raised md-warn" layout-align="right" style="background-color: #00BFA5">Submit</md-button>
-                    </div>
-                </form>
+                <div ng-switch-default>
+                    <my-projects user-id="$ctrl.uid"></my-projects>
+                </div>
             </div>
         </md-content>
     </div>
+
 
 </div>

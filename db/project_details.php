@@ -7,8 +7,10 @@ $pid = $_POST['pid'];
 //
 $project_info = "
 SELECT *
-FROM `projects`
-WHERE `project_id` = $pid
+FROM `projects` AS `p`
+JOIN `users` AS `u`
+  ON u.user_id = p.author_id
+WHERE p.project_id = $pid
 ";
 
 //get the tools for a specific project id
@@ -27,7 +29,9 @@ SELECT i.step_number, i.step_text AS `description`, i.step_photo
 FROM `p_instructions` AS `i`
 JOIN `projects` AS `p`
 	ON i.project_id = p.project_id
-WHERE p.project_id = " . $pid;
+WHERE p.project_id = " . $pid ."
+ORDER BY i.step_number ASC"
+;
 
 //get comments for a specific project id -VL
 //$comments_pid = "

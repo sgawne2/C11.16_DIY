@@ -1,3 +1,59 @@
 <div layout="column" layout-align="center" flex="100">
-    <h2>Footer</h2>
+
+<div class="footerLinks" layout="row" layout-align="center center" flex="100">
+        <ul>
+            <li> <a href="http://macdiyver.com/C11.16_DIY/_wordPress/wordpress/index.php">Blog</a> </li>
+            <li> <a href="faq.php">Frequently Asked Questions</a></li>
+            <li> <a href="about_us.php">About Us</a> </li>
+            <li> <a href="contact_us.php">Contact Us</a> </li>
+        </ul>
+</div>
+
+    <div class="button-row" layout="row" layout-align="center" flex="40" flex-offset="30" style="margin:0;">
+        <md-button class="md-fab md-mini fb-share-button"
+                   ng-hide="editing"
+                   style="background-color: #3b5998"
+                   data-href="http://macdiyver.com"
+                   data-layout="button"
+                   data-size="large"
+                   data-mobile-iframe="false">
+            <md-icon><a  class="fb-xfbml-parse-ignore"
+                         target="_blank"
+                         href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fmacdiyver.com%2F&amp;src=sdkpreparse"><img src="images/facebook.png" width="30px" style="position:relative; right:1px; bottom:2px"></a>
+            </md-icon>
+            <md-tooltip md-direction="top">
+                Share
+            </md-tooltip>
+        </md-button>
+
+        <span flex="5"></span>
+
+        <md-button class="md-fab md-mini"
+                   ng-disabled="editing"
+                   style="background-color: #0084b4">
+            <md-icon><a href="https://twitter.com/intent/tweet?screen_name=vern080"
+                        data-show-count="false"><img src="images/twitter.png" width="30px" style="position:relative; right:1px; bottom:2px"></a>
+                        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </md-icon>
+            <md-tooltip md-direction="top">
+                Tweet
+            </md-tooltip>
+        </md-button>
+
+        <span flex="5"></span>
+
+        <md-button class="md-fab md-mini"
+                   style="background-color: #c92228"
+                   ng-hide="editing">
+            <md-icon><a href="https://www.pinterest.com/pin/create/button/" data-pin-custom="true">
+                <img src="images/pinterest.png" width="30px" style="position:relative; right:2px; bottom:2px"> </a>
+            </md-icon>
+            <md-tooltip md-direction="top">
+                Pin it
+            </md-tooltip>
+        </md-button>
+    </div>
+
+    <p style="text-align:center; padding-top:20px; padding-bottom:20px">&copy; Macdiyver</p>
+
 </div>

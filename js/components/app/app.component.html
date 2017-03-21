@@ -1,10 +1,33 @@
-<div class="container" style="margin-bottom:15%">
+<div class="container" style="margin-bottom:10vh;">
     <!--search bar-->
     <auto-chip on-result="$ctrl.getResult(str)"></auto-chip>
 
     <!--main content-->
+
     <div class="main" layout="row" flex="80" style="margin:0 auto;">
         <project-card projects="$ctrl.data" is-loading="$ctrl.loading"></project-card>
+    </div>
+
+    <div layout="row" layout-align="center center">
+        <md-button class="md-raised md-warn">
+            <md-select ng-model="$ctrl.selection" placeholder="Featured Projects">
+                <md-option ng-value="opt" ng-repeat="opt in $ctrl.categories">{{ opt }}</md-option>
+            </md-select>
+        </md-button>
+    </div>
+
+    <div ng-switch on="$ctrl.selection">
+        <div class="main" layout="row" flex="80" style="margin:0 auto;" ng-switch-when="Featured Projects">
+            <featured-projects></featured-projects>
+        </div>
+
+        <div class="main" layout="row" flex="80" style="margin:0 auto;" ng-switch-when="Recent Projects">
+            <recent-projects></recent-projects>
+        </div>
+
+        <div class="main" layout="row" flex="80" style="margin:0 auto;" ng-switch-when="Best Projects">
+            <best-projects></best-projects>
+        </div>
     </div>
 
 </div>

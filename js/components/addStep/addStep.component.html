@@ -9,31 +9,6 @@
         <textarea ng-model="step.description" name="steps[{{ $index + 1 }}][text_fields][stp_txt]"></textarea>
     </md-input-container>
 
-    <!--upload photo-->
-    <!--<md-input-container  md-no-float>-->
-        <!--<input id="textInput"-->
-               <!--ng-model="$ctrl.loadedPhoto"-->
-               <!--type="text"-->
-               <!--placeholder="No file chosen"-->
-               <!--ng-readonly="true">-->
-    <!--</md-input-container>-->
-
-    <!--<input type="file" name="file" id="fileUpload-{{$index}}" class="ng-hide inputPhoto">-->
-
-    <!--<md-button class="md-fab md-mini"-->
-               <!--style="background-color:#FFA726"-->
-               <!--ng-hide="editing"-->
-               <!--ng-click="">-->
-        <!--<input class="ng-hide" id="input-file-id" multiple type="file">-->
-        <!--<label for="fileUpload-{{$index}}">-->
-            <!--<md-icon md-font-set="material-icons">photo_camera</md-icon>-->
-            <!--<md-tooltip md-direction="top">-->
-                <!--Add Photo-->
-            <!--</md-tooltip>-->
-        <!--</label>-->
-    <!--</md-button>-->
-    <!--upload photo end-->
-
     <div class="button-row" layout="row">
         <md-button class="md-fab md-warn md-mini"
                    ng-hide="editing"
@@ -64,9 +39,6 @@
                 Insert Step
             </md-tooltip>
         </md-button>
-
-        <add-photo></add-photo>
-
 
     </div>
 </md-list-item>

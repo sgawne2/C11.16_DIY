@@ -1,0 +1,17 @@
+<div layout="column" style="height:5%;"></div>
+
+<md-card flex="70" flex-offset="15" style="max-height:none; min-height:60%">
+    <div style="background-color: #00BFA5; color:white; width:100%">
+        <h2>Welcome to my Profile</h2>
+    </div>
+
+    <md-card-content class="ContactUsCard">
+        <br>
+        <h3>Biography</h3>
+        <p>{{ $ctrl.profile.bio }}</p><br>
+        <h3>Hobbies</h3>
+        <p>{{ $ctrl.profile.hobbies }}</p><br>
+        <h3>Location</h3>
+        <p>{{ $ctrl.profile.city }} , {{ $ctrl.profile.state }}</p>
+    </md-card-content>
+</md-card>

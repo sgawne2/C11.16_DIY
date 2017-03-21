@@ -1,5 +1,6 @@
 function toolSelectorController(){
     var ctrl = this;
+    ctrl.buttonText = 'Specify Qty';
 
     ctrl.tools = [{number: 1}];
 
@@ -28,6 +29,7 @@ function toolSelectorController(){
             ctrl.tools[index] = {number: 1};
         }
     };
+
 }
 
 angular.module('diyApp').component('toolSelector', {

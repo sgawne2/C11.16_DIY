@@ -1,13 +1,22 @@
 <?php
+ob_start();
     /* mySQL_connect.php has $conn, which uses mysqli_connect */
     require('mysql_connect.php');
-
+$insertOk = false;
+//print_r ($_POST);
+//exit();
     /* Initialize variables: */
     $tool_qty_negativeORzero = false;
 
     /* Required for INSERT (1 of 4) into "Projects" table *********************************************/
     $proj_name = addslashes($_POST["proj_name"]);
     $proj_descrip = addslashes($_POST["proj_descrip"]);
+    $is_featured = addslashes($_POST["is_featured"]);
+    if ($_POST["uid"] === "") {
+        $author_id = 0;
+    } else {
+        $author_id = addslashes($_POST["uid"]);
+    }
 //    $main_photo = addslashes($_POST["main_photo"]);
 
         /* Get tool_count, because it also goes into "projects" table */
@@ -72,8 +81,13 @@
 
 
     // Execute MINIMUM FIELDS CHECK before proceeding to database insertions:
-    if ( ($proj_name === "" || $tool_count < 1) || (count($steps_array) < 1 || $tool_qty_negativeORzero === true) ) {
+    if ( ($proj_name === "" || $tool_count < 1)
+        || (count($steps_array) < 1 || $tool_qty_negativeORzero === true)
+        || ($proj_descrip === "") ) {
         print("You have not entered in all required fields or tool quantity is not a positive number");
+    } else {
+        $insertOk = true;
+        include('file_handler.php');
     }
 
     print("\n Project name:" . $proj_name);
@@ -88,9 +102,12 @@
     $query_proj = "INSERT INTO `projects` SET
         `project_name` = '$proj_name',
         `project_description` = '$proj_descrip',
-        `tool_count` = '$tool_count' ";
-//,     `project_photo` = '$main_photo' ";
-
+        `tool_count` = '$tool_count',
+        `project_photo` = '$main_photo' ,
+        `author_id` = $author_id
+        ";
+//`is_featured` = '$is_featured',
+if ($insertOk) {
     print("\n" . $query_proj . "\n");
     $result_proj = mysqli_query($conn, $query_proj);    // Insert action
 
@@ -99,8 +116,9 @@
         print("Project ID: " . $id . "\n");
     } else {
         print("\n Failure \n");
+        $insertOk = false;
     }
-
+}
 
     // INSERT (2 of 4) INTO "P_INSTRUCTIONS" TABLE ***************************************************
     for ($i = 1; $i <= count($steps_array); $i++) {
@@ -114,7 +132,9 @@
             ($id, $stp_num, '$stp_txt') ";
 
         print("\n".$query_p_instructions);
-        $result_p_instructions = mysqli_query($conn, $query_p_instructions);    // insert action
+        if ($insertOk) {
+            $result_p_instructions = mysqli_query($conn, $query_p_instructions);    // insert action
+        }
     }
 
 
@@ -130,7 +150,9 @@
             ($string_of_tools1) ";
 
 //    print("\n $query_tools:");   print("\n" . $query_tools . "\n");
+if ($insertOk) {
     $result_tools = mysqli_query($conn, $query_tools);  // Insert action
+}
 
 
     // INSERT (4 of 4) INTO "MAP_TP" TABLE ***************************************************
@@ -159,5 +181,19 @@
         VALUES 
             $string_of_map_tp_inputs ";
 //    print("\n $query_map_tp:");     print_r("\n".$query_map_tp);
+if ($insertOk) {
     $result = mysqli_query($conn, $query_map_tp);    // Insert action
+}
+ob_end_clean();
+if ($insertOk) {
+    $result = [
+        "pid" => $id,
+        "is_featured" => intval($is_featured)
+    ];
+} else {
+    $result = [
+        "errors" => "Submit Failed"
+    ];
+}
+echo json_encode($result);
 ?>
